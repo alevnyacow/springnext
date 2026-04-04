@@ -9,7 +9,7 @@
 
 Scaffold full-stack Next.js applications in seconds with **springnext**. 
 
-Get a domain-focused architecture with a contract-first approach out of the box.
+Get a domain-focused architecture with a contract-first approach out of the box. Also comes with DI, logging, in-memory stores, unified errors, and endpoint guards.
 
 Batteries included! ✨
 
@@ -42,7 +42,7 @@ app/api/user/... # api routes
 ui/shared/queries/user/... # react queries
 ```
 
-Features DI, logging, in-memory stores, unified errors, and endpoint guards. Everything is ready after a few tweaks — see `Quick start with Prisma` for details.
+Everything is ready after a few tweaks — see `Quick start with Prisma` for details.
 
 All code is editable — scaffold parts individually or together. You can also scaffold front-end widgets. CLI commands are listed in `CLI commands glossary`. 
 
