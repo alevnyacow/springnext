@@ -1,7 +1,7 @@
 {
   "name": "springnext",
   "description": "Production ready Next.JS with domain-focused architecture and scaffolder",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://stackblitz.com/edit/springnext-playground",
   "keywords": ["next", "full-stack", "server", "backend", "cli", "scaffolding", "zod", "rest", "contract programming", "contract-first", "react-query", "domain", "ddd"],
   "type": "module",
