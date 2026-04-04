@@ -1,0 +1,38 @@
+{
+  "name": "springnext",
+  "version": "0.0.2",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rslib",
+    "dev": "rslib --watch",
+    "test": "rstest"
+  },
+  "devDependencies": {
+    "@rslib/core": "^0.20.0",
+    "@rstest/adapter-rslib": "^0.2.1",
+    "@rstest/core": "^0.9.0",
+    "@types/node": "^24.12.0",
+    "next": "^16.1.6",
+    "zod": "^4.3.6",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "next": ">=13 <17",
+    "zod": ">=3 <5",
+    "inversify": ">=7 <9",
+    "reflect-metadata": "^0.2.2"
+  }
+}
