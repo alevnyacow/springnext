@@ -24,8 +24,7 @@ https://stackblitz.com/edit/springnext-playground
 After installing and initializing springnext, run one CLI command to generate a production-ready backend with React Query hooks:
 
 ```bash
-npx sn crud-api user
-# sn stands for springnext
+npx sn crud-api user # sn stands for springnext
 ```
 
 This will instantly scaffold:
