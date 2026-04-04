@@ -1,6 +1,6 @@
 {
   "name": "springnext",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "license": "MIT",
   "exports": {
@@ -21,7 +21,7 @@
     "test": "rstest"
   },
   "bin": {
-    "springnext": "./bin/cli.js"
+    "sn": "./bin/cli.js"
   },
   "devDependencies": {
     "@rslib/core": "^0.20.0",
