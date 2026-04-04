@@ -11,7 +11,7 @@
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
 
-Scaffold production-ready Next.js application modules in seconds with **springnext**. 
+Scaffold production-ready Next.js application modules in seconds. 
 
 Get a domain-focused architecture with a contract-first approach out of the box. Features DI, logging, in-memory stores, unified errors, and endpoint guards.
 
