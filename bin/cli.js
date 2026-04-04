@@ -631,7 +631,9 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
         "@injectable()",
         `export class ${upperCase}RAMStore extends CRUDInRAM implements ${upperCase}Store {`,
         "\t",
-        "}"
+        "}",
+        "",
+        `export const ${lowerCase}RAMStoreInstance = new ${upperCase}RAMStore()`
     ].filter(x => typeof x === 'string').join('\n'))
 
     // Prisma
@@ -762,13 +764,13 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
     insertBeforeLineInFile(
         diEntriesPath,
         'type DIEntries =',
-        prismaPath ? `import { ${upperCase}PrismaStore, ${upperCase}RAMStore } from '@${config?.paths?.stores}/${entityName}'` : `import { ${upperCase}RAMStore } from '@${config?.paths?.stores}/${entityName}'`
+        prismaPath ? `import { ${upperCase}PrismaStore, ${lowerCase}RAMStoreInstance } from '@${config?.paths?.stores}/${entityName}'` : `import { ${upperCase}RAMStore } from '@${config?.paths?.stores}/${entityName}'`
     )
 
     insertAfterLineInFile(
         diEntriesPath,
         '// Stores',
-        prismaPath ? `\t${upperCase}Store: { test: [${upperCase}RAMStore, (x) => x.inSingletonScope()], prod: ${upperCase}PrismaStore, dev: ${upperCase}PrismaStore },` : `\t${upperCase}Store: { test: [${upperCase}RAMStore, (x) => x.inSingletonScope()], prod: ${upperCase}RAMStore, dev: ${upperCase}RAMStore },`,
+        prismaPath ? `\t${upperCase}Store: { test: { constantValue: ${lowerCase}RAMStoreInstance }, prod: ${upperCase}PrismaStore, dev: ${upperCase}PrismaStore },` : `\t${upperCase}Store: { test: { constantValue: ${lowerCase}RAMStoreInstance }, prod: { constantValue: ${lowerCase}RAMStoreInstance }, dev: { constantValue: ${lowerCase}RAMStoreInstance } },`,
     )
 
 }
