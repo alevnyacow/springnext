@@ -1,9 +1,6 @@
-# springnext
-
 <p align="center">
-
+    <img src='https://raw.githubusercontent.com/alevnyacow/springnext/refs/heads/main/logo.svg?sanitize=true'></img>
 </p>
-
 
 <p align="center">
   <a href="https://badge.fury.io/js/springnext" target="_blank"><img src='https://badge.fury.io/js/springnext.svg'></img></a>
