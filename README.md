@@ -13,6 +13,11 @@ Get a domain-focused architecture with a contract-first approach out of the box.
 
 Batteries included! ✨
 
+# Try it right in your browser!
+
+(stackblitz may be unstable on Safari)
+
+https://stackblitz.com/edit/springnext-playground
 
 # What you get
 
