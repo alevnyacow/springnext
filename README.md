@@ -1,1 +1,338 @@
 # springnext
+
+<p align="center">
+
+</p>
+
+
+<p align="center">
+  <a href="https://badge.fury.io/js/springnext" target="_blank"><img src='https://badge.fury.io/js/springnext.svg'></img></a>
+  <img src='https://img.shields.io/npm/l/springnext'></img>
+</p>
+
+Scaffold Next.js full-stack modules in seconds with **springnext**. 
+
+Get a domain-focused architecture with a contract-first approach out of the box.
+
+Batteries included! ✨
+
+
+
+# What you get
+
+After installing and initializing springnext, run one CLI command to generate a production-ready backend with React Query hooks:
+
+```bash
+npx sn crud-api user
+# sn stands for springnext
+```
+
+This will instantly scaffold:
+
+```bash
+server/
+  entities/user/... # user entity
+  stores/user/... # user stores (contract, in-memory, prisma)
+  services/user/... # service
+  controllers/user/... # API controller
+
+app/api/user/... # api routes
+
+ui/shared/queries/user/... # react queries
+```
+
+Features DI, logging, in-memory stores, unified errors, and endpoint guards. Everything is ready after a few tweaks — see `Quick start with Prisma` for details.
+
+All code is editable — scaffold parts individually or together. You can also scaffold front-end widgets. CLI commands are listed in `CLI commands glossary`. 
+
+
+# Quick start with Prisma
+
+Assuming you have 
+
+- `Next.js` project with a generated `Prisma` client
+- some `User` schema in your `Prisma` client
+- enabled `experimentalDecorators` and `emitDecoratorMetadata` in `compilerOptions` section of `tsconfig.json`
+- configured `@tanstack/react-query`
+
+## Setup
+
+```bash
+# install springnext and peer dependencies
+npm i inversify zod reflect-metadata springnext
+
+# initialize springnext with absolute prisma client path
+npx sn init prismaClientPath:@/generated/prisma/client
+```
+
+Then plug your `Prisma` adapter in scaffolded `/server/infrastructure/prisma/client.ts` file.
+
+## Scaffolding CRUD operations for `User`
+
+```bash
+npx sn crud-api user
+```
+
+This command scaffolds:
+
+- `User` entity
+- `UserStore` (with Prisma + RAM implementations)
+- `UserService` (ready to be used in Server Actions)
+- `UserController` proxying UserService methods
+- `API routes` for UserController endpoints
+- `React Query hooks` for fetching UserController from client-side
+
+Then tweak a few files:
+
+- `/domain/entities/user/user.entity.ts` → entity schema
+- `/server/stores/user/user.store.ts` → store schemas (if default schemas do not fit your needs)
+- `/server/stores/user/user.store.prisma.ts` → map `UserStore` contracts to Prisma client contracts
+
+And after only one command and a few tweaks you have ready-to-use React Query hooks & Server Actions backend.
+
+## Using scaffolded React query hooks
+
+```
+Schema: Client → React Query → API → Controller → Service → Store → DB
+```
+
+```tsx
+'use client'
+
+import { UserQueries } from '@/ui/shared/queries/user';
+
+export default function Page() {
+  const { mutate: addUser } = UserQueries.usePOST()
+  const { data, isFetching } = UserQueries.useGET({ query: {} })
+
+  const addRandomUser = () => {
+    addUser({ body: { payload: { name: `${Math.random()}` } } })
+  }
+
+  return (
+    <div>
+      <button onClick={addRandomUser}>
+        New random user
+      </button>
+      
+      {isFetching ? 'Loading users...' : JSON.stringify(data)}
+    </div>
+  );
+}
+
+```
+
+## Using scaffolded Service methods as Next server actions
+
+```
+Schema: Server Action → Service → Store → DB
+```
+
+```tsx
+'use server'
+
+import { fromDI } from '@/server/di'
+import type { UserService } from '@/server/services/user'
+
+export default async function Page() {
+    /**
+     * FYI: `fromDI` argument is strongly typed and
+     * this type automatically updates after you scaffold
+     * anything. Cool, right?
+     */ 
+    const userService = fromDI<UserService>('UserService')
+
+    const user1 = await userService.getDetails({ 
+        filter: { id: 'user-1-id' } 
+    })
+
+    return <div>{JSON.stringify(user1)}</div>
+}
+```
+
+# CLI commands glossary
+
+## Initialization
+
+| Command         | Scaffolding result | Options                                                                                                       |
+| --------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| `npx sn init` | **init**ialization | pass `prismaClientPath:` to work with Prisma. E.g. `npx sn init prismaClientPath:@/generated/prisma/client` |
+
+## Complex scaffolding
+
+| Command                        | Scaffolding result                                                                                                                                                   |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npx sn crud-api <name>`     | CRUD via Server Actions and React Query hooks.                                                                                                                       |
+| `npx sn crud-service <name>` | CRUD via Server Actions (no Controllers, API Routes and React Query hooks).                                                                                          |
+| `npx sn se <name>`           | **s**tored **e**ntity: entity + store (contracts linked).                                                                                                            |
+| `npx sn rq`                  | API **r**outes and React **q**ueries for all of your controllers. This command will also remove endpoints which don't exist anymore with according React query hooks |
+
+## Primary server modules scaffolding
+
+| Command              | Scaffolding result                                    | Options                                                                                                                                                                                                 |
+| -------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npx sn e <name>`  | **e**ntity                                            |                                                                                                                                                                                                         |
+| `npx sn vo <name>` | **v**alue **o**bject                                  |                                                                                                                                                                                                         |
+| `npx sn cs <name>` | **c**ustom **s**tore (all schemas are `z.object({})`) |                                                                                                                                                                                                         |
+| `npx sn s <name>`  | **s**ervice                                           | `i:UserStore,Logger` will automatically inject `UserStore` and `Logger`. E.g. `npx sn s shop i:UserStore,ProductStore` will create `ShopService` with already injected `UserStore` and `ProductStore` |
+| `npx sn c <name>`  | **c**ontroller                                        | `i:UserService` will automatically inject `UserService`. `Logger` and `Guards` are injected by default regardless of `i:` option                                                                        |
+
+## Auxiliary server modules scaffolding
+
+| Command             | Scaffolding result        |
+| ------------------- | ------------------------- |
+| `npx sn p <name>` | **p**rovider              |
+| `npx sn i <name>` | **i**nfrastructure module |
+
+## UI modules scaffolding
+
+| Command             | Scaffolding result        |
+| ------------------- | ------------------------- |
+| `npx sn w <name>` | **w**idget                |
+| `npx sn lw <name>` | **l**ayouted **w**idget - widget with separated view layout |
+
+# How to implement your own methods
+
+## Zod schemas (module contracts)
+
+Server method contracts are defined with Zod schemas in files like `user.controller.metadata.ts` or `product.service.metadata.ts`.
+
+They:
+
+- validate data at runtime
+- can be reused across layers (no separate DTOs needed)
+- automatically infer types (no manual TypeScript work)
+
+Service method description example:
+
+```ts
+// ...some service metadata
+orderDetails: {
+  payload: Order.schema.pick({ 
+    name: true, 
+    createdDate: true 
+  }),
+  response: z.object({
+    user: User.schema,
+    products: z.array(
+      Product.schema.omit({ 
+        price: true 
+      })
+    )
+  })
+}
+// ...some service metadata
+```
+
+## Services
+
+1. **Define method in metadata** (`*.service.metadata.ts`):
+
+```ts
+// ...service metadata
+foo: {
+  request: z.object({ str: z.string() }),
+  response: z.object({ num: z.number() })
+}
+// ...service metadata
+```
+
+2. **Implement it in service** (`*.service.ts`):
+
+```ts
+// ...service class implementation
+foo = this.methods('foo', async ({ str }) => {
+  // 'foo' string is strongly-typed, don't worry
+  // all input and output types are also infered
+  return { num: Number(str) }
+})
+// ..service class implementation
+```
+
+### Usage
+
+Service methods can be used like a usual method of signature `(data: Request) => Promise<Response>`. E.g.
+
+```ts
+const { num } = await someMethod.foo({ str: '25' })
+```
+
+## Controllers
+
+Same idea, but metadata uses optional `query` and optional `body` instead of abstract `request`.
+
+1. **Metadata** (`*.controller.metadata.ts`):
+
+```ts
+// ...controller metadata
+POST: {
+  query: z.object({ id: z.string() }),
+  body: z.object({ delta: z.number() }),
+  response: z.object({ success: z.boolean() })
+}
+// ...controller metadata
+```
+
+2. **Implementation** (`*.controller.ts`):
+
+`query` and `body` are merged into one object in implementation:
+
+```ts
+// ...controller class implementation
+POST = this.endpoints('POST', async ({ id, delta }) => {
+  return { success: true }
+})
+// ..controller class implementation
+```
+
+### React-queries and API routes
+
+Once you done implementing controller methods, just run `nmx sn rq`. This command will generate up-to-date API routes and React Query hooks for all your controllers. You can call it also, for example, in a pre-commit hook so that your backend and frontend integration is always kept in sync.
+
+# FAQ
+
+## Why not use Nest or tRPC?
+
+`springnext` combines the best of both worlds in one package while staying in plain Next.js:
+
+| Feature                | springnext                                    | tRPC   | Nest                            |
+| ---------------------- | --------------------------------------------- | ------ | ------------------------------- |
+| Architecture           | contract-first, domain-focused                | ❌      | module-centric, tightly coupled |
+| Learning curve         | Medium                                        | Low    | High                            |
+| Type safety            | ✅  - including run-time checks out of the box | ✅      | ⚠️                               |
+| Scaffolding            | ✅  - production-ready full-stack              | ❌      | ⚠️                               |
+| Boilerplate            | ✅ - Low                                       | ✅      | ❌ - High                        |
+| No framework lock-in   | ✅                                             | ✅      | ❌                               |
+| Single source of truth | ✅ (schemas)                                   | ⚠️      | ❌                               |
+| Time to first feature  | ✅ instant full-stack                          | ⚡ fast | 🐢 slow                          |
+| Code ownership         | ✅ full (generated, editable)                  | ✅      | ⚠️ (framework patterns)          |
+
+
+## What does domain-focused mean?
+
+springnext puts your business domain first. Entities drive the architecture, so backend and frontend stay consistent.
+
+## What does contract-first mean?
+
+The behavior of all server modules in springnext is governed by Zod schemas. Function signatures and entity contracts are derived from these schemas. There is also automatic runtime validation to ensure that all data — function arguments and entity models — conform to their schemas.
+
+## Can I tweak scaffolded files?
+
+Yes — everything is fully editable, including configuration. Think of springnext as a shadcn-style approach for full-stack: scaffold first, then fully own the code. Moreover, in most of the cases your changes are preserved on subsequent generations. For example, if you modify a generated query and run `npx sn rq` later, your edits stay intact.
+
+## Do I really need to understand DI and other fancy concepts to use springnext effectively?
+
+Not really. springnext handles dependency injection (DI) for you using `inversifyjs`. You don’t need to set it up manually.
+To get an instance of a service anywhere in your server code, just use:
+
+```tsx
+import { fromDI } from '@/server/di'
+
+const userService = fromDI<UserService>('UserService')
+```
+
+Here, `fromDI` is strongly typed — your IDE will give autocomplete automatically.
+
+## Why data layer modules are called `Stores` and not `Repositories`?
+
+A “Repository” is a specific design pattern for managing data. springnext prefers Stores — a simple, flexible abstraction for your data layer that can adapt to your needs regardless of the specific pattern. This approach helps to keep your code simple, and it has been successfully used in other languages, like Go.
