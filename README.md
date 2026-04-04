@@ -23,10 +23,10 @@ https://stackblitz.com/edit/springnext-playground
 
 # What you get
 
-After installing and initializing springnext, run one CLI command to generate a production-ready backend with React Query hooks:
+After installing and initializing SpringNext, run one CLI command to generate a production-ready backend with React Query hooks:
 
 ```bash
-npx sn crud-api user # sn stands for springnext
+npx sn crud-api user # sn stands for SpringNext
 ```
 
 This will instantly scaffold:
@@ -60,10 +60,10 @@ Assuming you have
 ## Setup
 
 ```bash
-# install springnext and peer dependencies
+# install SpringNext with peer dependencies
 npm i inversify zod reflect-metadata springnext
 
-# initialize springnext with absolute prisma client path
+# initialize SpringNext with absolute prisma client path
 npx sn init prismaClientPath:@/generated/prisma/client
 ```
 
@@ -286,9 +286,9 @@ Once you done implementing controller methods, just run `nmx sn rq`. This comman
 
 ## Why not use Nest or tRPC?
 
-`springnext` combines the best of both worlds in one package while staying in plain Next.js:
+`SpringNext` combines the best of both worlds in one package while staying in plain Next.js:
 
-| Feature                | springnext                                    | tRPC   | Nest                            |
+| Feature                | SpringNext                                    | tRPC   | Nest                            |
 | ---------------------- | --------------------------------------------- | ------ | ------------------------------- |
 | Architecture           | contract-first, domain-focused                | ❌      | module-centric, tightly coupled |
 | Learning curve         | Medium                                        | Low    | High                            |
@@ -302,19 +302,19 @@ Once you done implementing controller methods, just run `nmx sn rq`. This comman
 
 ## What does domain-focused mean?
 
-springnext puts your business domain first. Entities drive the architecture, so backend and frontend stay consistent.
+SpringNext puts your business domain first. Entities drive the architecture, so backend and frontend stay consistent.
 
 ## What does contract-first mean?
 
-The behavior of all server modules in springnext is governed by Zod schemas. Function signatures and entity contracts are derived from these schemas. There is also automatic runtime validation to ensure that all data — function arguments and entity models — conform to their schemas.
+The behavior of all server modules in SpringNext is governed by Zod schemas. Function signatures and entity contracts are derived from these schemas. There is also automatic runtime validation to ensure that all data — function arguments and entity models — conform to their schemas.
 
 ## Can I tweak scaffolded files?
 
-Yes — everything is fully editable, including configuration. Think of springnext as a shadcn-style approach for full-stack: scaffold first, then fully own the code. Moreover, in most of the cases your changes are preserved on subsequent generations. For example, if you modify a generated query and run `npx sn rq` later, your edits stay intact.
+Yes — everything is fully editable, including configuration. Think of SpringNext as a shadcn-style approach for full-stack: scaffold first, then fully own the code. Moreover, in most of the cases your changes are preserved on subsequent generations. For example, if you modify a generated query and run `npx sn rq` later, your edits stay intact.
 
-## Do I really need to understand DI and other fancy concepts to use springnext effectively?
+## Do I really need to understand DI and other fancy concepts to use SpringNext effectively?
 
-Not really. springnext handles dependency injection (DI) for you using `inversifyjs`. You don’t need to set it up manually.
+Not really. SpringNext handles dependency injection (DI) for you using `inversifyjs`. You don’t need to set it up manually.
 To get an instance of a service anywhere in your server code, just use:
 
 ```tsx
@@ -327,4 +327,4 @@ Here, `fromDI` is strongly typed — your IDE will give autocomplete automatical
 
 ## Why data layer modules are called `Stores` and not `Repositories`?
 
-A “Repository” is a specific design pattern for managing data. springnext prefers Stores — a simple, flexible abstraction for your data layer that can adapt to your needs regardless of the specific pattern. This approach helps to keep your code simple, and it has been successfully used in other languages, like Go.
+A “Repository” is a specific design pattern for managing data. SpringNext prefers Stores — a simple, flexible abstraction for your data layer that can adapt to your needs regardless of the specific pattern. This approach helps to keep your code simple, and it has been successfully used in other languages, like Go.
