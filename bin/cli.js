@@ -82,6 +82,14 @@ function loadConfig() {
   }
 }
 
+function loadPackageName() {
+    const projectRoot = findProjectRoot();
+    const configPath = path.join(projectRoot, "package.json");
+    const rawData = fs.readFileSync(configPath, "utf-8");
+    const config = JSON.parse(rawData);
+    return config.name;
+}
+
 const config = loadConfig();
 
 function createDefaultConfig() {
@@ -207,6 +215,7 @@ function initVO() {
 function initDI() {
     const config = loadConfig()
     const diPath = config?.paths?.di
+    const packageName = loadPackageName()
 
     const folder = path.resolve(process.cwd(), `${config.coreFolder}${diPath}`)
     fs.mkdirSync(folder, { recursive: true })
@@ -245,9 +254,11 @@ function initDI() {
         "const globalContainer = globalThis as any",
         "let container: Container;",
         "",
-        "if (!globalContainer['springnext-dev-container']) {",
-        "\tglobalContainer['springnext-dev-container'] = new Container()",
-        "\tcontainer = globalContainer['springnext-dev-container'] as Container",
+        `const containerKey = 'springnext-dev-container-${packageName}'`,
+        "",
+        "if (!globalContainer[containerKey]) {",
+        "\tglobalContainer[containerKey] = new Container()",
+        "\tcontainer = globalContainer[containerKey] as Container",
         "",
         "\tfor (const rule in diEntries) {",
         "\t\tconst ruleContentRaw = diEntries[rule as keyof typeof diEntries]",
@@ -272,7 +283,7 @@ function initDI() {
         "\t}",
         "}",
         "",
-        "container = globalContainer['springnext-dev-container']",
+        "container = globalContainer[containerKey]",
         "",
         "export { container as devContainer }"
     ].join('\n'))
@@ -284,9 +295,11 @@ function initDI() {
         "const globalContainer = globalThis as any",
         "let container: Container;",
         "",
-        "if (!globalContainer['springnext-test-container']) {",
-        "\tglobalContainer['springnext-test-container'] = new Container()",
-        "\tcontainer = globalContainer['springnext-test-container'] as Container",
+        `const containerKey = 'springnext-test-container-${packageName}'`,
+        "",
+        "if (!globalContainer[containerKey]) {",
+        "\tglobalContainer[containerKey] = new Container()",
+        "\tcontainer = globalContainer[containerKey] as Container",
         "",
         "\tfor (const rule in diEntries) {",
         "\t\tconst ruleContentRaw = diEntries[rule as keyof typeof diEntries]",
@@ -311,7 +324,7 @@ function initDI() {
         "\t}",
         "}",
         "",
-        "container = globalContainer['springnext-test-container']",
+        "container = globalContainer[containerKey]",
         "",
         "export { container as testContainer }"  
     ].join('\n'))
@@ -323,9 +336,11 @@ function initDI() {
         "const globalContainer = globalThis as any",
         "let container: Container;",
         "",
-        "if (!globalContainer['springnext-prod-container']) {",
-        "\tglobalContainer['springnext-prod-container'] = new Container()",
-        "\tcontainer = globalContainer['springnext-prod-container'] as Container",
+        `const containerKey = 'springnext-prod-container-${packageName}'`,
+        "",
+        "if (!globalContainer[containerKey]) {",
+        "\tglobalContainer['containerKey] = new Container()",
+        "\tcontainer = globalContainer[containerKey] as Container",
         "",
         "\tfor (const rule in diEntries) {",
         "\t\tconst ruleContentRaw = diEntries[rule as keyof typeof diEntries]",
@@ -350,7 +365,7 @@ function initDI() {
         "\t}",
         "}",
         "",
-        "container = globalContainer['springnext-prod-container']",
+        "container = globalContainer[containerKey]",
         "",
         "export { container as prodContainer }"  
     ].join('\n'))
