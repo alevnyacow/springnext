@@ -305,7 +305,6 @@ Once you done implementing controller methods, just run `nmx sn rq`. This comman
 | Boilerplate            | ✅ - Low                                       | ✅      | ❌ - High                        |
 | No framework lock-in   | ✅                                             | ✅      | ❌                               |
 | Single source of truth | ✅ (schemas)                                   | ⚠️      | ❌                               |
-| Time to first feature  | ✅ instant full-stack                          | ⚡ fast | 🐢 slow                          |
 | Code ownership         | ✅ full (generated, editable)                  | ✅      | ⚠️ (framework patterns)          |
 
 
