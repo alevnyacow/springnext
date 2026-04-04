@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    Solid, like Spring. Сonvenient, like Next.js. Batteries included!
+    Solid like Spring. Just works like Next.js. Batteries included!
 </p>
 
 <p align="center">
@@ -294,9 +294,9 @@ Once you done implementing controller methods, just run `nmx sn rq`. This comman
 | Learning curve         | Medium                                        | Low    | High                            |
 | Type safety            | ✅  - including run-time checks out of the box | ✅      | ⚠️                               |
 | Scaffolding            | ✅  - production-ready full-stack              | ❌      | ⚠️                               |
-| Boilerplate            | ✅ - Low                                       | ✅      | ❌ - High                        |
+| Boilerplate            | ✅ - Low                                       | ✅      | ⚠️                        |
 | No framework lock-in   | ✅                                             | ✅      | ❌                               |
-| Single source of truth | ✅ (schemas)                                   | ⚠️      | ❌                               |
+| Single source of truth | ✅ (schemas)                                   | ⚠️      | ⚠️                               |
 | Code ownership         | ✅ full (generated, editable)                  | ✅      | ⚠️ (framework patterns)          |
 
 
