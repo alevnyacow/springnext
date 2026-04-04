@@ -14,7 +14,6 @@ Get a domain-focused architecture with a contract-first approach out of the box.
 Batteries included! ✨
 
 
-
 # What you get
 
 After installing and initializing springnext, run one CLI command to generate a production-ready backend with React Query hooks:

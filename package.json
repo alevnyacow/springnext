@@ -1,7 +1,12 @@
 {
   "name": "springnext",
-  "version": "0.0.7",
+  "version": "0.0.8",
+  "keywords": ["next", "full-stack", "server", "backend", "cli", "scaffolding", "zod", "rest", "contract programming", "contract-first", "react-query", "domain", "ddd"],
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alevnyacow/springnext.git"
+  },
   "license": "MIT",
   "exports": {
     ".": {
