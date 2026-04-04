@@ -339,7 +339,7 @@ function initDI() {
         `const containerKey = 'springnext-prod-container-${packageName}'`,
         "",
         "if (!globalContainer[containerKey]) {",
-        "\tglobalContainer['containerKey] = new Container()",
+        "\tglobalContainer[containerKey] = new Container()",
         "\tcontainer = globalContainer[containerKey] as Container",
         "",
         "\tfor (const rule in diEntries) {",
