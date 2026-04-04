@@ -764,7 +764,7 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
     insertBeforeLineInFile(
         diEntriesPath,
         'type DIEntries =',
-        prismaPath ? `import { ${upperCase}PrismaStore, ${lowerCase}RAMStoreInstance } from '@${config?.paths?.stores}/${entityName}'` : `import { ${upperCase}RAMStore } from '@${config?.paths?.stores}/${entityName}'`
+        prismaPath ? `import { ${upperCase}PrismaStore, ${lowerCase}RAMStoreInstance } from '@${config?.paths?.stores}/${entityName}'` : `import { ${lowerCase}RAMStoreInstance } from '@${config?.paths?.stores}/${entityName}'`
     )
 
     insertAfterLineInFile(
