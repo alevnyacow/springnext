@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+    Solid, like Spring. Сonvenient, like Next.js. Batteries included!
+</p>
+
+<p align="center">
   <a href="https://badge.fury.io/js/springnext" target="_blank"><img src='https://badge.fury.io/js/springnext.svg'></img></a>
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
@@ -10,8 +14,6 @@
 Scaffold production-ready Next.js application modules in seconds with **springnext**. 
 
 Get a domain-focused architecture with a contract-first approach out of the box. Features DI, logging, in-memory stores, unified errors, and endpoint guards.
-
-Batteries included! ✨
 
 # Playground
 
