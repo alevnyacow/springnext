@@ -67,7 +67,7 @@ function loadConfig() {
     return null;
   }
 
-  const configPath = path.join(projectRoot, "nzmt.config.json");
+  const configPath = path.join(projectRoot, "springnext.config.json");
 
   if (!fs.existsSync(configPath)) {
     return null;
@@ -99,7 +99,7 @@ function createDefaultConfig() {
 
         let prismaClientPath = prismaClientPathOption ? prismaClientPathOption.split(':')[1] : undefined
 
-        fs.writeFileSync(path.resolve(projectRoot, 'nzmt.config.json'), JSON.stringify(prismaClientPath ? {
+        fs.writeFileSync(path.resolve(projectRoot, 'springnext.config.json'), JSON.stringify(prismaClientPath ? {
             coreFolder,
             paths: {
                 di: '/server/di',
@@ -446,7 +446,7 @@ function generateInfrastructure(upperCase, lowerCase) {
     fs.mkdirSync(folder, { recursive: true })
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.ts`), [
-        `import { Module } from '@alevnyacow/nzmt'`,
+        `import { Module } from 'springnext'`,
         '',
         `export const ${lowerCase}InfrastructureMetadata = {`,
         `\tname: '${upperCase}Infrastructure',`,
@@ -496,7 +496,7 @@ function initGuards() {
     fs.mkdirSync(endpointGuardsFolder, { recursive: true })
 
     fs.writeFileSync(path.resolve(endpointGuardsFolder, 'guards.ts'), [
-        `import type { Controller } from '@alevnyacow/nzmt'`,
+        `import type { Controller } from 'springnext'`,
         '',
         `export class Guards {`,
         `\tdummyGuard: Controller.Guard = async () => { return undefined }`,
@@ -592,7 +592,7 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
     // Contract
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.store.ts`), [
-        "import { Store } from '@alevnyacow/nzmt'",
+        "import { Store } from 'springnext'",
         withEntity ? `import { ${upperCase} } from '@${config?.paths?.entities}/${entityName}'` : undefined,
         "",
         `export const ${lowerCase}StoreMetadata = {`,
@@ -623,7 +623,7 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.store.ram.ts`), [
         "import { injectable } from 'inversify'",
-        "import { Store } from '@alevnyacow/nzmt'",
+        "import { Store } from 'springnext'",
         `import { type ${upperCase}Store, ${lowerCase}StoreMetadata } from './${entityName}.store'`,
         "",
         `const CRUDInRAM = Store.InRAM(${lowerCase}StoreMetadata)`,
@@ -641,7 +641,7 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
             `import type { Prisma, PrismaClient } from '${prismaPath}'`,
             `import { DITokens } from '@${config?.paths?.di}'`,
             "import { injectable, inject } from 'inversify'",
-            "import { Store } from '@alevnyacow/nzmt'",
+            "import { Store } from 'springnext'",
             `import { type ${upperCase}Store, ${lowerCase}StoreMetadata } from './${entityName}.store'`,
             "",
             `type Types = Store.Types<${upperCase}Store>`,
@@ -874,7 +874,7 @@ function generateProvider(lowerCase, upperCase) {
     
     // Provider
     fs.writeFileSync(path.resolve(folder, `${entityName}.provider.ts`), [
-        `import { Module } from '@alevnyacow/nzmt'`,
+        `import { Module } from 'springnext'`,
         '',
         `export const ${lowerCase}ProviderMetadata = {`,
         `\tname: '${upperCase}Provider',`,
@@ -963,7 +963,7 @@ function generateService(lowerCase, upperCase, store) {
     // Metadata
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.service.metadata.ts`), [
-        "import type { Module } from '@alevnyacow/nzmt'",
+        "import type { Module } from 'springnext'",
         proxiedStore ? `import { ${proxiedStore.substring(0, 1).toLowerCase() + proxiedStore.substring(1)}Schemas } from '@${config?.paths?.stores}/${toKebabFromPascal(proxiedStore).slice(0, -'-store'.length)}'` : undefined,
         "",
         `export const ${lowerCase}ServiceMetadata = {`,
@@ -989,7 +989,7 @@ function generateService(lowerCase, upperCase, store) {
         "import { injectable, inject } from 'inversify'",
         injections.length ? `import { DITokens } from '@${config?.paths?.di}'` : undefined,
         `import { ${lowerCase}ServiceMetadata } from './${entityName}.service.metadata'`,
-        "import { Module } from '@alevnyacow/nzmt'",
+        "import { Module } from 'springnext'",
         ...importInjections,
         "",
         `type Methods = Module.Methods<typeof ${lowerCase}ServiceMetadata>`,
@@ -1079,7 +1079,7 @@ function generateController(upperCase, lowerCase, crudService) {
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.controller.metadata.ts`), [
         crudService ? `import z from 'zod'` : undefined,
-        `import { Controller, ValueObjects } from '@alevnyacow/nzmt'`,
+        `import { Controller, ValueObjects } from 'springnext'`,
         crudService ? `import { ${crudServiceLowercase}Metadata } from '@${config.paths.services}/${toKebabFromPascal(crudService).slice(0, -'-service'.length)}'` : undefined,
         ``,
         `export const ${lowerCase}ControllerMetadata = {`,
@@ -1123,7 +1123,7 @@ function generateController(upperCase, lowerCase, crudService) {
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.controller.ts`), [
         `import { injectable, inject } from 'inversify'`,
-        `import { Controller } from '@alevnyacow/nzmt'`,
+        `import { Controller } from 'springnext'`,
         `import { DITokens } from '@${config?.paths?.di}'`,
         crudService ? `import { CommonErrorCodes } from '@${config?.paths?.sharedErrors}'` : undefined,
         `import { ${lowerCase}ControllerMetadata } from './${entityName}.controller.metadata'`,
