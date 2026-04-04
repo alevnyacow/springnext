@@ -7,13 +7,13 @@
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
 
-Scaffold Next.js full-stack modules in seconds with **springnext**. 
+Scaffold full-stack Next.js applications in seconds with **springnext**. 
 
 Get a domain-focused architecture with a contract-first approach out of the box.
 
 Batteries included! ✨
 
-# Try it right in your browser!
+# Try it right in your browser
 
 (stackblitz may be unstable on Safari)
 
