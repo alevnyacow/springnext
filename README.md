@@ -73,15 +73,6 @@ Then plug your `Prisma` adapter in scaffolded `/server/infrastructure/prisma/cli
 npx sn crud-api user
 ```
 
-This command scaffolds:
-
-- `User` entity
-- `UserStore` (with Prisma + RAM implementations)
-- `UserService` (ready to be used in Server Actions)
-- `UserController` proxying UserService methods
-- `API routes` for UserController endpoints
-- `React Query hooks` for fetching UserController from client-side
-
 Then tweak a few files:
 
 - `/domain/entities/user/user.entity.ts` → entity schema
