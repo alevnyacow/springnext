@@ -9,7 +9,7 @@
 
 Scaffold full-stack Next.js application modules in seconds with **springnext**. 
 
-Get a domain-focused architecture with a contract-first approach out of the box. Also comes with DI, logging, in-memory stores, unified errors, and endpoint guards.
+Get a domain-focused architecture with a contract-first approach out of the box. Features DI, logging, in-memory stores, unified errors, and endpoint guards.
 
 Batteries included! ✨
 
