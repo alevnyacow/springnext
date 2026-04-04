@@ -1284,7 +1284,7 @@ function generateQueries(lowerCase, upperCase, entity) {
             continue
         }
         fs.writeFileSync(fileName, [
-            `import { ${rootMethod === 'GET' ? 'useQuery' : 'useMutation, useQueryClient'} } from '@tanstack/react-query'`,
+            `import { ${rootMethod === 'GET' ? 'useQuery, useQueryClient' : 'useMutation, useQueryClient'} } from '@tanstack/react-query'`,
             `import type { ${upperCase}API } from '@${config.paths.controllers}/${requiredEntity}'`,
             `import { apiRequest${rootMethod === 'GET' ? ', normalizeObjectKeysOrder' : ''} } from '@${config.paths.clientUtils}'`,
             '',
@@ -1299,7 +1299,17 @@ function generateQueries(lowerCase, upperCase, entity) {
                     `\t\tqueryKey: ['${requiredEntity}', '${rootMethod}', normalizeObjectKeysOrder(payload)],`,
                     `\t\tqueryFn: () => apiRequest(endpoint, 'GET')(payload)`,
                     `\t})`,
-                    `}`
+                    `}`,
+                    ``,
+                    `export const use${rootMethod}Invalidation = () => {`,
+                    `\tconst queryClient = useQueryClient()`,
+                    `\treturn () => {`,
+                    '\t\tqueryClient.invalidateQueries({',
+                    `\t\t\tqueryKey: payload ? ['${requiredEntity}', '${rootMethod}', normalizeObjectKeysOrder(payload)] : ['${requiredEntity}', '${rootMethod}'],`,
+                    '\t\t\texact: false',
+                    '\t\t})',
+                    '\t}',
+                    '}'
                 ].join('\n') 
                 : [
                     `export const use${rootMethod} = () => {`,
@@ -1326,7 +1336,7 @@ function generateQueries(lowerCase, upperCase, entity) {
             const nameForHook = (fullMethodName.charAt(0).toUpperCase() + fullMethodName.slice(1)).replaceAll('_', '');
 
             fs.writeFileSync(fileName, [
-                `import { ${method === 'GET' ? 'useQuery' : 'useMutation, useQueryClient' } } from '@tanstack/react-query'`,
+                `import { ${method === 'GET' ? 'useQuery, useQueryClient' : 'useMutation, useQueryClient' } } from '@tanstack/react-query'`,
                 `import type { ${upperCase}API } from '@${config.paths.controllers}/${requiredEntity}'`,
                 `import { apiRequest${method === 'GET' ? ', normalizeObjectKeysOrder' : ''} } from '@${config.paths.clientUtils}'`,
                 '',
@@ -1341,7 +1351,17 @@ function generateQueries(lowerCase, upperCase, entity) {
                         `\t\tqueryKey: ['${requiredEntity}', ${currentPath.split('/').map(x => `'${x}'`).join(', ')}, normalizeObjectKeysOrder(payload)],`,
                         `\t\tqueryFn: () => apiRequest(endpoint, 'GET')(payload)`,
                         `\t})`,
-                        `}`
+                        `}`,
+                        ``,
+                        `export const use${nameForHook}Invalidation = () => {`,
+                        `\tconst queryClient = useQueryClient()`,
+                        `\treturn () => {`,
+                        '\t\tqueryClient.invalidateQueries({',
+                        `\t\t\tqueryKey: payload ? ['${requiredEntity}', ${currentPath.split('/').map(x => `'${x}'`).join(', ')}, normalizeObjectKeysOrder(payload)] : ['${requiredEntity}', ${currentPath.split('/').map(x => `'${x}'`).join(', ')}],`,
+                        '\t\t\texact: false',
+                        '\t\t})',
+                        '\t}',
+                        '}'
                     ].join('\n') 
                     : [
                         `export const use${nameForHook} = () => {`,
