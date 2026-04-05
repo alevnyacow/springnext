@@ -19,7 +19,7 @@
 
 https://stackblitz.com/edit/springnext-playground
 
-Safari may have issues — use Chrome for best experience.
+*Safari may have issues — use Chrome for best experience.*
 
 # ⏱️ TL;DR
 
