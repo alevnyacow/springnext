@@ -219,6 +219,59 @@ POST = this.endpoints('POST', async ({ id, delta }) => {
 
 Once you done implementing controller methods, just run `npx sn rq`. This command will generate up-to-date API routes and React Query hooks for all your controllers. You can call it also, for example, in a pre-commit hook so that your backend and frontend integration is always kept in sync.
 
+# ❓ FAQ
+
+## Why not use Nest or tRPC?
+
+`SpringNext` combines the best of both worlds in one package while staying in plain Next.js:
+
+| Feature                | SpringNext                                    | tRPC   | Nest                            |
+| ---------------------- | --------------------------------------------- | ------ | ------------------------------- |
+| Architecture           | domain-focused, contract-first                | ❌      | module-centric, tightly coupled |
+| Learning curve         | Medium                                        | Low    | High                            |
+| Type safety            | ✅  - including run-time checks out of the box | ✅      | ⚠️                               |
+| Scaffolding            | ✅  - production-ready full-stack              | ❌      | ⚠️                               |
+| Boilerplate            | ✅ - Low                                       | ✅      | ⚠️                        |
+| No framework lock-in   | ✅                                             | ✅      | ❌                               |
+| Single source of truth | ✅ (schemas)                                   | ⚠️      | ⚠️                               |
+| Code ownership         | ✅ full (generated, editable)                  | ✅      | ⚠️ (framework patterns)          |
+
+
+## What does domain-focused mean?
+
+SpringNext puts your business domain first. Entities drive the architecture, so backend and frontend stay consistent.
+
+## What does contract-first mean?
+
+The behavior of all server modules in SpringNext is governed by Zod schemas. Function signatures and entity contracts are derived from these schemas. There is also automatic runtime validation to ensure that all data — function arguments and entity models — conform to their schemas.
+
+## Can I tweak scaffolded files?
+
+Yes — everything is fully editable, including configuration. Think of SpringNext as a shadcn-style approach for full-stack: scaffold first, then fully own the code. Moreover, in most of the cases your changes are preserved on subsequent generations. For example, if you modify a generated query and run `npx sn rq` later, your edits stay intact.
+
+## Do I really need to understand DI and other fancy concepts to use SpringNext effectively?
+
+Not really. SpringNext handles dependency injection (DI) for you using `inversifyjs`. You don’t need to set it up manually.
+To get an instance of a service anywhere in your server code, just use:
+
+```tsx
+import { fromDI } from '@/server/di'
+
+const userService = fromDI<UserService>('UserService')
+```
+
+Here, `fromDI` is strongly typed — your IDE will give autocomplete automatically.
+
+## Why data layer modules are called `Stores` and not `Repositories`?
+
+A “Repository” is a specific design pattern for managing data. SpringNext prefers Stores — a simple, flexible abstraction for your data layer that can adapt to your needs regardless of the specific pattern. This approach helps to keep your code simple, and it has been successfully used in other languages, like Go.
+
+## When not to use?
+
+- Small apps without backend complexity
+- If you prefer RPC-only style (tRPC fits better)
+- If you don’t want layered architecture / DI
+
 # 👓 CLI commands glossary
 
 ## Initialization
@@ -320,56 +373,3 @@ Once you done implementing controller methods, just run `npx sn rq`. This comman
 │ Database │
 └──────────┘
 ```
-
-# ❓ FAQ
-
-## Why not use Nest or tRPC?
-
-`SpringNext` combines the best of both worlds in one package while staying in plain Next.js:
-
-| Feature                | SpringNext                                    | tRPC   | Nest                            |
-| ---------------------- | --------------------------------------------- | ------ | ------------------------------- |
-| Architecture           | domain-focused, contract-first                | ❌      | module-centric, tightly coupled |
-| Learning curve         | Medium                                        | Low    | High                            |
-| Type safety            | ✅  - including run-time checks out of the box | ✅      | ⚠️                               |
-| Scaffolding            | ✅  - production-ready full-stack              | ❌      | ⚠️                               |
-| Boilerplate            | ✅ - Low                                       | ✅      | ⚠️                        |
-| No framework lock-in   | ✅                                             | ✅      | ❌                               |
-| Single source of truth | ✅ (schemas)                                   | ⚠️      | ⚠️                               |
-| Code ownership         | ✅ full (generated, editable)                  | ✅      | ⚠️ (framework patterns)          |
-
-
-## What does domain-focused mean?
-
-SpringNext puts your business domain first. Entities drive the architecture, so backend and frontend stay consistent.
-
-## What does contract-first mean?
-
-The behavior of all server modules in SpringNext is governed by Zod schemas. Function signatures and entity contracts are derived from these schemas. There is also automatic runtime validation to ensure that all data — function arguments and entity models — conform to their schemas.
-
-## Can I tweak scaffolded files?
-
-Yes — everything is fully editable, including configuration. Think of SpringNext as a shadcn-style approach for full-stack: scaffold first, then fully own the code. Moreover, in most of the cases your changes are preserved on subsequent generations. For example, if you modify a generated query and run `npx sn rq` later, your edits stay intact.
-
-## Do I really need to understand DI and other fancy concepts to use SpringNext effectively?
-
-Not really. SpringNext handles dependency injection (DI) for you using `inversifyjs`. You don’t need to set it up manually.
-To get an instance of a service anywhere in your server code, just use:
-
-```tsx
-import { fromDI } from '@/server/di'
-
-const userService = fromDI<UserService>('UserService')
-```
-
-Here, `fromDI` is strongly typed — your IDE will give autocomplete automatically.
-
-## Why data layer modules are called `Stores` and not `Repositories`?
-
-A “Repository” is a specific design pattern for managing data. SpringNext prefers Stores — a simple, flexible abstraction for your data layer that can adapt to your needs regardless of the specific pattern. This approach helps to keep your code simple, and it has been successfully used in other languages, like Go.
-
-## When not to use?
-
-- Small apps without backend complexity
-- If you prefer RPC-only style (tRPC fits better)
-- If you don’t want layered architecture / DI
