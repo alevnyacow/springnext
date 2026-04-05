@@ -76,6 +76,22 @@ Want to add your own methods in services, controllers, or stores? Go ahead! Reac
 npx sn rq
 ```
 
+Want to scaffold modules independently without CRUD boilerplate? SpringNext has you covered!
+
+```
+# Scaffold Product entity and ProductStore
+npx sn se product # se stands for Stored Entity
+# Scaffold Order service with ProductStore injected
+npx sn s order i:ProductStore
+# Scaffold Shop controller with OrderService injected
+npx sn c shop i:OrderService
+
+# Implement the required code in the scaffolded modules
+
+# Generate API routes and React Query hooks for all controllers
+npx sn rq
+```
+
 # 🚀 Quick start with Prisma
 
 Assuming you have:
