@@ -18,8 +18,8 @@ import {
 } from './errors.utils';
 
 export enum DefaultErrorCodes {
-    REQUEST_PARSING = 'NZMT-CONTROLLER___REQUEST-PARSING',
-    RESPONSE_PARSING = 'NZMT-CONTROLLER___RESPONSE-PARSING'
+    REQUEST_PARSING = 'SPRINGNEXT-CONTROLLER___REQUEST-PARSING',
+    RESPONSE_PARSING = 'SPRINGNEXT-CONTROLLER___RESPONSE-PARSING'
 }
 
 type SuccessResponse<ResponseZodSchema> = ResponseZodSchema extends undefined

@@ -1,7 +1,7 @@
 import { beforeEach, expect, test } from '@rstest/core';
 import z from 'zod';
 
-import { endpoints } from './zod-controller.utils'
+import { endpoints } from './springnext-controller.utils'
 import { NextRequest } from 'next/server';
 
 const testControllerEndpoints = endpoints({
