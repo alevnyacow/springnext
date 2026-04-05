@@ -32,8 +32,9 @@ npx sn crud-api user # sn stands for SpringNext
 This will instantly scaffold:
 
 ```bash
+domain/entities/user # user entity
+
 server/
-  entities/user/... # user entity
   stores/user/... # user stores (contract, in-memory, prisma)
   services/user/... # service
   controllers/user/... # API controller
@@ -95,22 +96,10 @@ Schema: Client → React Query → API → Controller → Service → Store → 
 import { UserQueries } from '@/ui/shared/queries/user';
 
 export default function Page() {
-  const { mutate: addUser } = UserQueries.usePOST()
+  const { mutate } = UserQueries.usePOST()
   const { data, isFetching } = UserQueries.useGET({ query: {} })
 
-  const addRandomUser = () => {
-    addUser({ body: { payload: { name: `${Math.random()}` } } })
-  }
-
-  return (
-    <div>
-      <button onClick={addRandomUser}>
-        New random user
-      </button>
-      
-      {isFetching ? 'Loading users...' : JSON.stringify(data)}
-    </div>
-  );
+  /** ... */
 }
 
 ```
@@ -139,7 +128,7 @@ export default async function Page() {
         filter: { id: 'user-1-id' } 
     })
 
-    return <div>{JSON.stringify(user1)}</div>
+    /* ... */
 }
 ```
 
