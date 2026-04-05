@@ -15,7 +15,7 @@ import {
     type ErrorBaseCreatingPayload,
     isControllerError,
     spawnControllerError
-} from './errors.utils';
+} from './errors';
 
 export enum DefaultErrorCodes {
     REQUEST_PARSING = 'SPRINGNEXT-CONTROLLER___REQUEST-PARSING',

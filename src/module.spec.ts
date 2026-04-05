@@ -1,7 +1,7 @@
 import { expect, test } from '@rstest/core';
 import z from 'zod';
 
-import { methods } from './module.utils'
+import { methods } from './module'
 
 const testModuleMethods = methods({
     name: 'TestModule',

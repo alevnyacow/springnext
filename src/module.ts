@@ -5,7 +5,7 @@ import {
     isModuleError,
     type ModuleErrorModel,
     spawnModuleError
-} from './errors.utils';
+} from './errors';
 
 type Schemas = Record<
     string,

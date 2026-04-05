@@ -8,7 +8,7 @@ import type {
 } from 'zod';
 import z from 'zod';
 import { Pagination } from '../value-objects/pagination.value-object';
-import { methods as moduleMethods } from '../module.utils';
+import { methods as moduleMethods } from '../module';
 import type {
     CRUD,
 } from './store.shared-models';

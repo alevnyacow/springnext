@@ -1,7 +1,7 @@
 import { beforeEach, expect, test } from '@rstest/core';
 import z from 'zod';
 
-import { endpoints } from './controller.utils'
+import { endpoints } from './controller'
 import { NextRequest } from 'next/server';
 
 const testControllerEndpoints = endpoints({
