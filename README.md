@@ -331,7 +331,7 @@ A “Repository” is a specific design pattern for managing data. SpringNext pr
 | `npx sn w <name>` | **w**idget                |
 | `npx sn lw <name>` | **l**ayouted **w**idget - widget with separated view layout |
 
-# Data flow schemas
+# 📚 Data flow schemas
 
 ## React query flow
 ```
