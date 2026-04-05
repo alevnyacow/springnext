@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+    Scaffold a fully-typed backend + React Query layer for Next.js in one command.
+</p>
+
+<p align="center">
     Solid like Spring. Just works like Next.js. Batteries included!
 </p>
 
@@ -11,47 +15,65 @@
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
 
-Scaffold production-ready Next.js application modules in seconds. 
 
-Get a domain-focused architecture with a contract-first approach out of the box. Features DI, logging, in-memory stores, unified errors, and endpoint guards.
+Features DI, logging, in-memory stores, unified errors, and endpoint guards out of the box.
 
-# Playground
-
-(stackblitz may be unstable on Safari)
+# 🧪 Live playground
 
 https://stackblitz.com/edit/springnext-playground
 
-# What you get
+Safari may have issues — use Chrome for best experience.
 
-After installing and initializing SpringNext, run one CLI command to generate a production-ready backend with React Query hooks:
+# ⏱️ TL;DR
 
-```bash
-npx sn crud-api user # sn stands for SpringNext
+- Setup and initialize
+- Run `npx sn crud-api user`
+- Tweak a few files
+
+→ Backend + API + React Query hooks ready
+
+React query hooks usage:
+
+```tsx
+'use client'
+
+// query hooks come in handy namespaces
+import { UserQueries } from '@/ui/shared/queries/user';
+
+export default function Page() {
+  const { mutate } = UserQueries.usePOST()
+  // ... 
+}
 ```
 
-This will instantly scaffold:
+Use the same services directly in Server Actions:
 
-```bash
-domain/entities/user # user entity
+```tsx
+'use server'
 
-server/
-  stores/user/... # user stores (contract, in-memory, prisma)
-  services/user/... # service
-  controllers/user/... # API controller
+import { fromDI } from '@/server/di'
+import type { UserService } from '@/server/services/user'
 
-app/api/user/... # api routes
+export default async function Page() {
+    /**
+     * FYI: `fromDI` string argument is strongly typed and
+     * this type automatically updates after you scaffold
+     * anything. Cool, right?
+     */ 
+    const userService = fromDI<UserService>('UserService')
 
-ui/shared/queries/user/... # react queries
+    const user1 = await userService.getDetails({ 
+        filter: { id: 'user-1-id' } 
+    })
+
+    /* ... */
+}
+
 ```
 
-Everything is ready after a few tweaks — see `Quick start with Prisma` for details.
+# 🚀 Quick start with Prisma
 
-All code is editable — scaffold parts individually or together. You can also scaffold front-end widgets. CLI commands are listed in `CLI commands glossary`. 
-
-
-# Quick start with Prisma
-
-Assuming you have 
+Assuming you have:
 
 - `Next.js` project with a generated `Prisma` client
 - some `User` schema in your `Prisma` client
@@ -76,6 +98,21 @@ Then plug your `Prisma` adapter in scaffolded `/server/infrastructure/prisma/cli
 npx sn crud-api user
 ```
 
+This will instantly scaffold:
+
+```bash
+domain/entities/user # user entity
+
+server/
+  stores/user/... # user stores (contract, in-memory, prisma)
+  services/user/... # service
+  controllers/user/... # API controller
+
+app/api/user/... # api routes
+
+ui/shared/queries/user/... # react queries
+```
+
 Then tweak a few files:
 
 - `/domain/entities/user/user.entity.ts` → entity schema
@@ -84,55 +121,20 @@ Then tweak a few files:
 
 And after only one command and a few tweaks you have ready-to-use React Query hooks & Server Actions backend.
 
-## Using scaffolded React query hooks
+## React query hooks architectural schema
 
-```
-Schema: Client → React Query → API → Controller → Service → Store → DB
-```
+<p align="center">
+    <img src='https://raw.githubusercontent.com/alevnyacow/springnext/refs/heads/main/icons/react-schema.svg?sanitize=true'></img>
+</p>
 
-```tsx
-'use client'
 
-import { UserQueries } from '@/ui/shared/queries/user';
+## Server actions architectural schema
 
-export default function Page() {
-  const { mutate } = UserQueries.usePOST()
-  const { data, isFetching } = UserQueries.useGET({ query: {} })
+<p align="center">
+    <img src='https://raw.githubusercontent.com/alevnyacow/springnext/refs/heads/main/icons/server-actions-schema.svg?sanitize=true'></img>
+</p>
 
-  /** ... */
-}
-
-```
-
-## Using scaffolded Service methods as Next server actions
-
-```
-Schema: Server Action → Service → Store → DB
-```
-
-```tsx
-'use server'
-
-import { fromDI } from '@/server/di'
-import type { UserService } from '@/server/services/user'
-
-export default async function Page() {
-    /**
-     * FYI: `fromDI` argument is strongly typed and
-     * this type automatically updates after you scaffold
-     * anything. Cool, right?
-     */ 
-    const userService = fromDI<UserService>('UserService')
-
-    const user1 = await userService.getDetails({ 
-        filter: { id: 'user-1-id' } 
-    })
-
-    /* ... */
-}
-```
-
-# CLI commands glossary
+# 👓 CLI commands glossary
 
 ## Initialization
 
@@ -147,7 +149,7 @@ export default async function Page() {
 | `npx sn crud-api <name>`     | CRUD via Server Actions and React Query hooks.                                                                                                                       |
 | `npx sn crud-service <name>` | CRUD via Server Actions (no Controllers, API Routes and React Query hooks).                                                                                          |
 | `npx sn se <name>`           | **s**tored **e**ntity: entity + store (contracts linked).                                                                                                            |
-| `npx sn rq`                  | API **r**outes and React **q**ueries for all of your controllers. This command will also remove endpoints which don't exist anymore with according React query hooks |
+| `npx sn rq`                  | API **r**outes and React **q**ueries for all of your controllers. This command will also remove endpoints which don't exist anymore with corresponding React query hooks |
 
 ## Primary server modules scaffolding
 
@@ -225,7 +227,7 @@ foo: {
 // ...service class implementation
 foo = this.methods('foo', async ({ str }) => {
   // 'foo' string is strongly-typed, don't worry
-  // all input and output types are also infered
+  // all input and output types are also inferred
   return { num: Number(str) }
 })
 // ..service class implementation
@@ -269,7 +271,7 @@ POST = this.endpoints('POST', async ({ id, delta }) => {
 
 ### React-queries and API routes
 
-Once you done implementing controller methods, just run `nmx sn rq`. This command will generate up-to-date API routes and React Query hooks for all your controllers. You can call it also, for example, in a pre-commit hook so that your backend and frontend integration is always kept in sync.
+Once you done implementing controller methods, just run `npx sn rq`. This command will generate up-to-date API routes and React Query hooks for all your controllers. You can call it also, for example, in a pre-commit hook so that your backend and frontend integration is always kept in sync.
 
 # FAQ
 
@@ -279,7 +281,7 @@ Once you done implementing controller methods, just run `nmx sn rq`. This comman
 
 | Feature                | SpringNext                                    | tRPC   | Nest                            |
 | ---------------------- | --------------------------------------------- | ------ | ------------------------------- |
-| Architecture           | contract-first, domain-focused                | ❌      | module-centric, tightly coupled |
+| Architecture           | domain-focused, contract-first                | ❌      | module-centric, tightly coupled |
 | Learning curve         | Medium                                        | Low    | High                            |
 | Type safety            | ✅  - including run-time checks out of the box | ✅      | ⚠️                               |
 | Scaffolding            | ✅  - production-ready full-stack              | ❌      | ⚠️                               |
@@ -317,3 +319,9 @@ Here, `fromDI` is strongly typed — your IDE will give autocomplete automatical
 ## Why data layer modules are called `Stores` and not `Repositories`?
 
 A “Repository” is a specific design pattern for managing data. SpringNext prefers Stores — a simple, flexible abstraction for your data layer that can adapt to your needs regardless of the specific pattern. This approach helps to keep your code simple, and it has been successfully used in other languages, like Go.
+
+## When not to use?
+
+- Small apps without backend complexity
+- If you prefer RPC-only style (tRPC fits better)
+- If you don’t want layered architecture / DI
