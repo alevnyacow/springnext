@@ -1,7 +1,7 @@
 import { beforeEach, expect, test } from '@rstest/core';
 import z from 'zod';
 import { InRAM } from './store.ram.utils';
-import type { Contract, Metadata } from './store.zod.utils';
+import type { Contract, Metadata } from './store.utils';
 
 const testStoreMetadata = {
     name: 'TestStore',

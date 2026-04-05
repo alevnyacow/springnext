@@ -5,7 +5,7 @@ import {
     type Contract,
     type Metadata,
     methods
-} from './store.zod.utils';
+} from './store.utils';
 
 export const InRAM = <T extends Metadata>(
     schemas: T,

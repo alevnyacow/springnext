@@ -1,7 +1,7 @@
 import { expect, test } from '@rstest/core';
 import z from 'zod';
 
-import { methods } from './springnext-module.utils'
+import { methods } from './module.utils'
 
 const testModuleMethods = methods({
     name: 'TestModule',
