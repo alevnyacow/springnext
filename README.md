@@ -7,16 +7,13 @@
 </p>
 
 <p align="center">
-    Solid like Spring. Just works like Next.js. Batteries included!
+    Comes with DI, unified errors, in-memory stores, and endpoint guards out of the box.
 </p>
 
 <p align="center">
   <a href="https://badge.fury.io/js/springnext" target="_blank"><img src='https://badge.fury.io/js/springnext.svg'></img></a>
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
-
-
-Features DI, logging, in-memory stores, unified errors, and endpoint guards out of the box.
 
 # 🧪 Live playground
 
@@ -83,7 +80,6 @@ Want to scaffold modules independently without CRUD boilerplate? SpringNext has 
 npx sn se product
 # Scaffold Order service with ProductStore injected
 npx sn s order i:ProductStore
-
 # Scaffold Shop controller with OrderService injected
 npx sn c shop i:OrderService
 
