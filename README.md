@@ -78,11 +78,12 @@ npx sn rq
 
 Want to scaffold modules independently without CRUD boilerplate? SpringNext has you covered!
 
-```
+```bash
 # Scaffold Product entity and ProductStore
-npx sn se product # se stands for Stored Entity
+npx sn se product
 # Scaffold Order service with ProductStore injected
 npx sn s order i:ProductStore
+
 # Scaffold Shop controller with OrderService injected
 npx sn c shop i:OrderService
 
