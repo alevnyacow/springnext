@@ -290,47 +290,6 @@ A “Repository” is a specific design pattern for managing data. SpringNext pr
 - If you prefer RPC-only style (tRPC fits better)
 - If you don’t want layered architecture / DI
 
-# 👓 CLI commands glossary
-
-## Initialization
-
-| Command         | Scaffolding result | Options                                                                                                       |
-| --------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
-| `npx sn init` | **init**ialization | pass `prismaClientPath:` to work with Prisma. E.g. `npx sn init prismaClientPath:@/generated/prisma/client` |
-
-## Complex scaffolding (multiple modules are scaffolded in one command)
-
-| Command                        | Scaffolding result                                                                                                                                                   |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npx sn crud-api <name>`     | CRUD via Server Actions and React Query hooks.                                                                                                                       |
-| `npx sn crud-service <name>` | CRUD via Server Actions (no Controllers, API Routes and React Query hooks).                                                                                          |
-| `npx sn se <name>`           | **s**tored **e**ntity: entity + store (contracts linked).                                                                                                            |
-| `npx sn rq`                  | API **r**outes and React **q**ueries for all of your controllers. This command will also remove endpoints which don't exist anymore with corresponding React query hooks |
-
-## Primary server modules scaffolding
-
-| Command              | Scaffolding result                                    | Options                                                                                                                                                                                                 |
-| -------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npx sn e <name>`  | **e**ntity                                            |                                                                                                                                                                                                         |
-| `npx sn vo <name>` | **v**alue **o**bject                                  |                                                                                                                                                                                                         |
-| `npx sn cs <name>` | **c**ustom **s**tore (all schemas are `z.object({})`) |                                                                                                                                                                                                         |
-| `npx sn s <name>`  | **s**ervice                                           | `i:UserStore,Logger` will automatically inject `UserStore` and `Logger`. E.g. `npx sn s shop i:UserStore,ProductStore` will create `ShopService` with already injected `UserStore` and `ProductStore` |
-| `npx sn c <name>`  | **c**ontroller                                        | `i:UserService` will automatically inject `UserService`. `Logger` and `Guards` are injected by default regardless of `i:` option                                                                        |
-
-## Auxiliary server modules scaffolding
-
-| Command             | Scaffolding result        |
-| ------------------- | ------------------------- |
-| `npx sn p <name>` | **p**rovider              |
-| `npx sn i <name>` | **i**nfrastructure module |
-
-## UI modules scaffolding
-
-| Command             | Scaffolding result        |
-| ------------------- | ------------------------- |
-| `npx sn w <name>` | **w**idget                |
-| `npx sn lw <name>` | **l**ayouted **w**idget - widget with separated view layout |
-
 # 📚 Data flow schemas
 
 ## React query flow
@@ -391,3 +350,44 @@ A “Repository” is a specific design pattern for managing data. SpringNext pr
 │ Database │
 └──────────┘
 ```
+
+# 👓 CLI commands glossary
+
+## Initialization
+
+| Command         | Scaffolding result | Options                                                                                                       |
+| --------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| `npx sn init` | **init**ialization | pass `prismaClientPath:` to work with Prisma. E.g. `npx sn init prismaClientPath:@/generated/prisma/client` |
+
+## Complex scaffolding (multiple modules are scaffolded in one command)
+
+| Command                        | Scaffolding result                                                                                                                                                   |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npx sn crud-api <name>`     | CRUD via Server Actions and React Query hooks.                                                                                                                       |
+| `npx sn crud-service <name>` | CRUD via Server Actions (no Controllers, API Routes and React Query hooks).                                                                                          |
+| `npx sn se <name>`           | **s**tored **e**ntity: entity + store (contracts linked).                                                                                                            |
+| `npx sn rq`                  | API **r**outes and React **q**ueries for all of your controllers. This command will also remove endpoints which don't exist anymore with corresponding React query hooks |
+
+## Primary server modules scaffolding
+
+| Command              | Scaffolding result                                    | Options                                                                                                                                                                                                 |
+| -------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npx sn e <name>`  | **e**ntity                                            |                                                                                                                                                                                                         |
+| `npx sn vo <name>` | **v**alue **o**bject                                  |                                                                                                                                                                                                         |
+| `npx sn cs <name>` | **c**ustom **s**tore (all schemas are `z.object({})`) |                                                                                                                                                                                                         |
+| `npx sn s <name>`  | **s**ervice                                           | `i:UserStore,Logger` will automatically inject `UserStore` and `Logger`. E.g. `npx sn s shop i:UserStore,ProductStore` will create `ShopService` with already injected `UserStore` and `ProductStore` |
+| `npx sn c <name>`  | **c**ontroller                                        | `i:UserService` will automatically inject `UserService`. `Logger` and `Guards` are injected by default regardless of `i:` option                                                                        |
+
+## Auxiliary server modules scaffolding
+
+| Command             | Scaffolding result        |
+| ------------------- | ------------------------- |
+| `npx sn p <name>` | **p**rovider              |
+| `npx sn i <name>` | **i**nfrastructure module |
+
+## UI modules scaffolding
+
+| Command             | Scaffolding result        |
+| ------------------- | ------------------------- |
+| `npx sn w <name>` | **w**idget                |
+| `npx sn lw <name>` | **l**ayouted **w**idget - widget with separated view layout |
