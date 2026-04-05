@@ -1,3 +1,3 @@
-export { type Types } from './store.shared-models.utils'
-export * from './store.utils'
-export * from './store.ram.utils'
+export { type Types } from './store.shared-models'
+export * from './store'
+export * from './store.ram'

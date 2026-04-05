@@ -1,11 +1,11 @@
 import z from 'zod';
 import { Pagination } from '../value-objects/pagination.value-object';
-import type { CRUD, Types } from './store.shared-models.utils';
+import type { CRUD, Types } from './store.shared-models';
 import {
     type Contract,
     type Metadata,
     methods
-} from './store.utils';
+} from './store';
 
 export const InRAM = <T extends Metadata>(
     schemas: T,

@@ -11,7 +11,7 @@ import { Pagination } from '../value-objects/pagination.value-object';
 import { methods as moduleMethods } from '../module.utils';
 import type {
     CRUD,
-} from './store.shared-models.utils';
+} from './store.shared-models';
 
 type ZodSchema = ZodType;
 
