@@ -26,7 +26,7 @@ Safari may have issues — use Chrome for best experience.
 
 # ⏱️ TL;DR
 
-- Setup and initialize
+- Setup and initialize SpringNext
 - Run `npx sn crud-api user`
 - Tweak a few files
 
@@ -37,7 +37,7 @@ React query hooks usage:
 ```tsx
 'use client'
 
-// query hooks come in handy namespaces
+// scaffolded query hooks come in handy namespaces
 import { UserQueries } from '@/ui/shared/queries/user';
 
 export default function Page() {
@@ -70,7 +70,11 @@ export default async function Page() {
 }
 ```
 
-And, of course, you can define your own methods in stores, services, and controllers. Your controller methods will also be complemented with React Query hooks with just one CLI command!
+Want to add your own methods in services, controllers, or stores? Go ahead! React Query hooks are automatically generated for your controller methods with just one CLI command:
+
+```
+npx sn rq
+```
 
 # 🚀 Quick start with Prisma
 
