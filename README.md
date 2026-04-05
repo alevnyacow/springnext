@@ -121,61 +121,7 @@ Then tweak a few files:
 
 And after only one command and a few tweaks you have ready-to-use React Query hooks & Server Actions backend.
 
-## React query hooks architectural schema
-
-<p align="center">
-    <img src='https://raw.githubusercontent.com/alevnyacow/springnext/refs/heads/main/icons/react-schema.svg?sanitize=true'></img>
-</p>
-
-
-## Server actions architectural schema
-
-<p align="center">
-    <img src='https://raw.githubusercontent.com/alevnyacow/springnext/refs/heads/main/icons/server-actions-schema.svg?sanitize=true'></img>
-</p>
-
-# 👓 CLI commands glossary
-
-## Initialization
-
-| Command         | Scaffolding result | Options                                                                                                       |
-| --------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
-| `npx sn init` | **init**ialization | pass `prismaClientPath:` to work with Prisma. E.g. `npx sn init prismaClientPath:@/generated/prisma/client` |
-
-## Complex scaffolding
-
-| Command                        | Scaffolding result                                                                                                                                                   |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npx sn crud-api <name>`     | CRUD via Server Actions and React Query hooks.                                                                                                                       |
-| `npx sn crud-service <name>` | CRUD via Server Actions (no Controllers, API Routes and React Query hooks).                                                                                          |
-| `npx sn se <name>`           | **s**tored **e**ntity: entity + store (contracts linked).                                                                                                            |
-| `npx sn rq`                  | API **r**outes and React **q**ueries for all of your controllers. This command will also remove endpoints which don't exist anymore with corresponding React query hooks |
-
-## Primary server modules scaffolding
-
-| Command              | Scaffolding result                                    | Options                                                                                                                                                                                                 |
-| -------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npx sn e <name>`  | **e**ntity                                            |                                                                                                                                                                                                         |
-| `npx sn vo <name>` | **v**alue **o**bject                                  |                                                                                                                                                                                                         |
-| `npx sn cs <name>` | **c**ustom **s**tore (all schemas are `z.object({})`) |                                                                                                                                                                                                         |
-| `npx sn s <name>`  | **s**ervice                                           | `i:UserStore,Logger` will automatically inject `UserStore` and `Logger`. E.g. `npx sn s shop i:UserStore,ProductStore` will create `ShopService` with already injected `UserStore` and `ProductStore` |
-| `npx sn c <name>`  | **c**ontroller                                        | `i:UserService` will automatically inject `UserService`. `Logger` and `Guards` are injected by default regardless of `i:` option                                                                        |
-
-## Auxiliary server modules scaffolding
-
-| Command             | Scaffolding result        |
-| ------------------- | ------------------------- |
-| `npx sn p <name>` | **p**rovider              |
-| `npx sn i <name>` | **i**nfrastructure module |
-
-## UI modules scaffolding
-
-| Command             | Scaffolding result        |
-| ------------------- | ------------------------- |
-| `npx sn w <name>` | **w**idget                |
-| `npx sn lw <name>` | **l**ayouted **w**idget - widget with separated view layout |
-
-# How to implement your own methods
+# 🧙 Implementing your own methods
 
 ## Zod schemas (module contracts)
 
@@ -273,7 +219,109 @@ POST = this.endpoints('POST', async ({ id, delta }) => {
 
 Once you done implementing controller methods, just run `npx sn rq`. This command will generate up-to-date API routes and React Query hooks for all your controllers. You can call it also, for example, in a pre-commit hook so that your backend and frontend integration is always kept in sync.
 
-# FAQ
+# 👓 CLI commands glossary
+
+## Initialization
+
+| Command         | Scaffolding result | Options                                                                                                       |
+| --------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| `npx sn init` | **init**ialization | pass `prismaClientPath:` to work with Prisma. E.g. `npx sn init prismaClientPath:@/generated/prisma/client` |
+
+## Complex scaffolding (multiple modules are scaffolded in one command)
+
+| Command                        | Scaffolding result                                                                                                                                                   |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npx sn crud-api <name>`     | CRUD via Server Actions and React Query hooks.                                                                                                                       |
+| `npx sn crud-service <name>` | CRUD via Server Actions (no Controllers, API Routes and React Query hooks).                                                                                          |
+| `npx sn se <name>`           | **s**tored **e**ntity: entity + store (contracts linked).                                                                                                            |
+| `npx sn rq`                  | API **r**outes and React **q**ueries for all of your controllers. This command will also remove endpoints which don't exist anymore with corresponding React query hooks |
+
+## Primary server modules scaffolding
+
+| Command              | Scaffolding result                                    | Options                                                                                                                                                                                                 |
+| -------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npx sn e <name>`  | **e**ntity                                            |                                                                                                                                                                                                         |
+| `npx sn vo <name>` | **v**alue **o**bject                                  |                                                                                                                                                                                                         |
+| `npx sn cs <name>` | **c**ustom **s**tore (all schemas are `z.object({})`) |                                                                                                                                                                                                         |
+| `npx sn s <name>`  | **s**ervice                                           | `i:UserStore,Logger` will automatically inject `UserStore` and `Logger`. E.g. `npx sn s shop i:UserStore,ProductStore` will create `ShopService` with already injected `UserStore` and `ProductStore` |
+| `npx sn c <name>`  | **c**ontroller                                        | `i:UserService` will automatically inject `UserService`. `Logger` and `Guards` are injected by default regardless of `i:` option                                                                        |
+
+## Auxiliary server modules scaffolding
+
+| Command             | Scaffolding result        |
+| ------------------- | ------------------------- |
+| `npx sn p <name>` | **p**rovider              |
+| `npx sn i <name>` | **i**nfrastructure module |
+
+## UI modules scaffolding
+
+| Command             | Scaffolding result        |
+| ------------------- | ------------------------- |
+| `npx sn w <name>` | **w**idget                |
+| `npx sn lw <name>` | **l**ayouted **w**idget - widget with separated view layout |
+
+# Data flow schemas
+
+## React query flow
+```
+┌─────────┐
+│ Client  │  <-- React Components
+└────┬────┘
+     │ calls
+     ▼
+┌─────────────┐
+│ React Query │  <-- hooks generated by SpringNext
+└────┬────────┘
+     │ fetch/mutate
+     ▼
+┌────────────┐
+│ API Routes │  <-- Next.js API routes
+└────┬───────┘
+     │ invokes
+     ▼
+┌────────────┐
+│ Controller │  <-- handles HTTP request, calls services
+└────┬───────┘
+     │ calls
+     ▼
+┌─────────┐
+│ Service │  <-- business logic
+└────┬────┘
+     │ accesses
+     ▼
+┌────────┐
+│ Store  │  <-- in-memory / Prisma / custom store
+└────────┘
+     │ reads/writes
+     ▼
+┌──────────┐
+│ Database │
+└──────────┘
+```
+## Server actions flow
+
+```
+┌───────────────┐
+│ Server Action │  <-- 'use server' function in Next.js
+└────┬──────────┘
+     │ calls
+     ▼
+┌──────────┐
+│ Service  │  <-- business logic
+└────┬─────┘
+     │ accesses
+     ▼
+┌────────┐
+│ Store  │  <-- in-memory / Prisma / custom store
+└────┬───┘
+     │ reads/writes
+     ▼
+┌──────────┐
+│ Database │
+└──────────┘
+```
+
+# ❓ FAQ
 
 ## Why not use Nest or tRPC?
 
