@@ -68,8 +68,9 @@ export default async function Page() {
 
     /* ... */
 }
-
 ```
+
+And, of course, you can define your own methods in stores, services, and controllers. Your controller methods will also be complemented with React Query hooks with just one CLI command!
 
 # 🚀 Quick start with Prisma
 
