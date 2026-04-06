@@ -49,9 +49,28 @@ Everything is ready for your experiments there. Have fun!
 
 - [Install and set up SpringNext](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#setup)
 - Run `npx sn crud-api user`
+  
+This will instantly scaffold:
+
+```bash
+domain/entities/user # user entity
+
+server/
+  stores/user/... # user stores (contract, in-memory, prisma)
+  services/user/... # service
+  controllers/user/... # API controller
+
+app/api/user/... # api routes
+
+ui/shared/queries/user/... # react queries
+```
+
 - [Tweak a few files](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#describing-entity-and-stores)
 
-→ Backend + API + React Query hooks ready
+
+→ Backend + API + React Query hooks ready!
+
+Using React query hooks:
 
 ```tsx
 // scaffolded query hooks come in handy namespaces
