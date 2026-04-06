@@ -1,0 +1,1 @@
+export { withCode } from './errors'

@@ -25,6 +25,22 @@ export type ControllerErrorModel = ErrorBaseModel & {
     statusCode: number;
 };
 
+const isBaseError = (error: unknown): error is ErrorBaseModel => {
+    if (!error || typeof error !== 'object') {
+        return false;
+    }
+
+    const requiredKeys = [
+        'name',
+        'message',
+        'code',
+        'timestamp',
+    ];
+
+    const objKeys = Object.keys(error)
+    return requiredKeys.every((x) => objKeys.includes(x));
+}
+
 export const isControllerError = (error: unknown): error is ControllerErrorModel => {
     if (!error || typeof error !== 'object') {
         return false;
@@ -61,6 +77,14 @@ export const isModuleError = (arg: any): arg is ModuleErrorModel => {
     }
     return !argKeys.includes('statusCode');
 };
+
+export const withCode = (error: unknown, code: string) => {
+    if (!isBaseError(error)) {
+        return false;
+    }
+    
+    return error.code === code;
+}
 
 const spawnBaseError = ({
     error,
