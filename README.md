@@ -40,10 +40,10 @@ Everything is ready for your experiments there. Have fun!
 # ✨ Features
 
 - Structured, domain-focused architecture out of the box
+- End-to-end type safety from API to UI (powered by Zod)
 - Full-stack scaffolding in one command — you own every line of code (shadcn-style)
-- Built-in dependency injection powered by Inversify
-- In-memory + Prisma stores
-- Contract-first backend with Zod
+- Built-in zero-config dependency injection (powered by Inversify)
+- In-memory + Prisma store implementations out of the box
 
 # ⏱️ Quick Overview
 
