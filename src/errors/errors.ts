@@ -78,12 +78,12 @@ export const isModuleError = (arg: any): arg is ModuleErrorModel => {
     return !argKeys.includes('statusCode');
 };
 
-export const withCode = (error: unknown, code: string) => {
+export const withCode = <T extends Record<string, string>>(errors: T) => (codeKey: keyof T) => (error: unknown)  => {
     if (!isBaseError(error)) {
         return false;
     }
     
-    return error.code === code;
+    return error.code === errors[codeKey];
 }
 
 const spawnBaseError = ({
