@@ -1492,8 +1492,8 @@ if (command.toLowerCase() === 'crud-api') {
     process.exit(0)
 }
 
-function generateWidget(name, rootPath) {
-    const [lowerCase, upperCase] = camelizeVariants(name)
+function generateWidget(name, rootPath, componentName) {
+    const [lowerCase, upperCase] = camelizeVariants(componentName)
 
     const widgetsPath = config.paths.widgets
     const root = findProjectRoot()
@@ -1503,7 +1503,7 @@ function generateWidget(name, rootPath) {
 
     fs.writeFileSync(path.resolve(folder, `${name}.widget.tsx`), [
         `import { FC } from 'react'`,
-        `import styles from './${lowerCase}.widget.module.css'`,
+        `import styles from './${name}.widget.module.css'`,
         ``,
         `export type ${upperCase}WidgetProps = {}`,
         ``,
@@ -1528,11 +1528,11 @@ if (command === 'w') {
         entityName = splitData.pop()
         rootPath = splitData.join('/')
     }
-    generateWidget(entityName, rootPath)
+    generateWidget(entityName, rootPath, rootPath ? rootPath.split('/').join('-') + '-' + entityName : entityName)
 }
 
-function generateLayoutedWidget(name, rootPath) {
-    const [lowerCase, upperCase] = camelizeVariants(name)
+function generateLayoutedWidget(name, rootPath, componentName) {
+    const [lowerCase, upperCase] = camelizeVariants(componentName)
 
     const widgetsPath = config.paths.widgets
     const root = findProjectRoot()
@@ -1593,5 +1593,5 @@ if (command === 'lw') {
         entityName = splitData.pop()
         rootPath = splitData.join('/')
     }
-    generateLayoutedWidget(entityName, rootPath)
+    generateLayoutedWidget(entityName, rootPath, rootPath ? rootPath.split('/').join('-') + '-' + entityName : entityName)
 }
