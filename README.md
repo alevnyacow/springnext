@@ -83,3 +83,6 @@ Need more control? [Scaffold modules independently](https://github.com/alevnyaco
 - [⚙️ CLI commands glossary](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary)
 - [❓ FAQ](https://github.com/alevnyacow/springnext/wiki/FAQ)
 
+# 🪄 Live examples on StackBlitz 
+
+- [User management application](https://stackblitz.com/edit/springnext-example-user-management)
