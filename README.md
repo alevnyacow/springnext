@@ -73,7 +73,7 @@ const user1 = await userService.getDetails({
 })
 ```
 
-Need more control? [Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary).
+Need more control? [Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example).
 
 # 📚 Guides
 
