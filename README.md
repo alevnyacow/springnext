@@ -25,7 +25,7 @@ Many Next.js developers face a trade-off:
 
 And that’s before even thinking about architecture.
 
-`SpringNext` strikes that balance — generate a structured, domain-first backend, and React Query hooks in one command, while keeping **full** control over your code.
+**SpringNext** strikes that balance — generate a structured, domain-first backend, and React Query hooks in one command, while keeping **full** control over your code.
 
 **No runtime magic. No lock-in. Just code.**
 
