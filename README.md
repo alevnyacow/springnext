@@ -39,13 +39,28 @@ Everything is ready for your experiments there. Have fun!
 
 *Best experienced in Chrome. StackBlitz support in Safari may vary.*
 
-# ✨ Benefits
+# ✨ Why SpringNext Saves You Time
 
-- Structured, domain-focused architecture out of the box
-- End-to-end type safety from API to UI (powered by Zod)
-- Full-stack scaffolding in one command — you own every line of code (shadcn-style)
-- Built-in zero-config dependency injection (powered by Inversify)
-- In-memory + Prisma store implementations out of the box
+Imagine building a backend by hand:
+
+- Writing API routes for every entity  
+- Manually wiring services and controllers  
+- Creating typed React Query hooks from scratch  
+- Managing in-memory or database stores  
+
+⏱ This can take hours… or even days for multiple entities.
+
+---
+
+With SpringNext, you get all of this **in seconds**:
+
+- **Clean separation of services, controllers, and data layer** — no more dumping logic into /app/api  
+- **End-to-end type safety** — automatically typed API responses and React Query hooks  
+- **One-command full-stack scaffolding** — backend, API routes, React Query hooks, fully editable, no boilerplate
+- **Built-in dependency injection** — ready to use, no setup required  
+- **Ready-to-use in-memory and Prisma stores** — scaffolded CRUD works immediately  
+
+💡 Result: you own every line of code, keep full control, and ship faster than ever.
 
 # ⏱️ Quick Overview
 
