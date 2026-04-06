@@ -15,31 +15,10 @@
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
 
-Scaffold a fully-typed structured backend, API routes, and React Query hooks for Next.js in one CLI command. Clear separation of services, controllers, and data layer — no more dumping logic into /app/api!
+
+Scaffold a fully-typed structured backend, API routes, and React Query hooks for Next.js in one CLI command. Clear separation of services, controllers, and data layer — no more dumping logic into your `/app/api`!
 
 # 🔮 Motivation
-
-Many Next.js developers face a trade-off:
-
-- write everything by hand  
-- generate piles of code with LLMs  
-- or give up control to a framework  
-
-And that’s before even thinking about architecture.
-
-**SpringNext** strikes that balance — generate a structured, domain-first backend, and React Query hooks in one command, while keeping **full** control over your code. Fast enough for solo developers. Structured enough for teams.
-
-**No runtime magic. No lock-in. Just code.**
-
-# 🧪 Live playground
-
-https://stackblitz.com/edit/springnext-playground
-
-Everything is ready for your experiments there. Have fun!
-
-*Best experienced in Chrome. StackBlitz support in Safari may vary.*
-
-# ✨ Why SpringNext Saves You Time
 
 Imagine building a backend by hand:
 
@@ -50,9 +29,7 @@ Imagine building a backend by hand:
 
 ⏱ This can take hours… or even days for multiple entities.
 
----
-
-With SpringNext, you get all of this **in seconds**:
+With **SpringNext**, you get all of this literally in seconds:
 
 - **Clean separation of services, controllers, and data layer** — no more dumping logic into /app/api  
 - **End-to-end type safety** — automatically typed API responses and React Query hooks  
@@ -61,6 +38,16 @@ With SpringNext, you get all of this **in seconds**:
 - **Ready-to-use in-memory and Prisma stores** — scaffolded CRUD works immediately  
 
 💡 Result: you own every line of code, keep full control, and ship faster than ever.
+
+**No runtime magic. No lock-in. Just code.**
+
+# 🧪 Live playground
+
+https://stackblitz.com/edit/springnext-playground
+
+Everything is ready for your experiments there. Have fun!
+
+*Best experienced in Chrome. StackBlitz support in Safari may vary.*
 
 # ⏱️ Quick Overview
 
