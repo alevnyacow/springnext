@@ -7,13 +7,27 @@
 </p>
 
 <p align="center">
-    Works inside plain Next.js — no framework lock-in.
+    <b>Works inside plain Next.js — no framework lock-in.</b>
 </p>
 
 <p align="center">
   <a href="https://badge.fury.io/js/springnext" target="_blank"><img src='https://badge.fury.io/js/springnext.svg'></img></a>
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
+
+# 🔮 Motivation
+
+Many Next.js developers face a trade-off:
+
+- write everything by hand  
+- generate piles of code with LLMs  
+- or give up control to a framework  
+
+And that’s before even thinking about architecture.
+
+`SpringNext` strikes the balance — generate a structured, domain-first backend and React Query hooks in one command, while keeping full control over your code.
+
+**No runtime magic. No lock-in. Just code.**
 
 # 🧪 Live playground
 
@@ -23,15 +37,13 @@ Everything is ready for your experiments there. Have fun!
 
 *Best experienced in Chrome, Safari StackBlitz operability may vary.*
 
-# ✨ Why?
+# ✨ Features
 
-- Full-stack scaffolding in one command — you own every line of code (shadcn-style)
 - Structured, domain-focused architecture out of the box
+- Full-stack scaffolding in one command — you own every line of code (shadcn-style)
 - Built-in dependency injection powered by Inversify
 - In-memory + Prisma stores
-- Type-safe backend + React Query hooks
-- Contract-first with Zod
-- Works inside plain Next.js (no framework lock-in)
+- Contract-first backend with Zod
 
 # ⏱️ Quick Overview
 
