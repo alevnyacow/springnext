@@ -185,7 +185,6 @@ function initVO() {
     fs.mkdirSync(identifierFolder, { recursive: true })
 
     fs.writeFileSync(path.resolve(identifierFolder, 'identifier.value-object.ts'), [
-        "import { randomUUID } from 'node:crypto'",
         "import z from 'zod'",
         "",
         "export type IdentifierModel = z.infer<typeof Identifier.schema>",
@@ -197,10 +196,6 @@ function initVO() {
         "\t",
         "\tstatic create = (data: IdentifierModel) => {",
         "\t\treturn new Identifier(Identifier.schema.parse(data))",
-        "\t}",
-        "\t",
-        "\tstatic get randomUUID() {",
-        "\t\treturn Identifier.create(randomUUID())",
         "\t}",
         "\t",
         "\tget model(): IdentifierModel {",
