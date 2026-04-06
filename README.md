@@ -75,14 +75,11 @@ const user1 = await userService.getDetails({
 
 Need more control? [Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example).
 
-# 📚 Guides
+# 📚 Guides and documentation
 
 - [🚀 Quick start with Prisma](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma)
 - [🧙 Implementing your own methods in server modules](https://github.com/alevnyacow/springnext/wiki/Implementing-your-own-methods)
 - [📈 Data flow schemas](https://github.com/alevnyacow/springnext/wiki/Data-flow-schemas)
+- [⚙️ CLI commands glossary](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary)
 - [❓ FAQ](https://github.com/alevnyacow/springnext/wiki/FAQ)
 
-
-# ⚙️ Documentation
-
-- [CLI commands glossary](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary)
