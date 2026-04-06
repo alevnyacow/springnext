@@ -85,4 +85,4 @@ Need more control? [Scaffold modules independently](https://github.com/alevnyaco
 
 # 🪄 Live examples on StackBlitz 
 
-- [User management application](https://stackblitz.com/edit/springnext-example-user-management)
+- [User management application (CRUD-based)](https://stackblitz.com/edit/springnext-example-user-management)
