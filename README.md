@@ -35,9 +35,9 @@ Everything is ready for your experiments there. Have fun!
 
 # ⏱️ Quick Overview
 
-- Install and set up SpringNext
+- [Install and set up SpringNext](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#setup)
 - Run `npx sn crud-api user`
-- Tweak a few files
+- [Tweak a few files](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#describing-entity-and-stores)
 
 → Backend + API + React Query hooks ready
 
@@ -73,21 +73,7 @@ const user1 = await userService.getDetails({
 })
 ```
 
-Need more control? Scaffold modules independently:
-
-```bash
-# Scaffold Product entity and ProductStore
-npx sn se product
-# Scaffold OrderService with ProductStore injected
-npx sn s order i:ProductStore
-# Scaffold ShopController with OrderService injected
-npx sn c shop i:OrderService
-
-# Implement the required code in the scaffolded modules
-
-# Generate API routes and React Query hooks for all controllers
-npx sn rq
-```
+Need more control? [Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary).
 
 # 📚 Guides
 
