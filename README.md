@@ -27,19 +27,19 @@ Imagine building a backend by hand:
 - Creating typed React Query hooks from scratch  
 - Managing in-memory or database stores  
 
-This can take hours or even days for multiple entities. With **SpringNext**, you get all of this literally in seconds:
+⏰ This can take **hours or even days** for multiple entities.
 
-- Clean separation of services, controllers, and data layer — no more dumping logic into /app/api  
-- End-to-end type safety — automatically typed API responses and React Query hooks  
-- One-command full-stack scaffolding — backend, API routes, React Query hooks, fully editable, no boilerplate
-- Built-in dependency injection — ready to use, no setup required  
-- Ready-to-use in-memory and Prisma stores — scaffolded CRUD works immediately  
+With **SpringNext**, you get all of this **in seconds** and with just a few CLI commands. Plus, you get:
 
-💡 Result: you own every line of code, keep full control, and ship faster than ever.
+- ⚡ **Clean separation of services, controllers, and data layer** — no more dumping logic into `/app/api`  
+- 🔒 **End-to-end type safety** — automatically typed API responses and React Query hooks  
+- 🚀 **One-command full-stack scaffolding** — backend, API routes, and React Query hooks, fully editable, zero boilerplate  
+- 🔧 **Built-in dependency injection** — ready to use, no setup required  
+- 🗄️ **Ready-to-use in-memory & Prisma stores** — scaffolded CRUD works immediately  
 
-⏰ Build a backend in seconds, not hours — all fully typed and editable.
+💡 **Result:** you own every line of code, eliminate boilerplate, and ship faster than ever.
 
-⚡ **No runtime magic. No lock-in. Just code.**
+Build a backend in seconds, not hours — all fully typed and editable. **No runtime magic. No lock-in. Just code.**
 
 # 🧪 Live playground
 
