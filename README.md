@@ -35,8 +35,6 @@ Everything is ready for your experiments there. Have fun!
 
 # ⏱️ Quick Overview
 
-Scaffold a fully-typed backend + React Query layer for Next.js in one command.
-
 - Install and set up SpringNext
 - Run `npx sn crud-api user`
 - Tweak a few files
