@@ -37,7 +37,7 @@ Everything is ready for your experiments there. Have fun!
 
 *Best experienced in Chrome. StackBlitz support in Safari may vary.*
 
-# ✨ Features
+# ✨ Benefits
 
 - Structured, domain-focused architecture out of the box
 - End-to-end type safety from API to UI (powered by Zod)
