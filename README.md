@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-    Scaffold a fully-typed backend + React Query layer for Next.js in one command.
+    Next.js with Spring-level robustness and powerful scaffolding — no Java involved.
 </p>
 
 <p align="center">
-    Comes with DI, unified errors, in-memory stores, and endpoint guards out of the box.
+    Works inside plain Next.js — no framework lock-in.
 </p>
 
 <p align="center">
@@ -15,21 +15,38 @@
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
 
+# ✨ At a glance
+
+- Full-stack scaffolding in one command — you own every line of code (shadcn-style)
+- Structured, domain-driven architecture out of the box
+- Built-in dependency injection powered by Inversify
+- In-memory + Prisma stores
+- Type-safe backend + React Query hooks
+- Contract-first with Zod
+- Works inside plain Next.js (no framework lock-in)
+
 # 🧪 Live playground
 
 https://stackblitz.com/edit/springnext-playground
 
-*Safari may have issues — use Chrome for best experience.*
+*Best experienced in Chrome (Safari can be flaky).*
 
-# ⏱️ TL;DR
+# ⏱️ Quick Overview
 
-- Setup and initialize SpringNext
+Scaffold a fully-typed backend + React Query layer for Next.js in one command.
+
+- Install and set up SpringNext
 - Run `npx sn crud-api user`
 - Tweak a few files
 
 → Backend + API + React Query hooks ready
 
-React query hooks usage:
+```tsx
+// fully typed, end-to-end
+const { data } = UserQueries.useGET({ id: 'user-1' })
+```
+
+Using scaffolded hooks:
 
 ```tsx
 'use client'
@@ -67,13 +84,14 @@ export default async function Page() {
 }
 ```
 
-Want to add your own methods in services, controllers, or stores? Go ahead! React Query hooks are automatically generated for your controller methods with just one CLI command:
+Want to add your own methods in services, controllers, or stores? Go ahead! React Query hooks are automatically generated for all controller methods with just one CLI command:
 
-```
+```bash
+#rq stands for "routes and queries"
 npx sn rq
 ```
 
-Want to scaffold modules independently without CRUD boilerplate? SpringNext has you covered!
+Need more control? Scaffold modules independently:
 
 ```bash
 # Scaffold Product entity and ProductStore
@@ -202,7 +220,7 @@ foo = this.methods('foo', async ({ str }) => {
 Service methods can be used like a usual method of signature `(data: Request) => Promise<Response>`. E.g.
 
 ```ts
-const { num } = await someMethod.foo({ str: '25' })
+const { num } = await someService.foo({ str: '25' })
 ```
 
 ## Controllers
@@ -235,13 +253,13 @@ POST = this.endpoints('POST', async ({ id, delta }) => {
 
 ### React-queries and API routes
 
-Once you done implementing controller methods, just run `npx sn rq`. This command will generate up-to-date API routes and React Query hooks for all your controllers. You can call it also, for example, in a pre-commit hook so that your backend and frontend integration is always kept in sync.
+Once you're done implementing controller methods, just run `npx sn rq`. This command will generate up-to-date API routes and React Query hooks for all your controllers. You can also run it in a pre-commit hook so that your backend and frontend integration is always kept in sync.
 
 # ❓ FAQ
 
 ## Why not use Nest or tRPC?
 
-`SpringNext` combines the best of both worlds in one package while staying in plain Next.js:
+SpringNext takes inspiration from both, but focuses on a contract-first, scaffold-driven approach inside plain Next.js.
 
 | Feature                | SpringNext                                    | tRPC   | Nest                            |
 | ---------------------- | --------------------------------------------- | ------ | ------------------------------- |
@@ -261,7 +279,7 @@ SpringNext puts your business domain first. Entities drive the architecture, so 
 
 ## What does contract-first mean?
 
-The behavior of all server modules in SpringNext is governed by Zod schemas. Function signatures and entity contracts are derived from these schemas. There is also automatic runtime validation to ensure that all data — function arguments and entity models — conform to their schemas.
+All server modules are defined by Zod schemas. Function signatures and entity contracts are derived from them. There is also automatic runtime validation to ensure that all data — function arguments and entity models — conform to their schemas.
 
 ## Can I tweak scaffolded files?
 
