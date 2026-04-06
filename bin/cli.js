@@ -1523,7 +1523,7 @@ if (command === 'w') {
         entityName = splitData.pop()
         rootPath = splitData.join('/')
     }
-    generateWidget(entityName, rootPath, rootPath ? rootPath.split('/').join('-') + '-' + entityName : entityName)
+    generateWidget(entityName, rootPath, entityName)
 }
 
 function generateLayoutedWidget(name, rootPath, componentName) {
@@ -1588,5 +1588,5 @@ if (command === 'lw') {
         entityName = splitData.pop()
         rootPath = splitData.join('/')
     }
-    generateLayoutedWidget(entityName, rootPath, rootPath ? rootPath.split('/').join('-') + '-' + entityName : entityName)
+    generateLayoutedWidget(entityName, rootPath, entityName)
 }
