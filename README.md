@@ -35,7 +35,7 @@ https://stackblitz.com/edit/springnext-playground
 
 Everything is ready for your experiments there. Have fun!
 
-*Best experienced in Chrome, Safari StackBlitz operability may vary.*
+*Best experienced in Chrome. StackBlitz support in Safari may vary.*
 
 # ✨ Features
 
