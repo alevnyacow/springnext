@@ -106,6 +106,23 @@ const user1 = await userService.getDetails({
 
 Need more control? [Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example).
 
+# ❓ Why not use Nest or tRPC instead?
+
+SpringNext takes inspiration from both, but focuses on a contract-first, scaffold-driven approach inside plain Next.js.
+
+| Feature                | SpringNext                                    | tRPC   | Nest                            |
+| ---------------------- | --------------------------------------------- | ------ | ------------------------------- |
+| Architecture           | domain-focused, contract-first                | ❌      | module-centric, tightly coupled |
+| Learning curve         | Medium                                        | Low    | High                            |
+| Type safety            | ✅  - including run-time checks out of the box | ✅      | ⚠️                               |
+| Scaffolding            | ✅  - production-ready full-stack              | ❌      | ⚠️                               |
+| Boilerplate            | ✅ - Low                                       | ✅      | ⚠️                        |
+| No framework lock-in   | ✅                                             | ✅      | ❌                               |
+| Single source of truth | ✅ (schemas)                                   | ⚠️      | ⚠️                               |
+| Code ownership         | ✅ full (generated, editable)                  | ✅      | ⚠️ (framework patterns)          |
+
+
+
 # 📚 Guides and documentation
 
 - [🚀 Quick start with Prisma](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma)
