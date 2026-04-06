@@ -15,7 +15,7 @@
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
 
-Scaffold a fully-typed structured backend, API routes, and React Query hooks for Next.js in one CLI command. Clear separation of services, controllers, and data layer (no more dumping logic into /app/api).
+Scaffold a fully-typed structured backend, API routes, and React Query hooks for Next.js in one CLI command. Clear separation of services, controllers, and data layer — no more dumping logic into /app/api!
 
 # 🔮 Motivation
 
