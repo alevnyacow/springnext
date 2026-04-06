@@ -37,7 +37,9 @@ This can take hours or even days for multiple entities. With **SpringNext**, you
 
 💡 Result: you own every line of code, keep full control, and ship faster than ever.
 
-**No runtime magic. No lock-in. Just code.**
+⏰ Build a backend in seconds, not hours — all fully typed and editable.
+
+⚡ **No runtime magic. No lock-in. Just code.**
 
 # 🧪 Live playground
 
