@@ -16,7 +16,7 @@
 </p>
 
 
-Scaffold a fully-typed structured backend, API routes, and React Query hooks for Next.js in one CLI command. Clear separation of services, controllers, and data layer — no more dumping logic into your `/app/api`!
+Scaffold a fully-typed structured backend, API routes, and React Query hooks for Next.js in one CLI command.
 
 # 🔮 Motivation
 
@@ -27,9 +27,7 @@ Imagine building a backend by hand:
 - Creating typed React Query hooks from scratch  
 - Managing in-memory or database stores  
 
-⏱ This can take hours… or even days for multiple entities.
-
-With **SpringNext**, you get all of this literally in seconds:
+This can take hours or even days for multiple entities. With **SpringNext**, you get all of this literally in seconds:
 
 - **Clean separation of services, controllers, and data layer** — no more dumping logic into /app/api  
 - **End-to-end type safety** — automatically typed API responses and React Query hooks  
