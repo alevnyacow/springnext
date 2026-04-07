@@ -60,6 +60,14 @@ type EndpointErrorGenerator = (
     cause?: unknown
 ) => ControllerErrorModel;
 
+/**
+ * Endpoint guard.
+ * 
+ * Guards are executed before the endpoint handler. If a guard throws an error,
+ * the request is interrupted and the handler will not be executed.
+ * 
+ * Useful for user checks, role checks, etc.
+ */
 export type Guard = (payload: {
     request: NextRequest;
     endpointError: EndpointErrorGenerator;
