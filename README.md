@@ -98,7 +98,7 @@ const { data } = UserQueries.useGET({ id: 'user-1' })
 
 ## Using scaffolded modules Server Actions via DI
 
-During initialization, SpringNext generates code for the DI containers. By default, there are three containers available: `test`, `dev`, and `production`. The active container is determined by the `process.env.NODE_ENV` environment variable. All entries are automatically registered in /backend/di/entries.di.ts. This is simply a convenient facade over InversifyJS — you retain full control over the code, so you can easily modify the DI behavior if needed.
+During initialization, SpringNext generates code for the DI containers. By default, there are three containers available: `test`, `dev`, and `production`. The active container is determined by the `process.env.NODE_ENV` environment variable. All scaffolded entries are automatically registered in /backend/di/entries.di.ts. This is simply a convenient facade over InversifyJS — you retain full control over the code, so you can easily modify the DI behavior if needed.
 
 Additionally, during initialization, SpringNext scaffolds a `fromDI` function, which can be called from anywhere in your server code. It returns an instance of the requested module.
 
