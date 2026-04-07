@@ -162,7 +162,6 @@ SpringNext takes inspiration from both, but focuses on a contract-first, scaffol
 - non-Next.js stacks
 - if you prefer runtime-driven frameworks like NestJS
 
-
 # 🪄 Live examples on StackBlitz 
 
 - [User management application (CRUD-based)](https://stackblitz.com/edit/springnext-example-user-management)
