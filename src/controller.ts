@@ -457,8 +457,19 @@ type SchemaShape = {
     response?: unknown;
 };
 
+/**
+ * Controller metadata. Used to describe a controller.
+ */
 export type Metadata<T = Schemas> = {
+    /**
+     * Used in errors.
+     */
     name: string;
+    /** 
+     * Used in endpoints contracts and for runtime type validation. 
+     * 
+     * To define a schema you need to define its optional `query`, optional `body`, and `response` schemas using Zod.
+     */
     schemas: T;
 };
 
