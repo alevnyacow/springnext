@@ -16,7 +16,7 @@ type Schemas = Record<
 >;
 
 /**
- * Module metadata. Used to describe server module.
+ * Module metadata. Used to describe a server module.
  */
 export type Metadata = {
     /**
