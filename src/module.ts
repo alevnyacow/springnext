@@ -44,6 +44,11 @@ export type DTOs<T extends Metadata> = {
     >;
 };
 
+/**
+ * Module method list.
+ * 
+ * Useful for `implements` clause in a module class.
+ */
 export type Methods<T extends Metadata> = {
     [K in keyof T['schemas']]: (
         payload: z.infer<T['schemas'][K]['payload']>
