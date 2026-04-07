@@ -118,11 +118,6 @@ SpringNext comes with zero-config DI, working out of the box. Use `fromDI` metho
 import { fromDI } from '@/server/di'
 import type { UserService } from '@/server/services/user'
 
-/**
- * FYI: `fromDI` string argument is strongly typed and
- * this type automatically updates after you scaffold
- * anything. Cool, right?
- */ 
 const userService = fromDI<UserService>('UserService')
 
 const user1 = await userService.getDetails({ 
