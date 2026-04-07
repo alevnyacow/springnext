@@ -86,6 +86,9 @@ export type Metadata = {
     >;
 };
 
+/**
+ * Store contract from metadata.
+ */
 export type Contract<
     Schemas extends {
         models: {
