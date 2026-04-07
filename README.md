@@ -127,7 +127,7 @@ At the same time, if the default behavior works for you (which is the case 99% o
 
 ## Need more control?
 
-[Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example).
+[Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example), and feel free to implement your own logic, supercharged by runtime type checks and React query hooks, generating with one CLI command!
 
 # 📚 Guides and documentation
 
