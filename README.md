@@ -75,7 +75,7 @@ This will instantly scaffold:
 
 ### 3. Describe your entity and stores
 
-It only takes a few files tweak. 
+It only requires a few file tweaks:
 
 - `/domain/entities/user/user.entity.ts` → entity schema
 - `/server/stores/user/user.store.ts` → store schemas (if default schemas do not fit your needs)
