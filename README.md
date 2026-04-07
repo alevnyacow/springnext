@@ -18,6 +18,16 @@
 
 Scaffold a fully-typed structured backend, API routes, and React Query hooks for Next.js in one CLI command.
 
+# 🧠  What is SpringNext?
+
+SpringNext is a CLI code generator + conventions layer for Next.js with a ton of useful zero-config infrastructure like DI, handy API controllers, in-memory and Prisma stores. 
+
+It does NOT:
+- introduce a runtime framework
+- replace Next.js routing
+- hide your code behind abstractions
+
+
 # 🔮 Motivation
 
 Imagine building a backend by hand:
@@ -37,9 +47,9 @@ And this is where SpringNext comes in — to give you fast delivery while keepin
 - 🔧 **Built-in dependency injection** — ready to use, no setup required  
 - 🗄️ **Ready-to-use in-memory & Prisma stores** — scaffolded CRUD works immediately  
 
-💡 **Result:** you own every line of code, eliminate boilerplate, and ship faster than ever.
+💡 **Result:** you own every line of code, eliminate boilerplate, and focus on your business logic.
 
-Build a backend in seconds, not hours — all fully typed and editable. **No runtime magic. No lock-in. Just code.**
+Wire a backend in seconds, not hours — all fully typed and editable. **No runtime magic. No lock-in. Just code.**
 
 # 🧪 Live playground
 
@@ -51,11 +61,13 @@ Everything is ready for your experiments there. Have fun!
 
 # ⏱️ Quick Overview
 
-## 1. Install and set up SpringNext
+## Scaffolding full working CRUD with React Queries
+
+### 1. Install and set up SpringNext
 
 [Quick start with Prisma guide.](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#setup)
 
-## 2. Scaffold full CRUD for `User` entity
+### 2. Scaffold full CRUD for `User` entity
 
 Run `npx sn crud-api user`
   
@@ -68,21 +80,27 @@ This will instantly scaffold:
 - `/app/api`/user/...
 - /ui/shared/`queries`/user/...
 
-## 3. Describe your entity and stores
+### 3. Describe your entity and stores
 
 It only takes a few files tweak. [Guide.](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#describing-entity-and-stores)
 
-## → Backend + API + React Query hooks ready!
+→ Backend + API + React Query hooks ready!
 
-Using React query hooks:
+## Using scaffolded queries
+
+Scaffolded query hooks come in handy namespaces and fully-typed, end-to-end.
 
 ```tsx
-// scaffolded query hooks come in handy namespaces
 import { UserQueries } from '@/ui/shared/queries/user';
 
-// fully typed, end-to-end
 const { data } = UserQueries.useGET({ id: 'user-1' })
 ```
+
+## Using scaffolded modules Server Actions via DI
+
+During initialization, SpringNext generates code for the DI containers. By default, there are three containers available: `test`, `dev`, and `production`. The active container is determined by the `process.env.NODE_ENV` environment variable. All entries are automatically registered in /backend/di/entries.di.ts. This is simply a convenient facade over InversifyJS — you retain full control over the code, so you can easily modify the DI behavior if needed.
+
+Additionally, during initialization, SpringNext scaffolds a `fromDI` function, which can be called from anywhere in your server code. It returns an instance of the requested module.
 
 Scaffolded services can be directly used in Server Actions:
 
@@ -120,16 +138,22 @@ const user1 = await userService.getDetails({
 
 SpringNext takes inspiration from both, but focuses on a contract-first, scaffold-driven approach inside plain Next.js.
 
-| Feature                | SpringNext                                    | tRPC   | Nest                            |
-| ---------------------- | --------------------------------------------- | ------ | ------------------------------- |
-| Architecture           | domain-focused, contract-first                | ❌      | module-centric, tightly coupled |
-| Learning curve         | Medium                                        | Low     | High                            |
-| Type safety            | ✅  - including run-time checks out of the box | ✅      | ⚠️                               |
-| Scaffolding            | ✅  - production-ready full-stack              | ❌      | ⚠️                               |
-| Boilerplate            | ✅ - Low                                       | ✅      | ⚠️                        |
-| No framework lock-in   | ✅                                             | ✅      | ❌                               |
-| Single source of truth | ✅ (schemas)                                   | ⚠️      | ⚠️                               |
-| Code ownership         | ✅ full (generated, editable)                  | ✅      | ⚠️ (framework patterns)          |
+| Feature                | SpringNext                          | tRPC                    | Nest                        |
+|------------------------|-------------------------------------|--------------------------|----------------------------|
+| Architecture           | Contract-first (schema-driven)      | Procedure-based          | Module-based               |
+| Learning curve         | Medium                              | Low                      | High                       |
+| Type safety            | End-to-end + runtime validation     | End-to-end               | Partial                    |
+| Scaffolding            | Full-stack (API + backend + hooks)  | None                     | Partial (CLI generators)   |
+| Boilerplate            | Low (generated code)                | Low                      | Medium                     |
+| Framework lock-in      | None                                | None                     | Moderate                   |
+| Single source of truth | Yes (schemas)                       | Partial                  | Partial                    |
+| Code ownership         | Full (generated, editable)          | Full                     | Partial (framework-driven) |
+
+# 🚫 When not to use
+
+- very small projects (overhead may not be worth it)
+- non-Next.js stacks
+- if you prefer runtime-driven frameworks like NestJS
 
 
 # 🪄 Live examples on StackBlitz 
