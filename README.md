@@ -128,7 +128,6 @@ During initialization, SpringNext generates code for the DI containers. By defau
 
 At the same time, if the default behavior works for you (which is the case 99% of the time), you can simply use the scaffolder and the `fromDI` function without worrying about the technical implementation details.
 
-
 ## Need more control?
 
 [Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example).
