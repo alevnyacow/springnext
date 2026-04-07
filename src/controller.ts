@@ -485,10 +485,20 @@ type ZodAPIMethod<
     error: ErrorResponse;
 };
 
+/**
+ * Controller contract from metadata and optional custom models.
+ */
 export type Contract<
+    /**
+     * Metadata.
+     */
     Metadata extends {
         schemas: Record<string, SchemaShape>;
     },
+    /**
+     * Optional custom models. If passed, will be accessible in contract.
+     * Useful for sharing some custom DTOs with client. 
+     */
     CustomModels extends Record<string, unknown> | undefined = undefined
 > = {
     endpoints: {
