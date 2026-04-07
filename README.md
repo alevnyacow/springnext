@@ -123,7 +123,7 @@ SpringNext takes inspiration from both, but focuses on a contract-first, scaffol
 | Feature                | SpringNext                                    | tRPC   | Nest                            |
 | ---------------------- | --------------------------------------------- | ------ | ------------------------------- |
 | Architecture           | domain-focused, contract-first                | ❌      | module-centric, tightly coupled |
-| Learning curve         | Medium                                        | Low    | High                            |
+| Learning curve         | Medium                                        | Low     | High                            |
 | Type safety            | ✅  - including run-time checks out of the box | ✅      | ⚠️                               |
 | Scaffolding            | ✅  - production-ready full-stack              | ❌      | ⚠️                               |
 | Boilerplate            | ✅ - Low                                       | ✅      | ⚠️                        |
