@@ -30,20 +30,56 @@ type ActionsPayload<Create, Update> = {
     update: Update;
 };
 
+/**
+ * Store metadata.
+ */
 export type Metadata = {
+    /**
+     * Used in errors.
+     */
     name: string;
+    /**
+     * Entity models description.
+     */
     models: {
+        /**
+         * List model (array of this entities will be returned from `list` method).
+         */
         list: ZodSchema;
+        /**
+         * Details model (this model will be returned from `details` method).
+         */
         details: ZodSchema;
     };
+    /**
+     * Search filters.
+     */
     searchPayload: {
+        /**
+         * How to filter a list of entities.
+         */
         list: ZodSchema;
+        /**
+         * How to find a specific entity.
+         */
         specific: ZodSchema;
     };
+    /**
+     * Actions payload.
+     */
     actionsPayload: {
+        /**
+         * What is needed to create an entity.
+         */
         create: ZodSchema;
+        /**
+         * What is needed to update an entity (only update payload, filters are defined in `searchPayload`).
+         */
         update: ZodSchema;
     };
+    /**
+     * Store custom operations. To define one, you need to define `payload` and `response` with Zod schemas.
+     */
     customOperations?: Record<
         string,
         { payload: ZodSchema; response: ZodSchema }
