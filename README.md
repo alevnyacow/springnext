@@ -15,9 +15,6 @@
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
 
-
-Scaffold a fully-typed structured backend, API routes, and React Query hooks for Next.js in one CLI command.
-
 # 🧠  What is SpringNext?
 
 SpringNext is a CLI code generator + conventions layer for Next.js with a ton of useful zero-config infrastructure like DI, handy API controllers, in-memory and Prisma stores. 
