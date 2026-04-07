@@ -140,6 +140,12 @@ export type SharedConfig = Partial<{
     onErrorHandlers?: Array<OnErrorHandler>;
 }>;
 
+/**
+ * Endpoint handlers from metadata.
+ * 
+ * @param metadata Controller metadata.
+ * @param sharedConfig Shared configs for controller endpoints.
+ */
 export const endpoints = <T extends Schemas>(
     metadata: {
         schemas: T;
