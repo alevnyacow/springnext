@@ -63,8 +63,8 @@ type EndpointErrorGenerator = (
 /**
  * Endpoint guard.
  * 
- * Guards are executed before the endpoint handler. If a guard throws an error,
- * the request is interrupted and the handler will not be executed.
+ * Guards are executed before the endpoint handler. If a guard returns an error,
+ * this error is thrown, the request is interrupted and the handler will not be executed.
  * 
  * Useful for user checks, role checks, etc.
  */
