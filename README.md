@@ -24,7 +24,6 @@ It does **NOT**:
 - replace Next.js routing
 - requires learning a lot of new complex abstractions.
 
-
 # 🔮 Motivation
 
 Imagine building a backend by hand:
