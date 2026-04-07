@@ -24,8 +24,17 @@ function jsonResponse<T>(data: T, init?: ResponseInit) {
   })
 }
 
+/**
+ * Default NextSpring controller error codes.
+ */
 export enum DefaultErrorCodes {
+    /**
+     * Request did not meet Zod schema.
+     */
     REQUEST_PARSING = 'SPRINGNEXT-CONTROLLER___REQUEST-PARSING',
+    /**
+     * Response did not meet Zod schema.
+     */
     RESPONSE_PARSING = 'SPRINGNEXT-CONTROLLER___RESPONSE-PARSING'
 }
 
