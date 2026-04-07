@@ -51,22 +51,28 @@ Everything is ready for your experiments there. Have fun!
 
 # ⏱️ Quick Overview
 
-1. [Install and set up SpringNext](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#setup)
-2. Run `npx sn crud-api user`
+## 1. Install and set up SpringNext
+
+[Quick start with Prisma guide.](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#setup)
+
+## 2. Scaffold full CRUD for `User` entity
+
+Run `npx sn crud-api user`
   
 This will instantly scaffold:
 
-- domain/`entities`/user/...
-- server/`stores`/user/...  (contract, in-memory, prisma)
-- server/`services`/user/...
-- server/`controllers`/user/...
-- `app/api`/user/...
-- ui/shared/`queries`/user/...
+- /domain/`entities`/user/...
+- /server/`stores`/user/...  (contract, in-memory, prisma)
+- /server/`services`/user/...
+- /server/`controllers`/user/...
+- `/app/api`/user/...
+- /ui/shared/`queries`/user/...
 
-3. [Tweak a few files](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#describing-entity-and-stores)
+## 3. Describe your entity and stores
 
+It only takes a few files tweak. [Guide.](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#describing-entity-and-stores)
 
-→ Backend + API + React Query hooks ready!
+## → Backend + API + React Query hooks ready!
 
 Using React query hooks:
 
@@ -98,7 +104,9 @@ const user1 = await userService.getDetails({
 })
 ```
 
-Need more control? [Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example).
+## Need more control?
+
+[Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example).
 
 # ❓ Why not use Nest or tRPC instead?
 
