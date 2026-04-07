@@ -17,7 +17,7 @@
 
 # 🧠  What is SpringNext?
 
-SpringNext is a CLI code generator + conventions layer for Next.js with a ton of useful zero-config infrastructure like DI, handy API controllers, in-memory and Prisma stores. 
+SpringNext is a CLI code generator + conventions layer for Next.js with a ton of useful zero-config infrastructure like DI, unified errors, handy API controllers, in-memory and Prisma stores. 
 
 It does **NOT**:
 - introduce a runtime framework
