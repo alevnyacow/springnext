@@ -83,6 +83,11 @@ export type OnErrorHandler = (request: {
     req: NextRequest;
 }) => Promise<void>;
 
+/**
+ * List of abstract endpoints for controller. 
+ * 
+ * Useful for `implements` checks in controller class.
+ */
 export type EndpointList<T extends Metadata> = {
     [K in keyof T['schemas']]: (request: NextRequest) => Promise<ReturnType<typeof jsonResponse>>;
 };
