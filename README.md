@@ -115,8 +115,6 @@ SpringNext takes inspiration from both, but focuses on a contract-first, scaffol
 | Single source of truth | ✅ (schemas)                                   | ⚠️      | ⚠️                               |
 | Code ownership         | ✅ full (generated, editable)                  | ✅      | ⚠️ (framework patterns)          |
 
-
-
 # 📚 Guides and documentation
 
 - [🚀 Quick start with Prisma](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma)
