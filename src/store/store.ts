@@ -137,6 +137,11 @@ export type Contract<
           }
         : {});
 
+/**
+ * Map store metadata to module metadata.
+ * 
+ * @param schemas Store schemas
+ */
 export const toModuleMetadata = <
     Schemas extends {
         models: {
