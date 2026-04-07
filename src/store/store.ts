@@ -302,6 +302,9 @@ export const toModuleMetadata = <
     };
 };
 
+/**
+ * Module methods from store metadata.
+ */
 export const methods = <T extends Metadata>(
     schemas: T
 ) => {
