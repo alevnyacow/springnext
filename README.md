@@ -43,7 +43,7 @@ Imagine building a backend by hand:
 
 This can take **hours or even days** for multiple entities. So, if we don’t want to write all of this manually, we have two options: either trust an LLM to write the code, or rely on some framework to control execution — thereby increasing complexity and the number of abstractions.
 
-And this is where SpringNext comes in — to give you fast delivery while keeping full control over your code and its maintainability. And most importantly, *to preserve the joy of programming*! With SpringNext scaffolder, you get all backend modules and React Query hooks **in seconds** and with just a few CLI commands. Plus, you get:
+And this is where SpringNext comes in — to give you fast delivery while keeping full control over your code and its maintainability. And most importantly, *to preserve the joy of programming!* With SpringNext scaffolder, you get all backend modules and React Query hooks **in seconds** and with just a few CLI commands. Plus, you get:
 
 - ⚡ **Clean separation of services, controllers, and data layer** — no more dumping logic into `/app/api`  
 - 🔒 **End-to-end type safety** — automatically typed API responses and React Query hooks  
