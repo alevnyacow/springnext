@@ -96,7 +96,7 @@ import { UserQueries } from '@/ui/shared/queries/user';
 const { data } = UserQueries.useGET({ id: 'user-1' })
 ```
 
-## Using scaffolded modules Server Actions via DI
+## Using scaffolded modules in Server Actions via DI
 
 ### TL;DR
 
