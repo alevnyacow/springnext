@@ -54,6 +54,12 @@ export type Config = {
     onError?: (e: ModuleErrorModel) => Promise<void>;
 };
 
+/**
+ * Module method handlers from metadata.
+ * 
+ * @param metadata Module metadata.
+ * @param sharedConfig Module methods shared config.
+ */
 export const methods =
     <T extends Schemas>(
         metadata: { schemas: T; name: string },
