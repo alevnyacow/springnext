@@ -9,10 +9,10 @@ import {
 
 /**
  * 
- * @param schemas Required store schemas
- * @param options Override default rules with this object (optional)
+ * @param schemas Required store schemas.
+ * @param options Override default rules with this object (optional).
  * 
- * @returns Class with in-memory CRUD logic
+ * @returns Class with in-memory CRUD logic,
  * 
  * @example
  * ```
