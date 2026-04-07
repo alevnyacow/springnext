@@ -19,11 +19,17 @@ export class Pagination {
 
     private constructor(private readonly data: PaginationModel) {}
 
+    /**
+     * Domain logic-safe Pagination creating.
+     */
     static create = (data: PaginationModel) => {
         const parsedModel = Pagination.schema.parse(data);
         return new Pagination(parsedModel);
     };
 
+    /**
+     * Pagination model.
+     */
     get model(): PaginationModel {
         return this.data;
     }
