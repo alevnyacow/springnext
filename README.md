@@ -79,7 +79,11 @@ This will instantly scaffold:
 
 ### 3. Describe your entity and stores
 
-It only takes a few files tweak. [Guide.](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#describing-entity-and-stores)
+It only takes a few files tweak. 
+
+- `/domain/entities/user/user.entity.ts` → entity schema
+- `/server/stores/user/user.store.ts` → store schemas (if default schemas do not fit your needs)
+- `/server/stores/user/user.store.prisma.ts` → map `UserStore` contracts to Prisma client contracts
 
 → Backend + API + React Query hooks ready!
 
