@@ -24,6 +24,14 @@ It does **NOT**:
 - replace Next.js routing
 - requires learning a lot of new complex abstractions.
 
+# 🧪 Live playground
+
+https://stackblitz.com/edit/springnext-playground
+
+Everything is ready for your experiments there. Have fun!
+
+*Best experienced in Chrome. StackBlitz support in Safari may vary.*
+
 # 🔮 Motivation
 
 Imagine building a backend by hand:
@@ -46,14 +54,6 @@ And this is where SpringNext comes in — to give you fast delivery while keepin
 💡 **Result:** you own every line of code, eliminate boilerplate, and focus on your business logic.
 
 Wire a backend in seconds, not hours — all fully typed and editable. **No runtime magic. No lock-in. Just code.**
-
-# 🧪 Live playground
-
-https://stackblitz.com/edit/springnext-playground
-
-Everything is ready for your experiments there. Have fun!
-
-*Best experienced in Chrome. StackBlitz support in Safari may vary.*
 
 # ⏱️ Quick Overview
 
