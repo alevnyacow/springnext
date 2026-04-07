@@ -16,13 +16,18 @@ type Schemas = Record<
 >;
 
 /**
- * Module metadata. Consists of a name and method schemas.
- * 
- * The name is used in error messages. Schemas are used in method contracts
- * and for runtime type validation. Schemas are defined using Zod.
+ * Module metadata. Used to describe server module.
  */
 export type Metadata = {
+    /**
+     * Used in errors.
+     */
     name: string;
+    /** 
+     * Used in method contracts and for runtime type validation. 
+     * 
+     * To define a schema you need to define its `payload` and `response` using Zod.
+     */
     schemas: Schemas;
 };
 
