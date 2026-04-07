@@ -52,13 +52,19 @@ And this is where SpringNext comes in — to give you fast delivery while keepin
 
 Wire a backend in seconds, not hours — all fully typed and editable. **No runtime magic. No lock-in. Just code.**
 
-# ⏱️ Quick Overview
+# ⏱️ Quick Start
 
 ## Scaffolding full working CRUD with React Queries
 
 ### 1. Install and set up SpringNext
 
-[Quick start with Prisma guide.](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#setup)
+```bash
+# install SpringNext with peer dependencies
+npm i inversify zod reflect-metadata springnext
+
+# initialize SpringNext with absolute prisma client path
+npx sn init prismaClientPath:@/generated/prisma/client
+```
 
 ### 2. Scaffold full CRUD for `User` entity
 
