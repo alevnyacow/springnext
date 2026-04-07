@@ -108,6 +108,14 @@ const user1 = await userService.getDetails({
 
 [Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example).
 
+# 📚 Guides and documentation
+
+- [🚀 Quick start with Prisma](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma)
+- [🧙 Implementing your own methods in server modules](https://github.com/alevnyacow/springnext/wiki/Implementing-your-own-methods)
+- [📈 Data flow schemas](https://github.com/alevnyacow/springnext/wiki/Data-flow-schemas)
+- [⚙️ CLI commands glossary](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary)
+- [❓ FAQ](https://github.com/alevnyacow/springnext/wiki/FAQ)
+
 # ❓ Why not use Nest or tRPC instead?
 
 SpringNext takes inspiration from both, but focuses on a contract-first, scaffold-driven approach inside plain Next.js.
@@ -123,13 +131,6 @@ SpringNext takes inspiration from both, but focuses on a contract-first, scaffol
 | Single source of truth | ✅ (schemas)                                   | ⚠️      | ⚠️                               |
 | Code ownership         | ✅ full (generated, editable)                  | ✅      | ⚠️ (framework patterns)          |
 
-# 📚 Guides and documentation
-
-- [🚀 Quick start with Prisma](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma)
-- [🧙 Implementing your own methods in server modules](https://github.com/alevnyacow/springnext/wiki/Implementing-your-own-methods)
-- [📈 Data flow schemas](https://github.com/alevnyacow/springnext/wiki/Data-flow-schemas)
-- [⚙️ CLI commands glossary](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary)
-- [❓ FAQ](https://github.com/alevnyacow/springnext/wiki/FAQ)
 
 # 🪄 Live examples on StackBlitz 
 
