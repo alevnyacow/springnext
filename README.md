@@ -22,7 +22,7 @@ SpringNext is a CLI code generator + conventions layer for Next.js with a ton of
 It does **NOT**:
 - introduce a runtime framework
 - replace Next.js routing
-- requires learning yet another framework with a lot of its own abstractions.
+- requires learning a lot of new complex abstractions.
 
 
 # 🔮 Motivation
