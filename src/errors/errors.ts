@@ -78,6 +78,32 @@ export const isModuleError = (arg: any): arg is ModuleErrorModel => {
     return !argKeys.includes('statusCode');
 };
 
+/**
+ * Checks if target is an error with a provided code.
+ * 
+ * @example 
+ * ```
+ * import { Errors } from 'springnext'
+ * 
+ * enum DummyErrors {
+ *    test = "DUMMY_TEST",
+ *    test2 = "DUMMY_TEST2"
+ * }
+ * 
+ * const withDummyCode = Errors.withCode(DummyErrors)
+ * 
+ * try {
+ *     ...
+ * } 
+ * catch (e: unknown) {
+ *     const isDummyTest = withDummyCode('test')(e)
+ *     const isDummyTest2 = withDummyCode('test2')(e)
+ * }
+ * ```
+ * 
+ * @param errors Errors container (string enum or strictly typed object)
+ * @returns 
+ */
 export const withCode = <T extends Record<string, string>>(errors: T) => (codeKey: keyof T) => (error: unknown)  => {
     if (!isBaseError(error)) {
         return false;
