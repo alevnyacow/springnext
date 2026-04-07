@@ -27,9 +27,9 @@ Imagine building a backend by hand:
 - Creating typed React Query hooks from scratch  
 - Managing in-memory or database stores  
 
-⏰ This can take **hours or even days** for multiple entities.
+This can take **hours or even days** for multiple entities. So, if we don’t want to write all of this manually, we have two options: either trust an LLM to write the code, or rely on some framework to control execution — thereby increasing complexity and the number of abstractions.
 
-With **SpringNext**, you get all of this **in seconds** and with just a few CLI commands. Plus, you get:
+And this is where SpringNext comes in — to give you fast delivery while keeping full control over your code and its maintainability. And most importantly, to preserve the joy of programming! With SpringNext scaffolder, you get all backend modules and React Query hooks **in seconds** and with just a few CLI commands. Plus, you get:
 
 - ⚡ **Clean separation of services, controllers, and data layer** — no more dumping logic into `/app/api`  
 - 🔒 **End-to-end type safety** — automatically typed API responses and React Query hooks  
@@ -51,25 +51,19 @@ Everything is ready for your experiments there. Have fun!
 
 # ⏱️ Quick Overview
 
-- [Install and set up SpringNext](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#setup)
-- Run `npx sn crud-api user`
+1. [Install and set up SpringNext](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#setup)
+2. Run `npx sn crud-api user`
   
 This will instantly scaffold:
 
-```bash
-domain/entities/user # user entity
+- domain/`entities`/user/...
+- server/`stores`/user/...  (contract, in-memory, prisma)
+- server/`services`/user/...
+- server/`controllers`/user/...
+- `app/api`/user/...
+- ui/shared/`queries`/user/...
 
-server/
-  stores/user/... # user stores (contract, in-memory, prisma)
-  services/user/... # service
-  controllers/user/... # API controller
-
-app/api/user/... # api routes
-
-ui/shared/queries/user/... # react queries
-```
-
-- [Tweak a few files](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#describing-entity-and-stores)
+3. [Tweak a few files](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma#describing-entity-and-stores)
 
 
 → Backend + API + React Query hooks ready!
@@ -79,8 +73,6 @@ Using React query hooks:
 ```tsx
 // scaffolded query hooks come in handy namespaces
 import { UserQueries } from '@/ui/shared/queries/user';
-
-// ... some component or hook ...
 
 // fully typed, end-to-end
 const { data } = UserQueries.useGET({ id: 'user-1' })
@@ -93,8 +85,6 @@ Scaffolded services can be directly used in Server Actions:
 
 import { fromDI } from '@/server/di'
 import type { UserService } from '@/server/services/user'
-
-// ... some server action ...
 
 /**
  * FYI: `fromDI` string argument is strongly typed and
