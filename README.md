@@ -18,6 +18,18 @@ SpringNext is a CLI code generator & conventions layer for Next.js, providing do
 
 It is **not** a framework — Next.js already has routing and a powerful runtime. SpringNext is a tool to supercharge Next.js, giving you fast full-stack scaffolding while staying fully within its ecosystem.
 
+## 🔌 How it works
+```
+⚡ CLI ⟶ 🏗️ Domain ⟶ 🛠️ Server ⟶ 🌐 API ⟶ 💻 Frontend
+```
+Legend:
+
+- ⚡ CLI — generates everything
+- 🏗️ Domain — entity schemas & contracts
+- 🛠️ Server — stores, services, controllers
+- 🌐 API — Next.js routes
+- 💻 Frontend — typed React Query hooks
+
 # 🧪 Live playground
 
 https://stackblitz.com/edit/springnext-playground
