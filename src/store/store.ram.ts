@@ -7,6 +7,22 @@ import {
     methods
 } from './store';
 
+/**
+ * 
+ * @param schemas Required store schemas
+ * @param options Override default rules with this object (optional)
+ * 
+ * @returns Class with in-memory CRUD logic
+ * 
+ * @example
+ * ```
+ * import { type DummyStore, dummyStoreMetadata } from './dummy.store'
+ * 
+ * const CRUDInRAM = Store.InRAM(dummyStoreMetadata)
+ * 
+ * export class DummyRAMStore extends CRUDInRAM implements DummyStore { }
+ * ```
+ */
 export const InRAM = <T extends Metadata>(
     schemas: T,
     options?: {
