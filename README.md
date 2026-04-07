@@ -78,19 +78,10 @@ npx sn init prismaClientPath:@/generated/prisma/client
 ### 2. Scaffold full CRUD for `User` entity
 
 Run `npx sn crud-api user`
-  
-This will instantly scaffold:
-
-- /domain/`entities`/user/...
-- /server/`stores`/user/...  (contract, in-memory, prisma)
-- /server/`services`/user/...
-- /server/`controllers`/user/...
-- `/app/api`/user/...
-- /ui/shared/`queries`/user/...
 
 ### 3. Describe your entity and stores
 
-It only requires a few file tweaks:
+It only requires a few scaffolded file tweaks:
 
 - `/domain/entities/user/user.entity.ts` → entity schema
 - `/server/stores/user/user.store.ts` → store schemas (if default schemas do not fit your needs)
