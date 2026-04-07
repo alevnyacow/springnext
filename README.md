@@ -158,9 +158,9 @@ SpringNext takes inspiration from both, but focuses on a contract-first, scaffol
 
 # 🚫 When not to use
 
-- very small projects (overhead may not be worth it)
+- very small projects (may not be worth it)
 - non-Next.js stacks
-- if you prefer runtime-driven frameworks like NestJS
+- you prefer runtime-driven frameworks like NestJS
 
 # 🪄 Live examples on StackBlitz 
 
