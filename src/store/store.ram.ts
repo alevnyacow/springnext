@@ -8,6 +8,7 @@ import {
 } from './store';
 
 /**
+ * In-memory store implementation.
  * 
  * @param schemas Required store schemas.
  * @param options Override default rules with this object (optional).
