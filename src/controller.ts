@@ -73,6 +73,11 @@ export type Guard = (payload: {
     endpointError: EndpointErrorGenerator;
 }) => Promise<undefined | ControllerErrorModel>;
 
+/**
+ * Handler used for error states. 
+ * 
+ * Useful for logging. 
+ */
 export type OnErrorHandler = (request: {
     error: ControllerErrorModel;
     req: NextRequest;
