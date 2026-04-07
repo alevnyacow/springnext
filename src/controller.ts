@@ -1,3 +1,19 @@
+import { type NextRequest, type NextResponse } from 'next/server';
+import z, { type ZodType, type ZodObject, type ZodUnion } from 'zod';
+import {
+    type ControllerErrorModel,
+    type ErrorBaseCreatingPayload,
+    isControllerError,
+    spawnControllerError
+} from './errors/errors';
+
+/**
+ * Plain `jsonResponse` working without NextResponse extension. 
+ * 
+ * @param data response data
+ * @param init response initialization
+ * @returns Response object can be sent to a client
+ */
 function jsonResponse<T>(data: T, init?: ResponseInit) {
   return new Response(JSON.stringify(data), {
     ...init,
@@ -7,15 +23,6 @@ function jsonResponse<T>(data: T, init?: ResponseInit) {
     },
   })
 }
-
-import { type NextRequest, type NextResponse } from 'next/server';
-import z, { type ZodType, type ZodObject, type ZodUnion } from 'zod';
-import {
-    type ControllerErrorModel,
-    type ErrorBaseCreatingPayload,
-    isControllerError,
-    spawnControllerError
-} from './errors/errors';
 
 export enum DefaultErrorCodes {
     REQUEST_PARSING = 'SPRINGNEXT-CONTROLLER___REQUEST-PARSING',
