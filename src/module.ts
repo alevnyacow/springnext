@@ -31,6 +31,9 @@ export type Metadata = {
     schemas: Schemas;
 };
 
+/**
+ * Module request and response DTOs by metadata.
+ */
 export type DTOs<T extends Metadata> = {
     [K in keyof T['schemas'] as `${Extract<K, string>}Payload`]: z.infer<
         T['schemas'][K]['payload']
