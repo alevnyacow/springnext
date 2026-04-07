@@ -93,9 +93,7 @@ import { UserQueries } from '@/ui/shared/queries/user';
 const { data } = UserQueries.useGET({ id: 'user-1' })
 ```
 
-## Using scaffolded modules in Server Actions via DI
-
-### TL;DR
+## Using scaffolded modules in Server Actions
 
 SpringNext comes with zero-config DI, working out of the box. Use `fromDI` method, enjoying IDE autocompletion.
 
@@ -116,14 +114,6 @@ const user1 = await userService.getDetails({
     filter: { id: 'user-1-id' } 
 })
 ```
-
-If that’s enough for you regarding DI, feel free to skip the next section.
-
-### DI implementation in SpringNext
-
-During initialization, SpringNext generates code for the DI containers. By default, there are three containers available: `test`, `dev`, and `production`. Additionally, during initialization, SpringNext scaffolds a `fromDI` function, which can be called from anywhere in your server code. It returns an instance of the requested module. The active container is determined by the `process.env.NODE_ENV` environment variable. All scaffolded entries are automatically registered in `/server/di/entries.di.ts`. This is simply a convenient facade over InversifyJS — you retain full control over the code, so you can easily modify the DI behavior if needed. 
-
-At the same time, if the default behavior works for you (which is the case 99% of the time), you can simply use the scaffolder and the `fromDI` function without worrying about the technical implementation details.
 
 ## Need more control?
 
