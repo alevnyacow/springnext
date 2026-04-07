@@ -140,8 +140,17 @@ type EndpointLogic<T extends ZodAPISchemas> = {
     };
 };
 
+/**
+ * Controller config, used for all endpoints.
+ */
 export type SharedConfig = Partial<{
+    /**
+     * Shared guards.
+     */
     guards: Guard[];
+    /**
+     * Shared `onError` handlers. 
+     */
     onErrorHandlers?: Array<OnErrorHandler>;
 }>;
 
