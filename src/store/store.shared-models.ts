@@ -45,6 +45,9 @@ type ExtractCRUDParams<T> = T extends {
  * Store types from metadata.
  */
 export type Types<T> = {
+    /**
+     * List model type.
+     */
     listModel: ExtractCRUDParams<T>['Models']['list'];
     details: ExtractCRUDParams<T>['Models']['detail'];
     findOnePayload: ExtractCRUDParams<T>['SearchPayload']['specific'];
