@@ -24,6 +24,11 @@ export class Pagination {
 
     /**
      * Domain logic-safe Pagination creating.
+     * 
+     * @example
+     * ```
+     * const pagination = Pagination.create({ zeroBasedIndex: 0, pageSize: 10 })
+     * ```
      */
     static create = (data: PaginationModel) => {
         const parsedModel = Pagination.schema.parse(data);
