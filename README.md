@@ -9,6 +9,7 @@
 <p align="center">
     <b>Works inside plain Next.js — no framework lock-in.</b>
 </p>
+
 <p align="center">
   <a href="https://badge.fury.io/js/springnext" target="_blank"><img src='https://badge.fury.io/js/springnext.svg'></img></a>
   <img src='https://img.shields.io/npm/l/springnext'></img>
