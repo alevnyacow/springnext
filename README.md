@@ -1,6 +1,7 @@
 <p align="center">
     <img src='https://raw.githubusercontent.com/alevnyacow/springnext/refs/heads/main/logo.svg?sanitize=true'></img>
 </p>
+
 <p align="center">
     Next.js with Spring-level robustness and powerful scaffolding — no Java involved.
 </p>
