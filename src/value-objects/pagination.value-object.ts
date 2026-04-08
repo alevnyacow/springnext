@@ -44,7 +44,8 @@ export class Pagination {
      * 
      * @example
      * ```
-     * { zeroBasedIndex: 3, pageSize: 15 }
+     * const page = Pagination.create({ zeroBasedIndex: 3, pageSize: 15 })
+     * const { model } = page // { zeroBasedIndex: 3, pageSize: 15 }
      * ```
      */
     get model(): PaginationModel {
