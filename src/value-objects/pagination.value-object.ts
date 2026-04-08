@@ -53,6 +53,8 @@ export class Pagination {
 
     /**
      * Checks if two Pagination objects are same.
+     * 
+     * @example true
      */
     same = (pagination: Pagination) => {
         return (
