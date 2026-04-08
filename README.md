@@ -92,15 +92,8 @@ Everything is preconfigured — jump in and start exploring, testing, and tinker
 
 *Best experienced in Chrome. StackBlitz support in Safari may vary.*
 
-# 🔮 Motivation
 
-Building a backend by hand takes hours. Frameworks solve this with runtime abstractions.
-
-SpringNext takes a different approach: generate everything as plain TypeScript code.
-
-No magic. No lock-in. Just code you own.
-
-## Core principles
+# 🔮 Core principles
 
 ### Plug-and-play by default, fully tweakable when you need it. 
 
