@@ -78,6 +78,11 @@ Describe your entity and stores in scaffolded files:
 
 → Full backend + API + frontend hooks — ready in seconds
 
+## Does it only work for CRUD?
+
+No. You can scaffold modules independently and implement your own logic. All details can be found in `Guides` section.
+
+
 # 🧪 Live playground
 
 https://stackblitz.com/edit/springnext-playground
