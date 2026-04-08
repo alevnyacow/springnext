@@ -41,6 +41,11 @@ export class Pagination {
 
     /**
      * Pagination model.
+     * 
+     * @example
+     * ```
+     * { zeroBasedIndex: 3, pageSize: 15 }
+     * ```
      */
     get model(): PaginationModel {
         return this.data;
