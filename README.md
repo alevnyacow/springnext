@@ -44,27 +44,22 @@ npx sn crud-api user
 # Entity
 ├── domain/entities/user/user.entity.ts
 ├── domain/entities/user/index.ts
-
 # Controller
 ├── server/controllers/user/user.controller.metadata.ts
 ├── server/controllers/user/user.controller.ts
 ├── server/controllers/user/index.ts
-
 # Stores - contract, RAM implementation, Prisma implementation
 ├── server/stores/user/user.store.ts
 ├── server/stores/user/user.store.ram.ts
 ├── server/stores/user/user.store.prisma.ts
 ├── server/stores/user/index.ts
-
 # Service
 ├── server/services/user/user.service.metadata.ts
 ├── server/services/user/user.service.ts
 ├── server/services/user/index.ts
-
 # API routes
 ├── app/api/user-controller/route.ts
 ├── app/api/user-controller/details/route.ts
-
 # React Query hooks
 ├── ui/shared/queries/user/endpoints/DELETE.ts
 ├── ui/shared/queries/user/endpoints/details_GET.ts
