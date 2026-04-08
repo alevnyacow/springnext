@@ -110,6 +110,8 @@ export class Pagination {
 
     /**
      * Obtain previous page. Unsafe implementation.
+     * 
+     * @example
      * ```
      * const firstPage = Pagination.create({ zeroBasedIndex: 2, pageSize: 15 })
      * const { previousPage } = page // throws an error
