@@ -72,9 +72,9 @@ npx sn crud-api user
 
 Describe your entity and stores in scaffolded files:
 
-- `/domain/entities/user/user.entity.ts` → entity schema
+- `/domain/entities/user/user.entity.ts` → entity schema (static field `schema` in `User` class)
 - `/server/stores/user/user.store.ts` → store schemas (if default schemas do not fit your needs)
-- `/server/stores/user/user.store.prisma.ts` → map `UserStore` contracts to Prisma client contracts
+- `/server/stores/user/user.store.prisma.ts` → map `UserStore` contracts to Prisma client contracts (implement existing functions in `mappers` object)
 
 → Full backend + API + frontend hooks — ready in seconds
 
