@@ -12,6 +12,8 @@ export class Pagination {
     static schema = z.object({
         /**
          * Zero based page index. Can't be negative.
+         * 
+         * @example 0
          */
         zeroBasedIndex: z.coerce.number().int().nonnegative(),
         /**
