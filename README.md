@@ -39,7 +39,7 @@ npx sn crud-api user
 ```
 
 ```bash
-📁 Generated structure:
+📁 Generated structure with ready-to-use scaffolded files:
 
 # Entity
 ├── domain/entities/user/user.entity.ts
