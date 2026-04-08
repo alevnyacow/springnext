@@ -61,6 +61,9 @@ export type Types<T> = {
      * List filter.
      */
     findListPayload: ExtractCRUDParams<T>['SearchPayload']['list'];
+    /**
+     * What is needed to create an entity.
+     */
     createPayload: ExtractCRUDParams<T>['ActionsPayload']['create'];
     updatePayload: ExtractCRUDParams<T>['ActionsPayload']['update'];
 };
