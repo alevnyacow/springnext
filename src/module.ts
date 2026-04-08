@@ -57,6 +57,13 @@ export type Methods<T extends Metadata> = {
 
 /**
  * Shared configuration part.
+ * 
+ * @example
+ * ```
+ * const sharedConfig = {
+ *     onError: async (e) => { console.error(e) }
+ * }
+ * ```
  */
 export type Config = {
     onError?: (e: ModuleErrorModel) => Promise<void>;
