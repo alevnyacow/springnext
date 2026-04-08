@@ -76,7 +76,7 @@ export class Pagination {
      * @example
      * ```
      * const page = Pagination.create({ zeroBasedIndex: 0, pageSize: 15 })
-     * const nextPage = page.nextPage
+     * const { nextPage } = page
      * const { zeroBasedIndex, pageSize } = nextPage.model
      * // zeroBasedIndex - 1, pageSize - 15
      * ```
