@@ -7,3 +7,10 @@ test('Pagination can be created', () => {
     expect(model.pageSize).toBe(10)
     expect(model.zeroBasedIndex).toBe(0)
 })
+
+test('Previous page', () => {
+    const page = Pagination.create({ pageSize: 10, zeroBasedIndex: 1 })
+    const { previousPage } = page
+    expect(previousPage.model.pageSize).toBe(10)
+    expect(previousPage.model.zeroBasedIndex).toBe(0)
+})
