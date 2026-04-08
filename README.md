@@ -93,7 +93,6 @@ Everything is preconfigured — jump in and start exploring, testing, and tinker
 
 *Best experienced in Chrome. StackBlitz support in Safari may vary.*
 
-
 # 🔮 Core principles
 
 ### Plug-and-play by default, fully tweakable when you need it. 
