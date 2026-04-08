@@ -49,6 +49,9 @@ export type Types<T> = {
      * List model type.
      */
     listModel: ExtractCRUDParams<T>['Models']['list'];
+    /**
+     * Details type.
+     */
     details: ExtractCRUDParams<T>['Models']['detail'];
     findOnePayload: ExtractCRUDParams<T>['SearchPayload']['specific'];
     findListPayload: ExtractCRUDParams<T>['SearchPayload']['list'];
