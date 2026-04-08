@@ -16,7 +16,7 @@
 
 ## What is SpringNext?
 
-SpringNext is a CLI code generator & conventions layer for Next.js, providing enterprise-grade architecture and zero-config infrastructure like DI, unified errors, API controllers, and in-memory or Prisma stores.
+SpringNext is a CLI that generates a full backend architecture inside Next.js (controllers, services, API) and React query hooks in seconds, providing *zero-config* infrastructure like DI, unified errors, API controllers, and in-memory or Prisma stores.
 
 It is **not** a framework — Next.js already has routing and a powerful runtime. SpringNext is a tool to supercharge Next.js, giving you fast full-stack scaffolding while staying fully within its ecosystem.
 
@@ -26,6 +26,61 @@ It is **not** a framework — Next.js already has routing and a powerful runtime
 - Startups: a combination of instant prototyping and easily scalable/extendable code
 - Teams that want to write code and deliver quickly while staying within a single architecture
 
+# ⚡ Try it in 30 seconds
+
+```bash
+# Install (SpringNext + required deps)
+npm i inversify zod reflect-metadata springnext
+# Initialize
+npx sn init prismaClientPath:@/generated/prisma/client
+# Scaffold CRUD and entity
+npx sn crud-api user
+```
+
+```bash
+📁 Generated structure:
+
+# Entity
+├── domain/entities/user/user.entity.ts
+├── domain/entities/user/index.ts
+
+# Controller
+├── server/controllers/user/user.controller.metadata.ts
+├── server/controllers/user/user.controller.ts
+├── server/controllers/user/index.ts
+
+# Stores - contract, RAM implementation, Prisma implementation
+├── server/stores/user/user.store.ts
+├── server/stores/user/user.store.ram.ts
+├── server/stores/user/user.store.prisma.ts
+├── server/stores/user/index.ts
+
+# Service
+├── server/services/user/user.service.metadata.ts
+├── server/services/user/user.service.ts
+├── server/services/user/index.ts
+
+# API routes
+├── app/api/user-controller/route.ts
+├── app/api/user-controller/details/route.ts
+
+# React Query hooks
+├── ui/shared/queries/user/endpoints/DELETE.ts
+├── ui/shared/queries/user/endpoints/details_GET.ts
+├── ui/shared/queries/user/endpoints/GET.ts
+├── ui/shared/queries/user/endpoints/PATCH.ts
+├── ui/shared/queries/user/endpoints/POST.ts
+├── ui/shared/queries/user/endpoints/index.ts
+├── ui/shared/queries/user/index.ts
+```
+
+Describe your entity and stores in scaffolded files:
+
+- `/domain/entities/user/user.entity.ts` → entity schema
+- `/server/stores/user/user.store.ts` → store schemas (if default schemas do not fit your needs)
+- `/server/stores/user/user.store.prisma.ts` → map `UserStore` contracts to Prisma client contracts
+
+→ Full backend + API + frontend hooks — ready in seconds
 
 # 🧪 Live playground
 
@@ -37,96 +92,11 @@ Everything is ready for your experiments there. Have fun!
 
 # 🔮 Motivation
 
-Imagine building a backend by hand:
+Building a backend by hand takes hours. Frameworks solve this with runtime abstractions.
 
-- Writing API routes for every entity  
-- Manually wiring services and controllers  
-- Creating typed React Query hooks from scratch  
-- Managing in-memory or database stores  
+SpringNext takes a different approach: generate everything as plain TypeScript code
 
-This can take **hours or even days** for multiple entities. So, if we don’t want to write all of this manually, we have two options: either trust an LLM to write the code, or rely on some framework to control execution — thereby increasing complexity and the number of abstractions.
-
-And this is where SpringNext comes in — to give you fast delivery while keeping full control over your code and its maintainability. And most importantly, *to preserve the joy of programming!* With SpringNext scaffolder, you get all backend modules and React Query hooks **in seconds** and with just a few CLI commands. Plus, you get:
-
-- ⚡ **Clean separation of services, controllers, and data layer** — no more dumping logic into `/app/api`  
-- 🔒 **End-to-end type safety** — automatically typed API responses and React Query hooks  
-- 🚀 **One-command full-stack scaffolding** — backend, API routes, and React Query hooks, fully editable, zero boilerplate  
-- 🔧 **Built-in dependency injection** — ready to use, no setup required  
-- 🗄️ **Ready-to-use in-memory & Prisma stores** — scaffolded CRUD works immediately  
-
-💡 **Result:** you own every line of code, eliminate boilerplate, and focus on your business logic.
-
-Wire a backend in seconds, not hours — all fully typed and editable. **No runtime magic. No lock-in. Just code.**
-
-# ⏱️ Quick Start
-
-## Scaffolding full working CRUD with React Queries
-
-### 1. Install and set up SpringNext
-
-```bash
-# install SpringNext with peer dependencies
-npm i inversify zod reflect-metadata springnext
-
-# initialize SpringNext with absolute prisma client path
-npx sn init prismaClientPath:@/generated/prisma/client
-```
-
-### 2. Scaffold full CRUD for `User` entity
-
-Run `npx sn crud-api user`
-
-```
-⚡ CLI ⟶ 🏗️ Domain ⟶ 🛠️ Server ⟶ 🌐 API ⟶ 💻 Frontend
-```
-Legend:
-
-- ⚡ CLI — generates everything
-- 🏗️ Domain — entity schemas & contracts
-- 🛠️ Server — stores, services, controllers
-- 🌐 API — Next.js routes
-- 💻 Frontend — typed React Query hooks
-
-### 3. Describe your entity and stores
-
-It only requires a few scaffolded file tweaks:
-
-- `/domain/entities/user/user.entity.ts` → entity schema
-- `/server/stores/user/user.store.ts` → store schemas (if default schemas do not fit your needs)
-- `/server/stores/user/user.store.prisma.ts` → map `UserStore` contracts to Prisma client contracts
-
-→ Backend + API + React Query hooks ready!
-
-## Using scaffolded queries
-
-Scaffolded query hooks come in handy namespaces and fully-typed, end-to-end.
-
-```tsx
-import { UserQueries } from '@/ui/shared/queries/user';
-
-const { data } = UserQueries.useGET({ id: 'user-1' })
-```
-
-## Using scaffolded modules in Server Actions
-
-SpringNext comes with zero-config DI, working out of the box. Use `fromDI` method, enjoying IDE autocompletion.
-
-```tsx
-'use server'
-
-import { fromDI } from '@/server/di'
-import type { UserService } from '@/server/services/user'
-
-const userService = fromDI<UserService>('UserService')
-
-const user1 = await userService.getDetails({ 
-    filter: { id: 'user-1-id' } 
-})
-```
-
-## Need more control?
-
-[Scaffold modules independently](https://github.com/alevnyacow/springnext/wiki/CLI-commands-glossary#example), and feel free to implement your own logic — supercharged with runtime type checks and React Query hooks generated in a single CLI command!
+No magic. No lock-in. Just code you own.
 
 # 📚 Guides and documentation
 
