@@ -118,7 +118,7 @@ SpringNext takes inspiration from both, but focuses on a contract-first, scaffol
 
 | Feature                | SpringNext                          | tRPC                    | Nest                        |
 |------------------------|-------------------------------------|--------------------------|----------------------------|
-| Architecture           | Contract-first (schema-driven)      | Procedure-based          | Module-based               |
+| Architecture           | Contract-first (schema-driven), .NET/Spring-like      | Procedure-based          | Module-based               |
 | Learning curve         | Medium                              | Low                      | High                       |
 | Type safety            | End-to-end + runtime validation     | End-to-end               | Partial                    |
 | Scaffolding            | Full-stack (API + backend + hooks)  | None                     | Partial (CLI generators)   |
