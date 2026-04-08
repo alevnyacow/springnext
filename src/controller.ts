@@ -67,6 +67,17 @@ type EndpointErrorGenerator = (
  * this error is thrown, the request is interrupted and the handler will not be executed.
  * 
  * Useful for user checks, role checks, etc.
+ * 
+ * @example
+ * ```
+ * const randomBlockGuard: Guard = async ({ request, endpointError }) => {
+ *     const shouldBlock = Math.random() > 0.5
+ *     if (shouldBlock) { 
+ *         return endpointError('Blocked!')
+ *     }
+ *     return undefined
+ * }
+ * ```
  */
 export type Guard = (payload: {
     request: NextRequest;

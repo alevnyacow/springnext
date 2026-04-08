@@ -1,7 +1,7 @@
 {
   "name": "springnext",
   "description": "Next.js with Spring-level robustness and powerful scaffolding — no Java involved.",
-  "version": "0.62.15",
+  "version": "0.62.16",
   "homepage": "https://stackblitz.com/edit/springnext-playground",
   "keywords": ["next", "full-stack", "server", "backend", "cli", "scaffolding", "zod", "rest", "contract programming", "contract-first", "react-query", "domain", "ddd"],
   "type": "module",
