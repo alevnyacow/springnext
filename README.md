@@ -22,10 +22,10 @@ It is **not** a framework — Next.js already has routing and a powerful runtime
 
 ## Who is it for?
 
-- Enterprise backend developers (.NET, Spring) moving to Next.js  
-- Startups that need both speed and scalability  
-- Teams tired of inconsistent architecture and code-style debates  
-- Developers who want structure without heavy frameworks that feel like another language
+- Enterprise backend developers (.NET, Spring) moving to Next.js.
+- Startups that need both speed and scalability.
+- Teams tired of inconsistent architecture and code-style debates.  
+- Developers who want structure without heavy frameworks that feel like another language.
 
 # ⚡ Try it in 30 seconds
 
