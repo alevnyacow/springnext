@@ -41,6 +41,9 @@ type ExtractCRUDParams<T> = T extends {
       }
     : never;
 
+/**
+ * Store types from metadata.
+ */
 export type Types<T> = {
     listModel: ExtractCRUDParams<T>['Models']['list'];
     details: ExtractCRUDParams<T>['Models']['detail'];
