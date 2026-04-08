@@ -19,9 +19,7 @@
 
 ## What is SpringNext?
 
-SpringNext is a CLI that scaffolds a structured backend inside Next.js — including API routes, services, and React Query hooks.
-
-It also includes helper utilities to streamline development.
+SpringNext is a CLI that scaffolds a structured backend inside Next.js — including API routes, services, and React Query hooks. It also includes helper utilities to streamline development.
 
 Inspired by .NET and Spring, it brings familiar patterns like dependency injection, contract-driven design, and unified error handling — without introducing a new framework.
 
