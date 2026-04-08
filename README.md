@@ -12,23 +12,20 @@
   <img src='https://img.shields.io/npm/l/springnext'></img>
 </p>
 
-# 🧠 What is SpringNext?
+# 🌱 About
 
-SpringNext is a CLI code generator & conventions layer for Next.js, providing domain-focused architecture and zero-config infrastructure like DI, unified errors, API controllers, and in-memory or Prisma stores.
+## What is SpringNext?
+
+SpringNext is a CLI code generator & conventions layer for Next.js, providing enterprise-grade architecture and zero-config infrastructure like DI, unified errors, API controllers, and in-memory or Prisma stores.
 
 It is **not** a framework — Next.js already has routing and a powerful runtime. SpringNext is a tool to supercharge Next.js, giving you fast full-stack scaffolding while staying fully within its ecosystem.
 
-## 🔌 How it works
-```
-⚡ CLI ⟶ 🏗️ Domain ⟶ 🛠️ Server ⟶ 🌐 API ⟶ 💻 Frontend
-```
-Legend:
+## Who is it for?
 
-- ⚡ CLI — generates everything
-- 🏗️ Domain — entity schemas & contracts
-- 🛠️ Server — stores, services, controllers
-- 🌐 API — Next.js routes
-- 💻 Frontend — typed React Query hooks
+- Developers and teams with experience in enterprise backend development (.NET, Spring) who want a similar architecture from Next.js with maximum developer experience (DX)
+- Startups: a combination of instant prototyping and easily scalable/extendable code
+- Teams that want to write code and deliver quickly while staying within a single architecture
+
 
 # 🧪 Live playground
 
@@ -78,6 +75,17 @@ npx sn init prismaClientPath:@/generated/prisma/client
 ### 2. Scaffold full CRUD for `User` entity
 
 Run `npx sn crud-api user`
+
+```
+⚡ CLI ⟶ 🏗️ Domain ⟶ 🛠️ Server ⟶ 🌐 API ⟶ 💻 Frontend
+```
+Legend:
+
+- ⚡ CLI — generates everything
+- 🏗️ Domain — entity schemas & contracts
+- 🛠️ Server — stores, services, controllers
+- 🌐 API — Next.js routes
+- 💻 Frontend — typed React Query hooks
 
 ### 3. Describe your entity and stores
 
