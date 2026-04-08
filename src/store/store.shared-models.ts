@@ -65,5 +65,8 @@ export type Types<T> = {
      * What is needed to create an entity.
      */
     createPayload: ExtractCRUDParams<T>['ActionsPayload']['create'];
+    /**
+     * What is needed to update an existing entity.
+     */
     updatePayload: ExtractCRUDParams<T>['ActionsPayload']['update'];
 };
