@@ -54,7 +54,13 @@ export class Pagination {
     /**
      * Checks if two Pagination objects are same.
      * 
-     * @example true
+     * @example
+     * ```
+     * const page = Pagination.create({ zeroBasedIndex: 0, pageSize: 10 })
+     * const samePage = Pagination.create({ zeroBasedIndex: 0, pageSize: 10 })
+     * 
+     * const areSame = page.same(samePage) // true
+     * ```
      */
     same = (pagination: Pagination) => {
         return (
