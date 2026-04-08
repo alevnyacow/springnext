@@ -6,6 +6,9 @@ export type PaginationModel = z.infer<typeof Pagination.schema>;
  * Pagination value object. Used in store `list` method.
  */
 export class Pagination {
+    /**
+     * Pagination schema.
+     */
     static schema = z.object({
         /**
          * Zero based page index. Can't be negative.
