@@ -18,6 +18,8 @@ export class Pagination {
         zeroBasedIndex: z.coerce.number().int().nonnegative(),
         /**
          * Page size. Must be positive.
+         * 
+         * @example 15
          */
         pageSize: z.coerce.number().int().positive()
     });
