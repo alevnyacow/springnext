@@ -90,6 +90,12 @@ export class Pagination {
 
     /**
      * Obtains previous page. Safe implementation - if it's first page, pagination with the same model is returned.
+     * ```
+     * const page = Pagination.create({ zeroBasedIndex: 2, pageSize: 15 })
+     * const nextPage = page.previousPage
+     * const { zeroBasedIndex, pageSize } = nextPage.model
+     * // zeroBasedIndex - 1, pageSize - 15
+     * ```
      */
     get previousPage() {
         if (this.model.zeroBasedIndex === 0) {
