@@ -55,6 +55,9 @@ export type Methods<T extends Metadata> = {
     ) => Promise<z.infer<T['schemas'][K]['response']>>;
 };
 
+/**
+ * Shared configuration part.
+ */
 export type Config = {
     onError?: (e: ModuleErrorModel) => Promise<void>;
 };
