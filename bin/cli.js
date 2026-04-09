@@ -785,9 +785,9 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
     // barrel
 
     fs.writeFileSync(path.resolve(folder, 'index.ts'), [
-        `export * from './${entityName}.store.ts'`,
-        prismaPath ? `export * from './${entityName}.store.prisma.ts'` : undefined,
-        `export * from './${entityName}.store.ram.ts'`
+        `export * from './${entityName}.store'`,
+        prismaPath ? `export * from './${entityName}.store.prisma'` : undefined,
+        `export * from './${entityName}.store.ram'`
     ].filter(x => typeof x === 'string').join('\n'))
 
     // update DI
