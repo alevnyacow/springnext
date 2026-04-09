@@ -1,1 +1,1 @@
-export { withCode } from './errors'
+export { withCode, spawnBaseError } from './errors'

@@ -111,7 +111,7 @@ export const withCode = <T extends Record<string, string>>(errors: T) => (codeKe
     return error.code === errors[codeKey];
 }
 
-const spawnBaseError = ({
+export const spawnBaseError = ({
     error,
     code,
     details
