@@ -627,7 +627,7 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.store.ts`), [
         "import { Store } from 'springnext'",
-        withEntity ? `import { ${upperCase} } from '@${config?.paths?.entities}/${entityName}'` : undefined,
+        withEntity ? `import { ${upperCase} } from '@${config?.paths?.entities}/${entityName}'` : `import z from 'zod'`,
         "",
         `export const ${lowerCase}StoreMetadata = {`,
         "\tmodels: {",
