@@ -1132,7 +1132,7 @@ function generateController(upperCase, lowerCase, crudService) {
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.controller.metadata.ts`), [
         crudService ? `import z from 'zod'` : undefined,
-        `import { Controller, ValueObjects } from 'springnext'`,
+        crudService ? `import { Controller, ValueObjects } from 'springnext'` : `import { Controller } from 'springnext'`,
         crudService ? `import { ${crudServiceLowercase}Metadata } from '@${config.paths.services}/${toKebabFromPascal(crudService).slice(0, -'-service'.length)}'` : undefined,
         ``,
         `export const ${lowerCase}ControllerMetadata = {`,
