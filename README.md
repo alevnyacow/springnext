@@ -32,6 +32,19 @@ Zero configuration required.
 - Teams tired of inconsistent architecture and code-style debates.  
 - Developers who want structure without heavy frameworks that feel like another language.
 
+## Why SpringNext?
+
+Most Next.js backends start simple — and slowly turn into a mess.
+
+SpringNext gives you structure from day one:
+
+- clear boundaries  
+- consistent patterns  
+- runtime-safe contracts  
+- generated boilerplate you can fully control
+
+It doesn’t introduce a new runtime framework or architecture — it makes proven enterprise patterns from .NET and Spring the easiest to use.
+
 # ⚡ Try it in 30 seconds
 
 ```bash
