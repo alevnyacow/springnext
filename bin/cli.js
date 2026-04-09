@@ -389,7 +389,7 @@ function initDI() {
         "\treturn container.get<Result>(key)",
         "}",
         "",
-        "export { DITokens }"
+        "export type { DITokens }"
     ].join('\n'))
 };
 
