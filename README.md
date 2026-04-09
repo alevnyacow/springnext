@@ -98,6 +98,10 @@ SpringNext integrates seamlessly with Server Actions.
 
 Use scaffolded `fromDI` helper to access your services directly — so you can reuse the same architecture, dependency injection, and business logic without duplication.
 
+## What are these metadata files?
+
+SpringNext provides a contract-first approach. The metadata stores the module name (used for errors) and the schemas of its methods, which are used for runtime validation of requests and responses, as well as for enforcing method contracts during their implementation.
+
 # 🧪 Live playground
 
 https://stackblitz.com/edit/springnext-playground
