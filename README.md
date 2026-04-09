@@ -94,7 +94,7 @@ No. You can scaffold modules independently and implement your own logic - React 
 
 ## Is invalidation in queries already configured?
 
-Yes. You can also customize queries as needed, and your changes will be preserved across generations.
+Yes. You can also customize queries as needed, and your changes will be preserved when code is regenerated.
 
 ## What about Server Actions?
 
