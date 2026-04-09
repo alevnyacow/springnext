@@ -111,7 +111,7 @@ Yes. You can also customize queries as needed, and your changes will be preserve
 
 SpringNext integrates seamlessly with Server Actions.
 
-Use the scaffolded `fromDI` helper to access your services directly — so you can reuse the same architecture, dependency injection, and business logic without duplication.
+Use the scaffolded `fromDI` helper to access your services directly and just call their methods.
 
 ## What are these metadata files?
 
