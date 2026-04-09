@@ -372,7 +372,7 @@ export const endpoints = <T extends Schemas>(
                 let controllerError: ControllerErrorModel =
                     e as ControllerErrorModel;
 
-                if (isControllerError(e)) {
+                if (!isControllerError(e)) {
                     controllerError = errorFactory.newError(
                         {
                             error: 'Internal error',
