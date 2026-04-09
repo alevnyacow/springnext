@@ -5,7 +5,6 @@
 <p align="center">
     Next.js with Spring-level robustness and powerful scaffolding — no Java involved.
 </p>
-
 <p align="center">
     <b>Works inside plain Next.js — no framework lock-in.</b>
 </p>
