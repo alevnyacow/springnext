@@ -496,7 +496,7 @@ function generateInfrastructure(upperCase, lowerCase) {
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.mock.ts`), [
         `import { injectable } from 'inversify'`,
-        `import { PublicFields } from '@/${config.paths.infrastructure}/ts-helpers'`,
+        `import { PublicFields } from '@${config.paths.infrastructure}/ts-helpers'`,
         `import { ${upperCase} } from './${entityName}'`,
         '',
         `type Methods = PublicFields<${upperCase}>`,
@@ -934,7 +934,7 @@ function generateProvider(lowerCase, upperCase) {
     // Mock
     fs.writeFileSync(path.resolve(folder, `${entityName}.provider.mock.ts`), [
         `import { injectable } from 'inversify'`,
-        `import { PublicFields } from '@/${config.paths.infrastructure}/ts-helpers'`,
+        `import { PublicFields } from '@${config.paths.infrastructure}/ts-helpers'`,
         `import { ${upperCase}Provider } from './${entityName}.provider'`,
         '',
         `type Methods = PublicFields<${upperCase}Provider>`,
