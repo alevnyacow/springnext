@@ -682,7 +682,7 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
     if (prismaPath) {
         fs.writeFileSync(path.resolve(folder, `${entityName}.store.prisma.ts`), [
             `import type { Prisma, PrismaClient } from '${prismaPath}'`,
-            `import { DITokens } from '@${config?.paths?.di}'`,
+            `import type { DITokens } from '@${config?.paths?.di}'`,
             "import { injectable, inject } from 'inversify'",
             "import { Store } from 'springnext'",
             `import { type ${upperCase}Store, ${lowerCase}StoreMetadata } from './${entityName}.store'`,
@@ -1036,7 +1036,7 @@ function generateService(lowerCase, upperCase, store) {
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.service.ts`), [
         "import { injectable, inject } from 'inversify'",
-        injections.length ? `import { DITokens } from '@${config?.paths?.di}'` : undefined,
+        injections.length ? `import type { DITokens } from '@${config?.paths?.di}'` : undefined,
         `import { ${lowerCase}ServiceMetadata } from './${entityName}.service.metadata'`,
         "import { Module } from 'springnext'",
         ...importInjections,
@@ -1173,7 +1173,7 @@ function generateController(upperCase, lowerCase, crudService) {
     fs.writeFileSync(path.resolve(folder, `${entityName}.controller.ts`), [
         `import { injectable, inject } from 'inversify'`,
         `import { Controller } from 'springnext'`,
-        `import { DITokens } from '@${config?.paths?.di}'`,
+        `import type { DITokens } from '@${config?.paths?.di}'`,
         crudService ? `import { CommonErrorCodes } from '@${config?.paths?.sharedErrors}'` : undefined,
         `import { ${lowerCase}ControllerMetadata } from './${entityName}.controller.metadata'`,
         ...importInjections,
