@@ -536,8 +536,10 @@ function initGuards() {
     fs.mkdirSync(endpointGuardsFolder, { recursive: true })
 
     fs.writeFileSync(path.resolve(endpointGuardsFolder, 'guards.ts'), [
+        `import { injectable } from 'inversify'`,
         `import type { Controller } from 'springnext'`,
         '',
+        '@injectable()',
         `export class Guards {`,
         `\tdummyGuard: Controller.Guard = async () => { return undefined }`,
         `}`
