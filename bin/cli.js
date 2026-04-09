@@ -480,6 +480,7 @@ function generateInfrastructure(upperCase, lowerCase) {
     fs.mkdirSync(folder, { recursive: true })
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.ts`), [
+        `import { injectable } from 'inversify'`,
         `import { Module } from 'springnext'`,
         '',
         `export const ${lowerCase}InfrastructureMetadata = {`,
@@ -487,16 +488,21 @@ function generateInfrastructure(upperCase, lowerCase) {
         `\tschemas: {}`,
         `} satisfies Module.Metadata`,
         '',
+        '@injectable()',
         `export class ${upperCase} {`,
         `\tprivate methods = Module.methods(${lowerCase}InfrastructureMetadata)`,
         `}`
     ].join('\n'))
 
     fs.writeFileSync(path.resolve(folder, `${entityName}.mock.ts`), [
+        `import { injectable } from 'inversify'`,
         `import { PublicFields } from '@/${config.paths.infrastructure}/ts-helpers'`,
         `import { ${upperCase} } from './${entityName}'`,
         '',
-        `export class Mock${upperCase} implements PublicFields<${upperCase}> {`,
+        `type Methods = PublicFields<${upperCase}>`,
+        '',
+        '@injectable()',
+        `export class Mock${upperCase} implements Methods {`,
         `\t`,
         `}`
     ].join('\n'))
@@ -909,6 +915,7 @@ function generateProvider(lowerCase, upperCase) {
     
     // Provider
     fs.writeFileSync(path.resolve(folder, `${entityName}.provider.ts`), [
+        `import { injectable } from 'inversify'`,
         `import { Module } from 'springnext'`,
         '',
         `export const ${lowerCase}ProviderMetadata = {`,
@@ -916,6 +923,7 @@ function generateProvider(lowerCase, upperCase) {
         `\tschemas: {}`,
         `} satisfies Module.Metadata`,
         '',
+        '@injectable()',
         `export class ${upperCase}Provider {`,
         `\tprivate methods = Module.methods(${lowerCase}ProviderMetadata)`,
         `}`
@@ -923,10 +931,14 @@ function generateProvider(lowerCase, upperCase) {
 
     // Mock
     fs.writeFileSync(path.resolve(folder, `${entityName}.provider.mock.ts`), [
+        `import { injectable } from 'inversify'`,
         `import { PublicFields } from '@/${config.paths.infrastructure}/ts-helpers'`,
         `import { ${upperCase}Provider } from './${entityName}.provider'`,
         '',
-        `export class ${upperCase}MockProvider implements PublicFields<${upperCase}Provider> {`,
+        `type Methods = PublicFields<${upperCase}Provider>`,
+        '',
+        '@injectable()',
+        `export class ${upperCase}MockProvider implements Methods {`,
         `\t`,
         `}`
     ].join('\n'))
