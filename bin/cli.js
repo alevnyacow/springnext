@@ -1004,6 +1004,10 @@ function generateService(lowerCase, upperCase, store) {
             return `import type { ${i} } from '@${config?.paths?.stores}/${toKebabFromPascal(i).slice(0, -'-store'.length)}'`
         }
 
+        if (i.endsWith('Provider')) {
+            return `import type { ${i} } from '@${config?.paths?.providers}/${toKebabFromPascal(i).slice(0, -'-provider'.length)}'`
+        }
+
         return `import type { ${i} } from '@${config?.paths?.infrastructure}/${toKebabFromPascal(i)}'`
     })
 
