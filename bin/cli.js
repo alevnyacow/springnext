@@ -1494,6 +1494,7 @@ if (command.toLowerCase() === 'routes-with-queries' || command === 'rq') {
         generateAPIRoutes(lowerCase, upperCase, entity)
         generateQueries(lowerCase, upperCase, entity)
     }
+    process.exit(0)
 }
 
 if (command.toLowerCase() === 'controller' || command === 'c') {
