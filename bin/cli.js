@@ -1484,7 +1484,6 @@ if (command === 'api-routes') {
 
 if (command === 'queries') {
     var [lowerCase, upperCase] = camelizeVariants(entityName)
-
     generateQueries(lowerCase, upperCase)
 }
 
