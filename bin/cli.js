@@ -1477,8 +1477,6 @@ function generateQueries(lowerCase, upperCase, entity) {
     fs.writeFileSync(path.resolve(indexPath, 'index.ts'), `export * as ${upperCase}Queries from './endpoints'`)
 }
 
-
-
 if (command === 'api-routes') {
     var [lowerCase, upperCase] = camelizeVariants(entityName)
 
