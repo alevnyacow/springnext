@@ -57,37 +57,17 @@ npx sn crud-api user
 
 ```bash
 # Entity
-├── domain/entities/user/user.entity.ts
-├── domain/entities/user/index.ts
-
-# Controller
-├── server/controllers/user/user.controller.metadata.ts
-├── server/controllers/user/user.controller.ts
-├── server/controllers/user/index.ts
-
-# Stores - contract, RAM implementation, Prisma implementation
-├── server/stores/user/user.store.ts
-├── server/stores/user/user.store.ram.ts
-├── server/stores/user/user.store.prisma.ts
-├── server/stores/user/index.ts
-
-# Service
-├── server/services/user/user.service.metadata.ts
-├── server/services/user/user.service.ts
-├── server/services/user/index.ts
-
-# API routes
-├── app/api/user-controller/route.ts
-├── app/api/user-controller/details/route.ts
-
+domain/entities/user/
+# Controllers
+server/controllers/user/
+# Services
+server/services/user/
+# Stores (contract, in-memory, Prisma)
+server/stores/user/
+# API Routes
+app/api/user-controller/
 # React Query hooks
-├── ui/shared/queries/user/endpoints/DELETE.ts
-├── ui/shared/queries/user/endpoints/details_GET.ts
-├── ui/shared/queries/user/endpoints/GET.ts
-├── ui/shared/queries/user/endpoints/PATCH.ts
-├── ui/shared/queries/user/endpoints/POST.ts
-├── ui/shared/queries/user/endpoints/index.ts
-├── ui/shared/queries/user/index.ts
+ui/shared/queries/user/
 ```
 
 Describe your entity and stores in scaffolded files:
