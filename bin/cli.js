@@ -1372,7 +1372,7 @@ function generateQueries(lowerCase, upperCase, entity) {
                     `\t\tqueryClient.setQueryData(queryKey(payload), data)`,
                     '\t}',
                     '}',
-                    ''
+                    '',
                     `export const use${rootMethod}Lazy = () => {`,
                     `\tconst setQueryData = use${rootMethod}DataSetting()`,
                     '\t',
