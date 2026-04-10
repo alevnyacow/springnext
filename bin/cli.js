@@ -488,8 +488,10 @@ function generateInfrastructure(upperCase, lowerCase) {
         `\tschemas: {}`,
         `} satisfies Module.Metadata`,
         '',
+        `type Methods = Module.Methods<typeof ${lowerCase}InfrastructureMetadata>`,
+        '',
         '@injectable()',
-        `export class ${upperCase} {`,
+        `export class ${upperCase} implements Methods {`,
         `\tprivate methods = Module.methods(${lowerCase}InfrastructureMetadata)`,
         `}`
     ].join('\n'))
