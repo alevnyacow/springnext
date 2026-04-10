@@ -903,6 +903,7 @@ function generateProvider(lowerCase, upperCase) {
     fs.mkdirSync(folder, { recursive: true })
     
     // Provider
+
     fs.writeFileSync(path.resolve(folder, `${entityName}.provider.ts`), [
         `import { injectable } from 'inversify'`,
         `import { Module } from 'springnext'`,
@@ -921,6 +922,7 @@ function generateProvider(lowerCase, upperCase) {
     ].join('\n'))
 
     // Mock
+
     fs.writeFileSync(path.resolve(folder, `${entityName}.provider.mock.ts`), [
         `import { injectable } from 'inversify'`,
         `import { PublicFields } from '@${config.paths.infrastructure}/ts-helpers'`,
@@ -935,12 +937,14 @@ function generateProvider(lowerCase, upperCase) {
     ].join('\n'))
 
     // Barrel
+
     fs.writeFileSync(path.resolve(folder, `index.ts`), [
         `export * from './${entityName}.provider'`,
         `export * from './${entityName}.provider.mock'`
     ].join('\n'))
 
     // Update DI
+    
     const diEntriesPath = path.resolve(process.cwd(), `${config.coreFolder}${config?.paths?.di}`, 'entries.di.ts')
 
     insertBeforeLineInFile(
