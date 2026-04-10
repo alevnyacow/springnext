@@ -51,14 +51,14 @@ function camelizeVariants(str) {
 }
 
 function findProjectRoot(startDir = process.cwd()) {
-  let dir = startDir;
-  while (dir !== path.parse(dir).root) {
-    if (fs.existsSync(path.join(dir, "package.json"))) {
-      return dir;
+    let dir = startDir;
+    while (dir !== path.parse(dir).root) {
+        if (fs.existsSync(path.join(dir, "package.json"))) {
+            return dir;
+        }
+        dir = path.dirname(dir);
     }
-    dir = path.dirname(dir);
-  }
-  return null;
+    return null;
 }
 
 function loadConfig() {
