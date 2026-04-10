@@ -1400,10 +1400,10 @@ function generateQueries(lowerCase, upperCase, entity) {
                 continue
             }
 
-            const nameForHook = (fullMethodName.charAt(0).toUpperCase() + fullMethodName.slice(1)).replaceAll('_', '');
+            const nameForHook = fullMethodName.split('_').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('')
 
             fs.writeFileSync(fileName, [
-                `import { ${method === 'GET' ? 'useQuery, useQueryClient' : 'useMutation, useQueryClient' } } from '@tanstack/react-query'`,
+                `import { ${method === 'GET' ? 'useQuery, useMutation, useQueryClient' : 'useMutation, useQueryClient' } } from '@tanstack/react-query'`,
                 `import type { ${upperCase}API } from '@${config.paths.controllers}/${requiredEntity}'`,
                 `import { apiRequest${method === 'GET' ? ', normalizeObjectKeysOrder' : ''} } from '@${config.paths.clientUtils}'`,
                 '',
