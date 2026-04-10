@@ -35,19 +35,19 @@ function camelizeVariants(str) {
         return [str, str.substring(0, 1).toUpperCase() + str.substring(1)]
     }
 
-  const words = str.split("-");
+    const words = str.split("-");
 
-  const lowerCamel = words
-    .map((word, index) => 
-      index === 0 ? word.toLowerCase() : word[0].toUpperCase() + word.slice(1).toLowerCase()
-    )
-    .join("");
+    const lowerCamel = words
+        .map((word, index) => 
+        index === 0 ? word.toLowerCase() : word[0].toUpperCase() + word.slice(1).toLowerCase()
+        )
+        .join("");
 
-  const upperCamel = words
-    .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
-    .join("");
+    const upperCamel = words
+        .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+        .join("");
 
-  return [lowerCamel, upperCamel];
+    return [lowerCamel, upperCamel];
 }
 
 function findProjectRoot(startDir = process.cwd()) {
