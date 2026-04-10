@@ -1639,4 +1639,5 @@ if (command === 'lw') {
         rootPath = splitData.join('/')
     }
     generateLayoutedWidget(entityName, rootPath, entityName)
+    process.exit(0)
 }
