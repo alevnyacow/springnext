@@ -134,6 +134,10 @@ Use it out of the box without thinking about the internals — or customize anyt
 
 We read code more than we write it — so quality matters. But best practices aren’t enforced by linters or style guides. SpringNext flips the approach: it makes enterprise-grade code the easiest option — so anything else feels wrong.
 
+### A combination of the rigor of .NET and Spring with the flexibility of TypeScript.
+
+Sometimes Java or C# can feel clunky and verbose compared to TypeScript. At the same time, Next projects often turn into unmaintainable chaos compared to .NET or Spring. SpringNext brings together the best of both worlds — the flexibility of TypeScript within an enterprise-ready architecture.
+
 # 📚 Guides and documentation
 
 - [🚀 Quick start with Prisma](https://github.com/alevnyacow/springnext/wiki/Quick-start-with-Prisma)
