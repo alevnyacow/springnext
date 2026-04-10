@@ -944,7 +944,7 @@ function generateProvider(lowerCase, upperCase) {
     ].join('\n'))
 
     // Update DI
-    
+
     const diEntriesPath = path.resolve(process.cwd(), `${config.coreFolder}${config?.paths?.di}`, 'entries.di.ts')
 
     insertBeforeLineInFile(
@@ -967,9 +967,9 @@ if (command.toLowerCase() === 'provider' || command === 'p') {
 }
 
 function toKebabFromPascal(str) {
-  return str
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-    .toLowerCase()
+    return str
+        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+        .toLowerCase()
 }
 
 function generateService(lowerCase, upperCase, store) {
