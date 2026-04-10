@@ -1335,7 +1335,7 @@ function generateQueries(lowerCase, upperCase, entity) {
             continue
         }
         fs.writeFileSync(fileName, [
-            `import { ${rootMethod === 'GET' ? 'useQuery, useQueryClient' : 'useMutation, useQueryClient'} } from '@tanstack/react-query'`,
+            `import { ${rootMethod === 'GET' ? 'useQuery, useMutation, useQueryClient' : 'useMutation, useQueryClient'} } from '@tanstack/react-query'`,
             `import type { ${upperCase}API } from '@${config.paths.controllers}/${requiredEntity}'`,
             `import { apiRequest${rootMethod === 'GET' ? ', normalizeObjectKeysOrder' : ''} } from '@${config.paths.clientUtils}'`,
             '',
@@ -1345,21 +1345,41 @@ function generateQueries(lowerCase, upperCase, entity) {
             ``,
             rootMethod === 'GET' 
                 ? [
+                    `const queryKey = (payload?: Method['payload']) => payload ? ['${requiredEntity}', '${rootMethod}', normalizeObjectKeysOrder(payload)] : ['${requiredEntity}', '${rootMethod}']`,
+                    "",
                     `export const use${rootMethod} = (payload: Method['payload']) => {`,
                     `\treturn useQuery<Method['response'], Method['error']>({`,
-                    `\t\tqueryKey: ['${requiredEntity}', '${rootMethod}', normalizeObjectKeysOrder(payload)],`,
+                    `\t\tqueryKey: queryKey(payload),`,
                     `\t\tqueryFn: () => apiRequest(endpoint, 'GET')(payload)`,
                     `\t})`,
                     `}`,
                     ``,
                     `export const use${rootMethod}Invalidation = (payload?: Method['payload']) => {`,
                     `\tconst queryClient = useQueryClient()`,
+                    '\t',
                     `\treturn () => {`,
                     '\t\tqueryClient.invalidateQueries({',
-                    `\t\t\tqueryKey: payload ? ['${requiredEntity}', '${rootMethod}', normalizeObjectKeysOrder(payload)] : ['${requiredEntity}', '${rootMethod}'],`,
+                    `\t\t\tqueryKey: queryKey(payload),`,
                     '\t\t\texact: false',
                     '\t\t})',
                     '\t}',
+                    '}',
+                    '',
+                    `export const use${rootMethod}DataSetting = () => {`,
+                    `\tconst queryClient = useQueryClient()`,
+                    '',
+                    `\treturn (payload: Method['payload'], data: Method['response']) => {`,
+                    `\t\tqueryClient.setQueryData(queryKey(payload), data)`,
+                    '\t}',
+                    '}',
+                    ''
+                    `export const use${rootMethod}Lazy = () => {`,
+                    `\tconst setQueryData = use${rootMethod}DataSetting()`,
+                    '\t',
+                    `\treturn useMutation<Method['response'], Method['error'], Method['payload']>({`,
+                    `\t\tmutationFn: apiRequest(endpoint, '${rootMethod}')`,
+                    `\t\tonSuccess: (data, payload) => { setQueryData(payload, data) }`,
+                    '\t})',
                     '}'
                 ].join('\n') 
                 : [
