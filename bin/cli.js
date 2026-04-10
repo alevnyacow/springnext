@@ -1424,6 +1424,7 @@ function generateQueries(lowerCase, upperCase, entity) {
                         ``,
                         `export const use${nameForHook}Invalidation = (payload?: Method['payload']) => {`,
                         `\tconst queryClient = useQueryClient()`,
+                        `\t`,
                         `\treturn () => {`,
                         '\t\tqueryClient.invalidateQueries({',
                         `\t\t\tqueryKey: queryKey(payload),`,
@@ -1452,6 +1453,7 @@ function generateQueries(lowerCase, upperCase, entity) {
                     : [
                         `export const use${nameForHook} = () => {`,
                         `\tconst queryClient = useQueryClient()`,
+                        `\t`,
                         `\treturn useMutation<Method['response'], Method['error'], Method['payload']>({`,
                         `\t\tmutationFn: apiRequest(endpoint, '${method}'),`,
                         `\t\tonSuccess: () => { queryClient.invalidateQueries({ queryKey: ['${requiredEntity}'], exact: false }) }`,
