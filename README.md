@@ -88,7 +88,7 @@ Yes. You can also customize queries as needed, and your changes will be preserve
 
 ## What about Server Actions?
 
-SpringNext modules integrates seamlessly with Server Actions.
+SpringNext modules can be seamlessly used in Server Actions.
 
 Use the scaffolded `fromDI` helper to access your services directly and just call their methods.
 
