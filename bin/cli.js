@@ -574,25 +574,18 @@ function initLogger() {
     fs.mkdirSync(loggerFolder, { recursive: true })
 
     fs.writeFileSync(path.resolve(loggerFolder, 'logger.ts'), [
-        `export abstract class Logger {`,
-        `\tabstract error: (payload: Record<string, unknown>) => Promise<void>`,
-        `}`
-    ].join('\n'))
-
-    fs.writeFileSync(path.resolve(loggerFolder, 'logger.console.ts'), [
         `import { injectable } from 'inversify'`,
         `import { Logger } from './logger'`,
         '',
         '@injectable()',
-        `export class ConsoleLogger extends Logger {`,
-        `\terror: Logger['error'] = async (payload) => console.error(payload)`,
+        `export class Logger {`,
+        `\terror = async (payload: Record<string, unknown>) => { console.error(payload) }`,
         `}`
     ].join('\n'))
 
 
     fs.writeFileSync(path.resolve(loggerFolder, 'index.ts'), [
-        `export * from './logger'`,
-        `export * from './logger.console'`
+        `export * from './logger'`
     ].join('\n'))
 
     // Update DI
@@ -602,13 +595,13 @@ function initLogger() {
     insertBeforeLineInFile(
         diEntriesPath,
         'type DIEntries =',
-        `import { ConsoleLogger } from '@${config?.paths?.infrastructure}/logger'`
+        `import { Logger } from '@${config?.paths?.infrastructure}/logger'`
     )
 
     insertAfterLineInFile(
         diEntriesPath,
         '// Infrastructure',
-        `\tLogger: ConsoleLogger,`,
+        `\tLogger,`,
     )
 }
 
