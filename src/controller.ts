@@ -21,7 +21,7 @@ function jsonResponse<T>(data: T, init?: ResponseInit) {
       'Content-Type': 'application/json',
       ...(init?.headers || {}),
     },
-  })
+  }) as any
 }
 
 /**
