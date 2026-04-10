@@ -1573,6 +1573,7 @@ if (command === 'w') {
         rootPath = splitData.join('/')
     }
     generateWidget(entityName, rootPath, entityName)
+    process.exit(0)
 }
 
 function generateLayoutedWidget(name, rootPath, componentName) {
