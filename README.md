@@ -100,7 +100,7 @@ Describe your entity and stores in scaffolded files:
 
 ## Does it only work for CRUD?
 
-No. You can scaffold modules independently and implement your own logic — React Query hooks will be generated as well.. All details can be found in `Guides` section.
+No. You can scaffold modules independently and implement your own logic — React Query hooks will be generated as well. All details can be found in `Guides` section.
 
 ## Is invalidation in queries already configured?
 
