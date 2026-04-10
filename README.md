@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    Next.js with Spring-level robustness and powerful scaffolding — no Java involved.
+    Next.js with Spring-level robustness and powerful scaffolding — <i>no Java involved</i>.
 </p>
 <p align="center">
     <b>Works inside plain Next.js — no framework lock-in.</b>
