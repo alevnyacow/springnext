@@ -925,8 +925,10 @@ function generateProvider(lowerCase, upperCase) {
         `\tschemas: {}`,
         `} satisfies Module.Metadata`,
         '',
+        `type Methods = Module.Methods<typeof ${lowerCase}ProviderMetadata>`,
+        '',
         '@injectable()',
-        `export class ${upperCase}Provider {`,
+        `export class ${upperCase}Provider implements Methods {`,
         `\tprivate methods = Module.methods(${lowerCase}ProviderMetadata)`,
         `}`
     ].join('\n'))
