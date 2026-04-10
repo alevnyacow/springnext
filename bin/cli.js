@@ -62,24 +62,20 @@ function findProjectRoot(startDir = process.cwd()) {
 }
 
 function loadConfig() {
-  const projectRoot = findProjectRoot();
-  if (!projectRoot) {
-    return null;
-  }
+    const projectRoot = findProjectRoot();
+    if (!projectRoot) {
+        return null;
+    }
 
-  const configPath = path.join(projectRoot, "springnext.config.json");
+    const configPath = path.join(projectRoot, "springnext.config.json");
 
-  if (!fs.existsSync(configPath)) {
-    return null;
-  }
+    if (!fs.existsSync(configPath)) {
+        return null;
+    }
 
-  try {
     const rawData = fs.readFileSync(configPath, "utf-8");
     const config = JSON.parse(rawData);
     return config;
-  } catch (err) {
-    throw err;
-  }
 }
 
 function loadPackageName() {
