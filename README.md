@@ -96,7 +96,7 @@ Describe your entity and stores in scaffolded files:
 - `/server/stores/user/user.store.ts` → store schemas (if default schemas do not fit your needs)
 - `/server/stores/user/user.store.prisma.ts` → map `UserStore` contracts to Prisma client contracts (implement existing functions in `mappers` object)
 
-→ Full backend + API + frontend hooks — ready in seconds
+→ Full backend + API + frontend hooks — ready in seconds.
 
 ## Does it only work for CRUD?
 
