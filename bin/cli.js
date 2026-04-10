@@ -1056,7 +1056,6 @@ function generateService(lowerCase, upperCase, store) {
         "}"
     ].filter(x => typeof x === 'string').join('\n'))
     
-
     // Barrel
 
     fs.writeFileSync(path.resolve(folder, 'index.ts'), [
