@@ -16,24 +16,7 @@
 
 # 🌱 About
 
-## What is SpringNext?
-
-SpringNext turns your Next.js app into a structured, contract-first backend inspired by .NET and Spring — with generated APIs, services, stores, and typed client hooks in seconds. Comes with built-in and scaffolded helpers — batteries included.
-
-Plug-and-play by default, fully tweakable when you need it.
-
-## Why SpringNext?
-
-Most Next.js backends start simple — and slowly turn into a mess.
-
-SpringNext gives you structure from day one, so you can forget about:
-
-- messy API routes scattered across your app  
-- mismatched request/response shapes  
-- rewriting React Query hooks by hand  
-- “where does this logic belong?” debates 
-
-It doesn’t introduce a new runtime framework or architecture — it makes proven enterprise patterns from .NET and Spring the easiest to use.
+SpringNext enforces contract-first architecture and generates everything in seconds. Not a framework — enterprise patterns from .NET and Spring world, made instant via CLI and built-in tools.
 
 ## Who is it for?
 
