@@ -1377,7 +1377,7 @@ function generateQueries(lowerCase, upperCase, entity) {
                     `\tconst setQueryData = use${rootMethod}DataSetting()`,
                     '\t',
                     `\treturn useMutation<Method['response'], Method['error'], Method['payload']>({`,
-                    `\t\tmutationFn: apiRequest(endpoint, '${rootMethod}')`,
+                    `\t\tmutationFn: apiRequest(endpoint, '${rootMethod}'),`,
                     `\t\tonSuccess: (data, payload) => { setQueryData(payload, data) }`,
                     '\t})',
                     '}'
