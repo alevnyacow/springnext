@@ -1440,7 +1440,6 @@ function generateQueries(lowerCase, upperCase, entity) {
                         `}`
                     ].join('\n')
             ].join('\n'))
-
         }
     }
     
