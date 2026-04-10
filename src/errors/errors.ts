@@ -113,6 +113,19 @@ export const withCode = <T extends Record<string, string>>(errors: T) => (codeKe
 
 /**
  * Spawns base SpringNext error from unknown error.
+ * 
+ * @example
+ * ```
+ * import { Errors } from 'springnext'
+ * 
+ * try {
+ *     ...
+ * }
+ * catch (e: unknown) {
+ *     const baseError = Errors.spawnBaseError({ error: e })
+ *     console.error(baseError)
+ * }
+ * ```
  */
 export const spawnBaseError = ({
     error,
