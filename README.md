@@ -26,12 +26,12 @@ Plug-and-play by default, fully tweakable when you need it.
 
 Most Next.js backends start simple — and slowly turn into a mess.
 
-SpringNext gives you structure from day one:
+SpringNext gives you structure from day one, so you can forget about:
 
-- no more messy API routes scattered across your app  
-- no more mismatched request/response shapes  
-- no more rewriting React Query hooks by hand  
-- no more “where does this logic belong?” debates 
+- messy API routes scattered across your app  
+- mismatched request/response shapes  
+- rewriting React Query hooks by hand  
+- “where does this logic belong?” debates 
 
 It doesn’t introduce a new runtime framework or architecture — it makes proven enterprise patterns from .NET and Spring the easiest to use.
 
