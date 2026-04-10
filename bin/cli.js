@@ -778,7 +778,6 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
         ].filter(x => typeof x === 'string').join('\n'))
     }
 
-
     // barrel
 
     fs.writeFileSync(path.resolve(folder, 'index.ts'), [
@@ -802,7 +801,6 @@ function generateStores(lowerCase, upperCase, withEntityPreset) {
         '// Stores',
         prismaPath ? `\t${upperCase}Store: { test: [${upperCase}RAMStore, x => x.inSingletonScope()], prod: ${upperCase}PrismaStore, dev: ${upperCase}PrismaStore },` : `\t${upperCase}Store: { test: [${upperCase}RAMStore, x => x.inSingletonScope()], prod: [${upperCase}RAMStore, x => x.inSingletonScope()], dev: [${upperCase}RAMStore, x => x.inSingletonScope()] },`,
     )
-
 }
 
 if (command.toLowerCase() === 'store' || command === 'cs') {
