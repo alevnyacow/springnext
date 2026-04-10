@@ -16,7 +16,9 @@
 
 # 🌱 About
 
-SpringNext enforces contract-first architecture and generates everything in seconds. Not a framework — enterprise patterns from .NET and Spring world, made instant via CLI and built-in tools.
+SpringNext brings contract-first architecture to Next.js and generates full-stack modules — APIs, services, stores, and typed hooks — in seconds.
+
+Not a framework — enterprise patterns from .NET and Spring world, made instant via CLI and built-in tools.
 
 ## Who is it for?
 
@@ -77,7 +79,7 @@ Use the scaffolded `fromDI` helper to access your services directly and just cal
 
 ## What are these metadata files?
 
-SpringNext provides a contract-first approach. Metadata stores the module name (used for errors) and the schemas of its methods, which are used for runtime validation of requests and responses, as well as for enforcing method contracts during their implementation.
+Metadata files define contracts (schemas + method definitions) used for validation and generation consistency.
 
 # 🧪 Live playground
 
