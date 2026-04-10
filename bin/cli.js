@@ -575,7 +575,6 @@ function initLogger() {
 
     fs.writeFileSync(path.resolve(loggerFolder, 'logger.ts'), [
         `import { injectable } from 'inversify'`,
-        `import { Logger } from './logger'`,
         '',
         '@injectable()',
         `export class Logger {`,
