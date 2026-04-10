@@ -98,12 +98,12 @@ export const isModuleError = (arg: any): arg is ModuleErrorModel => {
  *     ...
  * } 
  * catch (e: unknown) {
- *     const isDummyTestError = withDummyCode('test')(e)
- *     const isDummyTest2Error = withDummyCode('test2')(e)
+ *     const isDummyTestError = withDummyCode('test', e)
+ *     const isDummyTest2Error = withDummyCode('test2', e)
  * }
  * ```
  */
-export const withCode = <T extends Record<string, string>>(errors: T) => (codeKey: keyof T) => (error: unknown)  => {
+export const withCode = <T extends Record<string, string>>(errors: T) => (codeKey: keyof T, error: unknown)  => {
     if (!isBaseError(error)) {
         return false;
     }
