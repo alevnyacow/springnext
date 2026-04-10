@@ -610,7 +610,6 @@ if (command.toLowerCase() === 'init') {
     initLogger()
     initGuards()
     initTSHelpers()
-
     process.exit(0)
 }
 
