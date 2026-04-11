@@ -80,7 +80,86 @@ Use the scaffolded `fromDI` helper to access your services directly and just cal
 
 ## What are these metadata files?
 
-Metadata files define contracts (schemas + method definitions) used for validation and generation consistency.
+Metadata files define contracts (schemas + method definitions) used for validation and generation consistency. 
+
+### Services
+
+#### TestService metadata
+
+```ts
+import type { Module } from 'springnext';
+
+export const testServiceMetadata = {
+    name: 'TestService',
+    schemas: {
+        testMethod: {
+            payload: z.object({ stringArg: z.string() }),
+            response: z.object({ positiveNumber: z.int().positive() })
+        },
+    }
+} satisfies Module.Metadata;
+```
+
+#### TestService
+
+```ts
+import { Module } from 'springnext';
+import { testServiceMetadata } from './test.service.metadata';
+
+type Methods = Module.Methods<typeof testServiceMetadata>;
+
+export class TestService implements Methods {
+    private methods = Module.methods(productServiceMetadata);
+
+    testMethod = this.methods(
+        'testMethod',
+        async ({ stringArg } => {
+            return { positiveNumber: Number(stringArg) }
+        })
+    );
+}
+```
+
+### Controllers
+
+#### TestController metadata
+
+```ts
+import type { Controller } from 'springnext';
+
+export const testControllerMetadata = {
+    name: 'TestController',
+    schemas: {
+        POST: {
+            query: z.object({ queryArg: z.string() }),
+            body: z.object({ bodyArg: z.string() })
+            response: z.object({ concatenated: z.int().positive() })
+        },
+    }
+} satisfies Controller.Metadata;
+```
+
+#### TestController
+
+```ts
+import { Controller } from 'springnext';
+import { testControllerMetadata } from './test.controller.metadata';
+
+type Endpoints = Controller.EndpointList<typeof testControllerMetadata>;
+
+export class TestController implements Endpoints {
+    private endpoints = Controller.endpoints(testControllerMetadata)
+
+    POST = this.endpoints(
+        'POST',
+        async ({ queryArg, bodyArg }) => ({ 
+            concatenated: `${queryArg} ${bodyArg}`
+        })
+    );
+}
+```
+
+All types are automatically infered.
 
 # 🧪 Live playground
 
