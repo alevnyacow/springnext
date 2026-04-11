@@ -78,6 +78,22 @@ SpringNext modules can be seamlessly used in Server Actions.
 
 Use the scaffolded `fromDI` helper to access your services directly and just call their methods.
 
+## How does data flow look like?
+
+```
+React Hooks
+    ↓
+API Routes
+    ↓
+Controllers
+    ↓
+Services
+    ↓
+Stores
+    ↓
+Database
+```
+
 ## What are these metadata files?
 
 Metadata files define contracts (schemas + method definitions) used for validation and generation consistency. 
