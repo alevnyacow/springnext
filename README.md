@@ -94,13 +94,9 @@ Stores
 Database
 ```
 
-## What are these metadata files?
+## How do services look like?
 
-Metadata files define contracts (schemas + method definitions) used for validation and generation consistency. 
-
-### Services
-
-#### TestService metadata
+### TestService metadata
 
 ```ts
 import type { Module } from 'springnext';
@@ -116,7 +112,7 @@ export const testServiceMetadata = {
 } satisfies Module.Metadata;
 ```
 
-#### TestService
+### TestService
 
 ```ts
 import { Module } from 'springnext';
@@ -136,9 +132,9 @@ export class TestService implements Methods {
 }
 ```
 
-### Controllers
+## How do controllers look like?
 
-#### TestController metadata
+### TestController metadata
 
 ```ts
 import type { Controller } from 'springnext';
@@ -155,7 +151,7 @@ export const testControllerMetadata = {
 } satisfies Controller.Metadata;
 ```
 
-#### TestController
+### TestController
 
 ```ts
 import { Controller } from 'springnext';
@@ -174,8 +170,6 @@ export class TestController implements Endpoints {
     );
 }
 ```
-
-All types are automatically infered.
 
 # 🧪 Live playground
 
