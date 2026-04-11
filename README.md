@@ -17,9 +17,21 @@
 
 # 🌱 About
 
-SpringNext brings contract-first architecture to Next.js and generates full-stack modules — APIs, services, stores, and typed hooks — in seconds.
+SpringNext brings Spring/.NET architecture principles to Next.js — with full-stack scaffolding in seconds, supercharged with top-tier DX.
 
-Not a framework — enterprise patterns from .NET and Spring world, made instant via CLI and built-in tools.
+Not a framework — you stay inside plain Next.js, with scaffolding and lightweight runtime helpers.
+
+## Without SpringNext:
+- write API routes
+- write tons of DTOs
+- write validation
+- write types
+- write query hooks to call API
+- wire everything
+
+## With SpringNext:
+
+→ 1 command → everything generated. [Try it out on StackBlitz!](https://stackblitz.com/edit/springnext-playground) *Best experienced in Chrome. StackBlitz support in Safari may vary.*
 
 ## Who is it for?
 
@@ -56,13 +68,19 @@ app/api/user-controller/
 ui/shared/queries/user/
 ```
 
-Describe your entity and stores in scaffolded files:
+<details>
+<summary>Describe entity and stores</summary>
 
 - `/domain/entities/user/user.entity.ts` → entity schema (static field `schema` in `User` class)
 - `/server/stores/user/user.store.ts` → store schemas (if default schemas do not fit your needs)
 - `/server/stores/user/user.store.prisma.ts` → map `UserStore` contracts to Prisma client contracts (implement existing functions in `mappers` object)
 
 → Full backend + API + frontend hooks — ready in seconds.
+
+</details>
+
+<details>
+<summary>FAQ</summary>
 
 ## Does it only work for CRUD?
 
@@ -72,22 +90,16 @@ No. You can scaffold modules independently and implement your own logic — Reac
 
 Yes. You can also customize queries as needed, and your changes will be preserved when code is regenerated.
 
-## What about Server Actions?
-
-SpringNext modules can be seamlessly used in Server Actions.
-
-Use the scaffolded `fromDI` helper to access your services directly and just call their methods.
-
 ## How does data flow look like?
 
-```
-React Hooks
+```bash
+React Hooks # Client fetches
     ↓
 API Routes
     ↓
 Controllers
     ↓
-Services
+Services # Server actions
     ↓
 Stores
     ↓
@@ -145,7 +157,7 @@ export const testControllerMetadata = {
         POST: {
             query: z.object({ queryArg: z.string() }),
             body: z.object({ bodyArg: z.string() })
-            response: z.object({ concatenated: z.int().positive() })
+            response: z.object({ concatenated: z.string() })
         },
     }
 } satisfies Controller.Metadata;
@@ -171,13 +183,19 @@ export class TestController implements Endpoints {
 }
 ```
 
-# 🧪 Live playground
+## What about Server Actions?
 
-https://stackblitz.com/edit/springnext-playground
+SpringNext modules can be seamlessly used in Server Actions.
 
-Everything is preconfigured — jump in and start exploring, testing, and tinkering with SpringNext in a ready-to-use environment.
+```ts
+'use server'
+import { fromDI } from '@/backend/di'
 
-*Best experienced in Chrome. StackBlitz support in Safari may vary.*
+const service = fromDI<TestService>('TestService')
+
+export const testMethod = service.testMethod
+```
+</details>
 
 # 🔮 Core principles
 
