@@ -31,7 +31,7 @@ Not a framework — you stay inside plain Next.js, with scaffolding and lightwei
 
 ## With SpringNext:
 
-→ 1 command → everything generated. [Try it out on StackBlitz!](https://stackblitz.com/edit/springnext-playground) *Best experienced in Chrome. StackBlitz support in Safari may vary.*
+1 command → everything generated. [Try it out on StackBlitz!](https://stackblitz.com/edit/springnext-playground) *Best experienced in Chrome. StackBlitz support in Safari may vary.*
 
 ## Who is it for?
 
