@@ -7,15 +7,15 @@ var args = process.argv.slice(2);
 var [command, entityName, ...options] = args;
 
 function insertAfterLineInFile(filePath, targetLine, newLine) {
-  let content = fs.readFileSync(filePath, 'utf8');
+    let content = fs.readFileSync(filePath, 'utf8');
 
-  const lines = content.split('\n');
-  const index = lines.findIndex(line => line.includes(targetLine));
+    const lines = content.split('\n');
+    const index = lines.findIndex(line => line.includes(targetLine));
 
-  if (index !== -1) {
-    lines.splice(index + 1, 0, newLine);
-    fs.writeFileSync(filePath, lines.join('\n'), 'utf8');
-  }
+    if (index !== -1) {
+        lines.splice(index + 1, 0, newLine);
+        fs.writeFileSync(filePath, lines.join('\n'), 'utf8');
+    }
 }
 
 function insertBeforeLineInFile(filePath, targetLine, newLine, before = true) {
