@@ -19,15 +19,15 @@ function insertAfterLineInFile(filePath, targetLine, newLine) {
 }
 
 function insertBeforeLineInFile(filePath, targetLine, newLine, before = true) {
-  const content = fs.readFileSync(filePath, 'utf8');
-  const lines = content.split('\n');
+    const content = fs.readFileSync(filePath, 'utf8');
+    const lines = content.split('\n');
 
-  const index = lines.findIndex(line => line.includes(targetLine));
+    const index = lines.findIndex(line => line.includes(targetLine));
 
-  if (index !== -1) {
-    lines.splice(before ? index - 1 : index, 0, newLine);
-    fs.writeFileSync(filePath, lines.join('\n'), 'utf8');
-  }
+    if (index !== -1) {
+        lines.splice(before ? index - 1 : index, 0, newLine);
+        fs.writeFileSync(filePath, lines.join('\n'), 'utf8');
+    }
 }
 
 function camelizeVariants(str) {
