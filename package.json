@@ -1,7 +1,7 @@
 {
   "name": "springnext",
   "description": "Next.js with Spring-level robustness and powerful scaffolding — no Java involved.",
-  "version": "1.1.8",
+  "version": "1.1.11",
   "homepage": "https://stackblitz.com/edit/springnext-playground",
   "keywords": [
     "next",
